@@ -36,24 +36,3 @@ public class ElasticError: Codable {
         case type
     }
 }
-
-
-public protocol ESClientError: Error {
-    
-    func messgae() -> String
-    
-}
-
-public class RequestCreationError: ESClientError {
-    
-    let msg: String
-    
-    init(msg: String) {
-        self.msg = msg
-    }
-    
-    public func messgae() -> String {
-        return msg
-    }
-    
-}

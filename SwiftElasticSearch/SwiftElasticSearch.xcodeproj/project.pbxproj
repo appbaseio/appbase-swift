@@ -10,16 +10,12 @@
 		D92762C3218F260B00564DF4 /* SwiftElasticSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92762B9218F260A00564DF4 /* SwiftElasticSearch.framework */; };
 		D92762C8218F260B00564DF4 /* SwiftElasticSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762C7218F260B00564DF4 /* SwiftElasticSearchTests.swift */; };
 		D92762CA218F260B00564DF4 /* SwiftElasticSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D92762D6218F272300564DF4 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762D5218F272300564DF4 /* Admin.swift */; };
-		D92762D8218F274D00564DF4 /* Clusters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762D7218F274D00564DF4 /* Clusters.swift */; };
-		D92762DA218F279C00564DF4 /* Indices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762D9218F279C00564DF4 /* Indices.swift */; };
 		D92762DC218F280C00564DF4 /* SwiftElasticSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762DB218F280C00564DF4 /* SwiftElasticSearch.swift */; };
-		D92762DF218F289200564DF4 /* GetRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762DE218F289200564DF4 /* GetRequests.swift */; };
 		D92762E1218F28CF00564DF4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762E0218F28CF00564DF4 /* Request.swift */; };
-		D92762E4218F292300564DF4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762E3218F292300564DF4 /* Utils.swift */; };
 		D92762E7218F296C00564DF4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762E6218F296C00564DF4 /* Response.swift */; };
 		D92762EA218F29B500564DF4 /* Serializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762E9218F29B500564DF4 /* Serializers.swift */; };
 		D92762ED218F2A0C00564DF4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762EC218F2A0C00564DF4 /* Errors.swift */; };
+		D970B6212191014E00F43CC1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D970B6202191013100F43CC1 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,16 +35,12 @@
 		D92762C2218F260B00564DF4 /* SwiftElasticSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftElasticSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92762C7218F260B00564DF4 /* SwiftElasticSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftElasticSearchTests.swift; sourceTree = "<group>"; };
 		D92762C9218F260B00564DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D92762D5218F272300564DF4 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
-		D92762D7218F274D00564DF4 /* Clusters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clusters.swift; sourceTree = "<group>"; };
-		D92762D9218F279C00564DF4 /* Indices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indices.swift; sourceTree = "<group>"; };
 		D92762DB218F280C00564DF4 /* SwiftElasticSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftElasticSearch.swift; sourceTree = "<group>"; };
-		D92762DE218F289200564DF4 /* GetRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequests.swift; sourceTree = "<group>"; };
 		D92762E0218F28CF00564DF4 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		D92762E3218F292300564DF4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D92762E6218F296C00564DF4 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D92762E9218F29B500564DF4 /* Serializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializers.swift; sourceTree = "<group>"; };
 		D92762EC218F2A0C00564DF4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		D970B6202191013100F43CC1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +83,11 @@
 		D92762BB218F260A00564DF4 /* SwiftElasticSearch */ = {
 			isa = PBXGroup;
 			children = (
+				D970B6202191013100F43CC1 /* API.swift */,
 				D92762EB218F29F600564DF4 /* Errors */,
 				D92762E8218F29A400564DF4 /* Serialization */,
 				D92762E5218F295B00564DF4 /* Response */,
-				D92762E2218F291800564DF4 /* Utils */,
 				D92762DD218F287900564DF4 /* Requests */,
-				D92762D4218F271200564DF4 /* Admin */,
 				D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */,
 				D92762BD218F260B00564DF4 /* Info.plist */,
 				D92762DB218F280C00564DF4 /* SwiftElasticSearch.swift */,
@@ -113,31 +104,12 @@
 			path = SwiftElasticSearchTests;
 			sourceTree = "<group>";
 		};
-		D92762D4218F271200564DF4 /* Admin */ = {
-			isa = PBXGroup;
-			children = (
-				D92762D5218F272300564DF4 /* Admin.swift */,
-				D92762D7218F274D00564DF4 /* Clusters.swift */,
-				D92762D9218F279C00564DF4 /* Indices.swift */,
-			);
-			path = Admin;
-			sourceTree = "<group>";
-		};
 		D92762DD218F287900564DF4 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				D92762DE218F289200564DF4 /* GetRequests.swift */,
 				D92762E0218F28CF00564DF4 /* Request.swift */,
 			);
 			path = Requests;
-			sourceTree = "<group>";
-		};
-		D92762E2218F291800564DF4 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				D92762E3218F292300564DF4 /* Utils.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		D92762E5218F295B00564DF4 /* Response */ = {
@@ -275,14 +247,10 @@
 			files = (
 				D92762E7218F296C00564DF4 /* Response.swift in Sources */,
 				D92762EA218F29B500564DF4 /* Serializers.swift in Sources */,
-				D92762D8218F274D00564DF4 /* Clusters.swift in Sources */,
-				D92762DA218F279C00564DF4 /* Indices.swift in Sources */,
-				D92762D6218F272300564DF4 /* Admin.swift in Sources */,
-				D92762E4218F292300564DF4 /* Utils.swift in Sources */,
 				D92762ED218F2A0C00564DF4 /* Errors.swift in Sources */,
 				D92762E1218F28CF00564DF4 /* Request.swift in Sources */,
-				D92762DF218F289200564DF4 /* GetRequests.swift in Sources */,
 				D92762DC218F280C00564DF4 /* SwiftElasticSearch.swift in Sources */,
+				D970B6212191014E00F43CC1 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
