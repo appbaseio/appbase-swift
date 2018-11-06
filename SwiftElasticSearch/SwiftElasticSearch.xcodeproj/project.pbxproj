@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D91B64D22191AEE1004B8D0D /* JSONParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B64D12191AEE1004B8D0D /* JSONParsing.swift */; };
 		D92762C3218F260B00564DF4 /* SwiftElasticSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92762B9218F260A00564DF4 /* SwiftElasticSearch.framework */; };
 		D92762C8218F260B00564DF4 /* SwiftElasticSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762C7218F260B00564DF4 /* SwiftElasticSearchTests.swift */; };
 		D92762CA218F260B00564DF4 /* SwiftElasticSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D91B64D12191AEE1004B8D0D /* JSONParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsing.swift; sourceTree = "<group>"; };
 		D92762B9218F260A00564DF4 /* SwiftElasticSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftElasticSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftElasticSearch.h; sourceTree = "<group>"; };
 		D92762BD218F260B00564DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D91B64D02191AECE004B8D0D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D91B64D12191AEE1004B8D0D /* JSONParsing.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D92762AF218F260A00564DF4 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 		D92762BB218F260A00564DF4 /* SwiftElasticSearch */ = {
 			isa = PBXGroup;
 			children = (
+				D91B64D02191AECE004B8D0D /* Utils */,
 				D970B6202191013100F43CC1 /* API.swift */,
 				D92762EB218F29F600564DF4 /* Errors */,
 				D92762E8218F29A400564DF4 /* Serialization */,
@@ -251,6 +262,7 @@
 				D92762E1218F28CF00564DF4 /* Request.swift in Sources */,
 				D92762DC218F280C00564DF4 /* SwiftElasticSearch.swift in Sources */,
 				D970B6212191014E00F43CC1 /* API.swift in Sources */,
+				D91B64D22191AEE1004B8D0D /* JSONParsing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

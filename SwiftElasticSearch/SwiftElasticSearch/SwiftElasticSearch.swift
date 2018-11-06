@@ -52,5 +52,5 @@ public class SwiftElasticSearch : NSObject {
                 return
             }
         })
-    }
+    }    
 }

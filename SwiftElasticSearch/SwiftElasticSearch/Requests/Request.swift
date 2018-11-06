@@ -119,7 +119,7 @@ public class Request {
                 }
             }
             
-            let responseString = String(data: data, encoding: .utf8)
+            let responseString = String(data: data, encoding: .utf8)?.parseJSONString as! String
             callback(responseString, nil)
         }
         
