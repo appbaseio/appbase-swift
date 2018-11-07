@@ -11,14 +11,14 @@ import UIKit
 
 public class Request {
     
-    var credentials : String?
+    public var credentials : String?
     
     /**
      Inititate parameters of a request that needs to be made
      - Parameters:
          - credentials: Credentials of the user
     */
-    init(credentials : String) {
+    public init(credentials : String) {
         self.credentials = credentials
     }
     
@@ -61,7 +61,7 @@ public class Request {
     }
     
     /**
-     Initiate the request
+     Initiate the POST request
      
      - Parameters:
         - type/method: HTTP Request Type
@@ -69,7 +69,7 @@ public class Request {
         - body: Data parameters that needs to send (Can be nil)
         - callBack: Completion Handler of the async network call
     */
-    func initiate(type method: String, target: String, body: [String : AnyObject]? ,callback: @escaping (Any?, Error?) -> Void) {
+    public func postData(type method: String, target: String, body: [String : AnyObject]? , callback: @escaping (Any?, Error?) -> Void) {
         
         let errDomain = "Network Errors"
         let errDescription = "localizedDescription"

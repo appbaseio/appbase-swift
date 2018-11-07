@@ -10,9 +10,9 @@ import Foundation
 
 class API : NSObject {
     
-    var credentials : String?
+    public var credentials : String?
     
-    init(credentials : String) {
+   public init(credentials : String) {
         self.credentials = credentials
     }
     
