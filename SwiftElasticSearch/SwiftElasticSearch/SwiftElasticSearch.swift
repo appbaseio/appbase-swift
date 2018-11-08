@@ -42,7 +42,7 @@ public class SwiftElasticSearch : NSObject {
         - body: Data parameters that needs to send (Can be nil)
         - callBack: Completion Handler of the async network call
     */
-    public func index(type : String, id : String?, body : [String : AnyObject], completionHandler : @escaping (Any?, Error?) -> Void) {
+    public func index(type : String, id : String?, body : [String : AnyObject]) {
         
         var endpoint = type
         var method = API.RequestType.POST.rawValue
@@ -53,11 +53,11 @@ public class SwiftElasticSearch : NSObject {
         
         APIkey!.postData(type: method, target: endpoint, body: body, callback: { (response, error) in
             guard error == nil else{
-                completionHandler(nil, error)
+                print(error?.localizedDescription ?? "Error instance cannot be initialized")
                 return
             }
             guard response == nil else{
-                completionHandler(response, nil)
+                print(response.debugDescription)
                 return
             }
         })

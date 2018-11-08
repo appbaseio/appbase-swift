@@ -30,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04EA1AC6219443E200E7F2C0 /* TestingProject.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestingProject.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D91B64D12191AEE1004B8D0D /* JSONParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsing.swift; sourceTree = "<group>"; };
 		D92762B9218F260A00564DF4 /* SwiftElasticSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftElasticSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftElasticSearch.h; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		D92762AF218F260A00564DF4 = {
 			isa = PBXGroup;
 			children = (
+				04EA1AC6219443E200E7F2C0 /* TestingProject.playground */,
 				D92762BB218F260A00564DF4 /* SwiftElasticSearch */,
 				D92762C6218F260B00564DF4 /* SwiftElasticSearchTests */,
 				D92762BA218F260A00564DF4 /* Products */,
