@@ -72,7 +72,7 @@ public class Request {
     */
     public func postData(type method: String, target: String, body: [String : AnyObject]? , callback: @escaping (Any?, Error?) -> Void) {
         
-        let errDomain = "Network Errors"
+        //let errDomain = "Network Errors"
         let errDescription = "localizedDescription"
         let serializationErrDomain = "JSON Serialization Errors"
         
@@ -91,40 +91,56 @@ public class Request {
             }
         }
         
-        let task = URLSession.shared.dataTask(with: request) {
-            data, response, error in
-            guard let data = data, error == nil
-                else{
-                callback(nil, error!)
-                return
-            }
-            
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode >= NetworkError.Success.code{
+        Alamofire.request(request).responseJSON {  (response) in
+            switch response.result {
+            case .success(let JSON2):
+                print("Success with JSON: \(JSON2)")
+                break
                 
-                switch httpStatus.statusCode{
-                    
-                case NetworkError.Unknown.rawValue:
-                    let err = NSError(domain: errDomain, code: NetworkError.Unknown.rawValue, userInfo: [errDescription:NSLocalizedString(errDescription, comment: NetworkError.Unknown.localizedDescription)])
-                    callback(nil, err)
-                    return
-                    
-                case NetworkError.NotFound.rawValue:
-                    let err = NSError(domain: errDomain, code: NetworkError.NotFound.rawValue, userInfo: [errDescription:NSLocalizedString(errDescription, comment: NetworkError.NotFound.localizedDescription)])
-                    callback(nil, err)
-                    return
-                    
-                default:
-                    let err = NSError(domain: errDomain, code: httpStatus.statusCode, userInfo: [errDescription:NSLocalizedString(errDescription, comment:CommonError.networkConnection.rawValue)])
-                    callback(nil, err)
-                    return
-                }
+            case .failure(let error):
+                print("Request failed with error: \(error)")
+                //callback(response.result.value as? NSMutableDictionary,error as NSError?)
+                break
             }
-            
-            let responseString = String(data: data, encoding: .utf8)?.parseJSONString as! String
-            callback(responseString, nil)
+            }
+            .responseString { response in
+                print("Response String: \(String(describing: response.result.value))")
         }
         
-        task.resume()
+//        let task = URLSession.shared.dataTask(with: request) {
+//            data, response, error in
+//            guard let data = data, error == nil
+//                else{
+//                callback(nil, error!)
+//                return
+//            }
+//
+//            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode >= NetworkError.Success.code{
+//
+//                switch httpStatus.statusCode{
+//
+//                case NetworkError.Unknown.rawValue:
+//                    let err = NSError(domain: errDomain, code: NetworkError.Unknown.rawValue, userInfo: [errDescription:NSLocalizedString(errDescription, comment: NetworkError.Unknown.localizedDescription)])
+//                    callback(nil, err)
+//                    return
+//
+//                case NetworkError.NotFound.rawValue:
+//                    let err = NSError(domain: errDomain, code: NetworkError.NotFound.rawValue, userInfo: [errDescription:NSLocalizedString(errDescription, comment: NetworkError.NotFound.localizedDescription)])
+//                    callback(nil, err)
+//                    return
+//
+//                default:
+//                    let err = NSError(domain: errDomain, code: httpStatus.statusCode, userInfo: [errDescription:NSLocalizedString(errDescription, comment:CommonError.networkConnection.rawValue)])
+//                    callback(nil, err)
+//                    return
+//                }
+//            }
+//
+//            let responseString = String(data: data, encoding: .utf8)?.parseJSONString as! String
+//            callback(responseString, nil)
+//        }
+//
+//        task.resume()
     }
     
 }
