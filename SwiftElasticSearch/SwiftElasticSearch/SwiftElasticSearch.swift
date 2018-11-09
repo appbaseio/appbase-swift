@@ -8,20 +8,22 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 public class SwiftElasticSearch : NSObject {
     
-    public var baseURL : String?
-    public var appID : String?
-    public var credentials : String?
+    public var baseURL : String
+    public var appID : String
+    public var credentials : String
     public var APIkey : Request?
+    public let util = Utils()
     
     /**
      Creates an Elastic Search class object for Appbase
      - Parameters:
-        - url: URL of the server
+        - url: URL of the server (If application is hosted on Appbase, url should be scalr.api.appbase.io)
         - appID: Name of the application
-        - credentials: User credentials for authentication
+        - credentials: User credentials for authentication (Read Key)
      
      - Returns: SwiftElasticSearch class Object
      */
@@ -37,29 +39,18 @@ public class SwiftElasticSearch : NSObject {
     /**
      Creates an Elastic Search class object for Appbase
      - Parameters:
-        - type/method: HTTP Request Type
-        - id: Name of application
+        - url: Base URL where request needs to be sent
+        - appName: Name of application
+        - id: ID of query (Can be nil)
         - body: Data parameters that needs to send (Can be nil)
-        - callBack: Completion Handler of the async network call
     */
-    public func index(type : String, id : String?, body : [String : AnyObject], completionHandler : @escaping (Any?, Error?) -> Void) {
-        
-        var endpoint = type
-        var method = API.RequestType.POST.rawValue
+    public func index(url: String, appName: String, id : String?, body : [String : AnyObject]?) {
+  
+        var method = util.getRequestType(RequestString: "POST")
         if id != nil {
-            method = API.RequestType.PUT.rawValue
-            endpoint += "/" + id!
+            method = util.getRequestType(RequestString: "PUT")
         }
-        
-        APIkey!.postData(type: method, target: endpoint, body: body, callback: { (response, error) in
-            guard error == nil else{
-                completionHandler(nil, error)
-                return
-            }
-            guard response == nil else{
-                completionHandler(response, nil)
-                return
-            }
-        })
+            
+        APIkey!.postData(url: url, type: method, appName: appName, id: id, body: body)
     }
 }

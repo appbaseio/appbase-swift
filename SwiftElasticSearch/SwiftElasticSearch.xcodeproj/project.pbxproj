@@ -17,7 +17,7 @@
 		D92762E7218F296C00564DF4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762E6218F296C00564DF4 /* Response.swift */; };
 		D92762EA218F29B500564DF4 /* Serializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762E9218F29B500564DF4 /* Serializers.swift */; };
 		D92762ED218F2A0C00564DF4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762EC218F2A0C00564DF4 /* Errors.swift */; };
-		D970B6212191014E00F43CC1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D970B6202191013100F43CC1 /* API.swift */; };
+		D970B6212191014E00F43CC1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D970B6202191013100F43CC1 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		D92762E6218F296C00564DF4 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D92762E9218F29B500564DF4 /* Serializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializers.swift; sourceTree = "<group>"; };
 		D92762EC218F2A0C00564DF4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		D970B6202191013100F43CC1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D970B6202191013100F43CC1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +70,7 @@
 		D91B64D02191AECE004B8D0D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D970B6202191013100F43CC1 /* Utils.swift */,
 				D91B64D12191AEE1004B8D0D /* JSONParsing.swift */,
 			);
 			path = Utils;
@@ -106,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				D91B64D02191AECE004B8D0D /* Utils */,
-				D970B6202191013100F43CC1 /* API.swift */,
 				D92762EB218F29F600564DF4 /* Errors */,
 				D92762E8218F29A400564DF4 /* Serialization */,
 				D92762E5218F295B00564DF4 /* Response */,
@@ -273,7 +273,7 @@
 				D92762ED218F2A0C00564DF4 /* Errors.swift in Sources */,
 				D92762E1218F28CF00564DF4 /* Request.swift in Sources */,
 				D92762DC218F280C00564DF4 /* SwiftElasticSearch.swift in Sources */,
-				D970B6212191014E00F43CC1 /* API.swift in Sources */,
+				D970B6212191014E00F43CC1 /* Utils.swift in Sources */,
 				D91B64D22191AEE1004B8D0D /* JSONParsing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

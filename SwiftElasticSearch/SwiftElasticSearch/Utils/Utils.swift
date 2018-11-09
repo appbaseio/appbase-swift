@@ -7,32 +7,26 @@
 //
 
 import Foundation
+import Alamofire
 
-class API : NSObject {
+public class Utils {
     
-    public var credentials : String?
-    
-   public init(credentials : String) {
-        self.credentials = credentials
+    public init() {
+        
     }
     
     /**
-     Helper Enum holding corresponding String value of HTTP Request types
+     Helper Enum holding corresponding value of HTTP Request types
      */
-    public enum RequestType: String {
-        case OPTIONS = "OPTIONS"
-        case GET     = "GET"
-        case HEAD    = "HEAD"
-        case POST    = "POST"
-        case PUT     = "PUT"
-        case PATCH   = "PATCH"
-        case DELETE  = "DELETE"
-        case TRACE   = "TRACE"
-        case CONNECT = "CONNECT"
+    public let RequestTypes: [(RequestString: String, HTTPvalue: HTTPMethod)] = [("GET", .get), ("POST", .post), ("PUT", .put), ("DELETE", .delete)]
+    
+    public func getRequestType(RequestString: String) -> HTTPMethod{
+        let method = RequestTypes.first(where: { $0.RequestString ==  RequestString} )?.HTTPvalue
+        return method!
     }
     
     // Network Errors with descriptions
-    enum NetworkError: Int, Error{
+    public enum NetworkError: Int, Error{
         case Success = 200
         case Unknown = 400
         case NotFound = 500
@@ -51,7 +45,7 @@ class API : NSObject {
     }
     
     // Common Errors like Serialization Errors etc.
-    enum CommonError: String{
+    public enum CommonError: String{
         case jsonSerialization = "Couldn't parse to/from json object."
         case networkConnection = "Network error."
     }
