@@ -13,7 +13,7 @@ import Alamofire
 public class SwiftElasticSearch : NSObject {
     
     public var baseURL : String
-    public var appID : String
+    public var appName : String
     public var credentials : String
     public var APIkey : Request?
     public let util = Utils()
@@ -28,9 +28,9 @@ public class SwiftElasticSearch : NSObject {
      - Returns: SwiftElasticSearch class Object
      */
     
-    public init(url baseURL : String, appID : String, credentials : String) {
+    public init(url baseURL : String, appName : String, credentials : String) {
         self.baseURL = baseURL
-        self.appID = appID
+        self.appName = appName
         self.credentials = credentials
         self.APIkey = Request(credentials : credentials)
     }
@@ -39,18 +39,17 @@ public class SwiftElasticSearch : NSObject {
     /**
      Creates an Elastic Search class object for Appbase
      - Parameters:
-        - url: Base URL where request needs to be sent
-        - appName: Name of application
+        - type: Type of data that is created in the app (Appbase dashboard)
         - id: ID of query (Can be nil)
         - body: Data parameters that needs to send (Can be nil)
     */
-    public func index(url: String, appName: String, id : String?, body : [String : AnyObject]?) {
+    public func index(type: String, id : String?, body : [String : AnyObject]?) {
   
         var method = util.getRequestType(RequestString: "POST")
         if id != nil {
             method = util.getRequestType(RequestString: "PUT")
         }
             
-        APIkey!.postData(url: url, type: method, appName: appName, id: id, body: body)
+        APIkey!.postData(url: baseURL, type: type, method: method, appName: appName, id: id, body: body)
     }
 }

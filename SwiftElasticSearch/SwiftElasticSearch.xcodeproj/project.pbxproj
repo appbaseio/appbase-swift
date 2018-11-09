@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		D91B64D22191AEE1004B8D0D /* JSONParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B64D12191AEE1004B8D0D /* JSONParsing.swift */; };
 		D91B65632194E03A004B8D0D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91B65622194E03A004B8D0D /* Alamofire.framework */; };
+		D91B65682195F272004B8D0D /* Authenticate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B65672195F272004B8D0D /* Authenticate.swift */; };
 		D92762C3218F260B00564DF4 /* SwiftElasticSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92762B9218F260A00564DF4 /* SwiftElasticSearch.framework */; };
 		D92762C8218F260B00564DF4 /* SwiftElasticSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762C7218F260B00564DF4 /* SwiftElasticSearchTests.swift */; };
 		D92762CA218F260B00564DF4 /* SwiftElasticSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D92762DC218F280C00564DF4 /* SwiftElasticSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762DB218F280C00564DF4 /* SwiftElasticSearch.swift */; };
 		D92762E1218F28CF00564DF4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762E0218F28CF00564DF4 /* Request.swift */; };
 		D92762E7218F296C00564DF4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762E6218F296C00564DF4 /* Response.swift */; };
-		D92762EA218F29B500564DF4 /* Serializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762E9218F29B500564DF4 /* Serializers.swift */; };
 		D92762ED218F2A0C00564DF4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762EC218F2A0C00564DF4 /* Errors.swift */; };
 		D970B6212191014E00F43CC1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D970B6202191013100F43CC1 /* Utils.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +33,7 @@
 /* Begin PBXFileReference section */
 		D91B64D12191AEE1004B8D0D /* JSONParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsing.swift; sourceTree = "<group>"; };
 		D91B65622194E03A004B8D0D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		D91B65672195F272004B8D0D /* Authenticate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticate.swift; sourceTree = "<group>"; };
 		D92762B9218F260A00564DF4 /* SwiftElasticSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftElasticSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftElasticSearch.h; sourceTree = "<group>"; };
 		D92762BD218F260B00564DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		D92762DB218F280C00564DF4 /* SwiftElasticSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftElasticSearch.swift; sourceTree = "<group>"; };
 		D92762E0218F28CF00564DF4 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		D92762E6218F296C00564DF4 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		D92762E9218F29B500564DF4 /* Serializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializers.swift; sourceTree = "<group>"; };
 		D92762EC218F2A0C00564DF4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D970B6202191013100F43CC1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +84,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D91B65662195F25A004B8D0D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D91B65672195F272004B8D0D /* Authenticate.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		D92762AF218F260A00564DF4 = {
 			isa = PBXGroup;
 			children = (
@@ -106,9 +114,9 @@
 		D92762BB218F260A00564DF4 /* SwiftElasticSearch */ = {
 			isa = PBXGroup;
 			children = (
+				D91B65662195F25A004B8D0D /* Authentication */,
 				D91B64D02191AECE004B8D0D /* Utils */,
 				D92762EB218F29F600564DF4 /* Errors */,
-				D92762E8218F29A400564DF4 /* Serialization */,
 				D92762E5218F295B00564DF4 /* Response */,
 				D92762DD218F287900564DF4 /* Requests */,
 				D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */,
@@ -141,14 +149,6 @@
 				D92762E6218F296C00564DF4 /* Response.swift */,
 			);
 			path = Response;
-			sourceTree = "<group>";
-		};
-		D92762E8218F29A400564DF4 /* Serialization */ = {
-			isa = PBXGroup;
-			children = (
-				D92762E9218F29B500564DF4 /* Serializers.swift */,
-			);
-			path = Serialization;
 			sourceTree = "<group>";
 		};
 		D92762EB218F29F600564DF4 /* Errors */ = {
@@ -269,9 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D92762E7218F296C00564DF4 /* Response.swift in Sources */,
-				D92762EA218F29B500564DF4 /* Serializers.swift in Sources */,
 				D92762ED218F2A0C00564DF4 /* Errors.swift in Sources */,
 				D92762E1218F28CF00564DF4 /* Request.swift in Sources */,
+				D91B65682195F272004B8D0D /* Authenticate.swift in Sources */,
 				D92762DC218F280C00564DF4 /* SwiftElasticSearch.swift in Sources */,
 				D970B6212191014E00F43CC1 /* Utils.swift in Sources */,
 				D91B64D22191AEE1004B8D0D /* JSONParsing.swift in Sources */,

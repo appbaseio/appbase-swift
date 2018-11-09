@@ -13,6 +13,7 @@ import Alamofire
 public class Request {
     
     public var credentials : String
+    public let authenticate = Authenticate()
     
     /**
      Inititate parameters of a request that needs to be made
@@ -28,23 +29,21 @@ public class Request {
      
      - Parameters:
         - url: Server endpoint URL
-        - type: Type of request
+        - type: Type of data that is created in the app (Appbase dashboard)
+        - method: Type of request
         - appName: Name of application
         - id: ID of query (Can be nil)
         - body: Data parameters that needs to send (Can be nil)
     */
-    public func postData(url: String, type: HTTPMethod, appName: String, id: String?, body: [String : AnyObject]?) {
+    public func postData(url: String, type: String, method: HTTPMethod, appName: String, id: String?, body: [String : AnyObject]?) {
 
-        var requestURL = "https://" + credentials + "@" + url + "/" + appName
+        var requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type
         
         if id != nil {
             requestURL = requestURL + "/" + id!
         }
-        else {
-            // Random id
-        }
         
-        Alamofire.request(requestURL, method: type, parameters: body, encoding: JSONEncoding.default).responseJSON {  (response) in
+        Alamofire.request(requestURL, method: method, parameters: body, encoding: JSONEncoding.default).responseJSON {  (response) in
                 switch response.result {
                     case .success(let JSON2):
                         print("Success with JSON: \(JSON2)")

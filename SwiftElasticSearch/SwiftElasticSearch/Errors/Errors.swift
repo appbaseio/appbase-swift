@@ -37,7 +37,7 @@ public class ElasticError: Codable {
     }
 }
 
-/// Standard HTTP Errors
+// Standard HTTP Errors
 
 public struct HTTPError: CustomNSError {
     
