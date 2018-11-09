@@ -37,11 +37,13 @@ public class SwiftElasticSearch : NSObject {
     
     
     /**
-     Creates an Elastic Search class object for Appbase
+    Adds given JSON data to the database (POST/PUT request)
      - Parameters:
         - type: Type of data that is created in the app (Appbase dashboard)
         - id: ID of query (Can be nil)
         - body: Data parameters that needs to send (Can be nil)
+     
+     - Returns: Void
     */
     public func index(type: String, id : String?, body : [String : AnyObject]?) {
   
@@ -51,5 +53,28 @@ public class SwiftElasticSearch : NSObject {
         }
             
         APIkey!.postData(url: baseURL, type: type, method: method, appName: appName, id: id, body: body)
+    }
+    
+    
+    /**
+     Fetches data from the database for the provided unique id (GET request)
+     - Parameters:
+         - type: Type of data that is created in the app (Appbase dashboard)
+         - id: ID of query (Can be nil)
+     
+     - Returns: JSON object in format [String : Any]?
+     */
+    public func get(type: String, id: String, completionHandler: @escaping ([String : Any]?, Error?) -> ()) {
+        
+        APIkey?.getData(url: baseURL, type: type, appName: appName, id: id) {
+            JSON, error in
+            
+            if error == nil {
+                completionHandler(JSON,nil)
+            }
+            else {
+                completionHandler(nil,error)
+            }
+        }
     }
 }

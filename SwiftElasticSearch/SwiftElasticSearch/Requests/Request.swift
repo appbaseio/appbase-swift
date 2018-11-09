@@ -15,6 +15,7 @@ public class Request {
     public var credentials : String
     public let authenticate = Authenticate()
     
+    
     /**
      Inititate parameters of a request that needs to be made
      - Parameters:
@@ -23,6 +24,7 @@ public class Request {
     public init(credentials : String) {
         self.credentials = credentials
     }
+    
     
     /**
      Initiate the POST request
@@ -34,6 +36,8 @@ public class Request {
         - appName: Name of application
         - id: ID of query (Can be nil)
         - body: Data parameters that needs to send (Can be nil)
+     
+     - Returns: Void
     */
     public func postData(url: String, type: String, method: HTTPMethod, appName: String, id: String?, body: [String : AnyObject]?) {
 
@@ -58,6 +62,47 @@ public class Request {
                 .responseString { response in
                         print("Response String: \(String(describing: response.result.value))")
                 }
+    }
+    
+    
+    /**
+     Initiate the POST request
+     
+     - Parameters:
+         - url: Server endpoint URL
+         - type: Type of data that is created in the app (Appbase dashboard)
+         - appName: Name of application
+         - id: ID of query
+     
+     - Returns: JSON object in format [String : Any]?
+     */
+    public func getData(url: String, type: String, appName: String, id: String, completionHandler: @escaping ([String : Any]?, Error?) -> ()) {
+        
+        let requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type + "/" + id
+
+        Alamofire.request(requestURL)
+            .responseJSON { response in
+                // check for errors
+                guard response.result.error == nil else {
+                    // got an error in getting the data, need to handle it
+                    print("error calling GET on /todos/1")
+                    print(response.result.error!)
+                    completionHandler(nil,response.result.error!)
+                    return
+                }
+                
+                // Check to see if returned data is in JSON format
+                guard let json = response.result.value as? [String: Any] else {
+                    print("didn't get todo object as JSON from API")
+                    if let error = response.result.error {
+                        print("Error: \(error)")
+                        completionHandler(nil, error)
+                    }
+                    return
+                }
+                
+                completionHandler(json, nil)
+        }
     }
     
 }
