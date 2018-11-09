@@ -105,4 +105,20 @@ public class Request {
         }
     }
     
+    public func deleteData(url: String, type: String, method: HTTPMethod, appName: String, id: String) {
+        
+        let requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type + "/" + id
+        
+        Alamofire.request(requestURL, method: .delete)
+            .responseJSON { response in
+                guard response.result.error == nil else {
+                    // got an error in getting the data, need to handle it
+                    print("error calling DELETE")
+                    print(response.result.error!)
+                    return
+                }
+                print("Succesfully deleted")
+        }
+    }
+    
 }

@@ -77,4 +77,12 @@ public class SwiftElasticSearch : NSObject {
             }
         }
     }
+    
+    public func delete(type: String, id : String) {
+        
+        let method = util.getRequestType(RequestString: "DELETE")
+        APIkey!.deleteData(url: baseURL, type: type, method: method, appName: appName, id: id)
+        
+    }
+    
 }
