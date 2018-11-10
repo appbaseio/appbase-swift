@@ -18,6 +18,7 @@ public class SwiftElasticSearch : NSObject {
     public var APIkey : Request?
     public let util = Utils()
     
+    
     /**
      Creates an Elastic Search class object for Appbase
      - Parameters:
@@ -27,7 +28,6 @@ public class SwiftElasticSearch : NSObject {
      
      - Returns: SwiftElasticSearch class Object
      */
-    
     public init(url baseURL : String, appName : String, credentials : String) {
         self.baseURL = baseURL
         self.appName = appName
@@ -41,7 +41,13 @@ public class SwiftElasticSearch : NSObject {
      - Parameters:
         - type: Type of data that is created in the app (Appbase dashboard)
         - id: ID of query (Can be nil)
-        - body: Data parameters that needs to send (Can be nil)
+        - body: Data parameters that needs to send (Can be nil). The data must be in valid JSON format. Eg :
+                     let updateParameters:[String:Any] = [
+                         "doc": [
+                            "year": 2018
+                        ]
+                 ]
+                For more information visit: "https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document"
      
      - Returns: Void
     */
@@ -60,7 +66,7 @@ public class SwiftElasticSearch : NSObject {
      Fetches data from the database for the provided unique id (GET request)
      - Parameters:
          - type: Type of data that is created in the app (Appbase dashboard)
-         - id: ID of query (Can be nil)
+         - id: ID of query
      
      - Returns: JSON object in format [String : Any]?
      */
@@ -78,37 +84,37 @@ public class SwiftElasticSearch : NSObject {
         }
     }
     
+    
     /**
      Deletes data from the database for the provided unique id (GET request)
      - Parameters:
-     - type: Type of data that is created in the app (Appbase dashboard)
-     - id: ID of query
+         - type: Type of data that is created in the app (Appbase dashboard)
+         - id: ID of query
      
      - Returns: Void
      */
-    
     public func delete(type: String, id : String) {
         let method = util.getRequestType(RequestString: "DELETE")
         APIkey!.deleteData(url: baseURL, type: type, method: method, appName: appName, id: id)
     }
     
+    
     /**
     Update data of the provided unique id (GET request)
     - Parameters:
-    - type: Type of data that is created in the app (Appbase dashboard)
-    - id: ID of query (Can be nil)
-    - body: JSON structured data parameter that has to be passed for updating, Note: For updating data, the JSON
-            must be of the format doc{ JSON FOR THE PARAMETER TO BE UPDATED }. Eg :
-            let updateParameters:[String:Any] = [
-                    "doc": [
-                        "year": 2018
+        - type: Type of data that is created in the app (Appbase dashboard)
+        - id: ID of query (Can be nil)
+        - body: JSON structured data parameter that has to be passed for updating, Note: For updating data, the JSON
+                must be of the format doc{ JSON FOR THE PARAMETER TO BE UPDATED }. Eg :
+                let updateParameters:[String:Any] = [
+                        "doc": [
+                            "year": 2018
+                            ]
                         ]
-                    ]
-            For more information visit: "https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document"
+                For more information visit: "https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document"
      
     - Returns: Void
     */
-    
     public func update(type: String, id : String, body : [String : AnyObject]?) {
         let method = util.getRequestType(RequestString: "POST")
         let updateID = id + "/_update"

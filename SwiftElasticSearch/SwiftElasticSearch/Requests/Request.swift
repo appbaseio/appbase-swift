@@ -105,18 +105,18 @@ public class Request {
         }
     }
     
+    
     /**
      Initiate the DELETE request
      
      - Parameters:
-     - url: Server endpoint URL
-     - type: Type of data that is created in the app (Appbase dashboard)
-     - appName: Name of application
-     - id: ID of query
+         - url: Server endpoint URL
+         - type: Type of data that is created in the app (Appbase dashboard)
+         - appName: Name of application
+         - id: ID of query
      
-     - Returns: Void?
+     - Returns: Void
      */
-    
     public func deleteData(url: String, type: String, method: HTTPMethod, appName: String, id: String) {
         
         let requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type + "/" + id

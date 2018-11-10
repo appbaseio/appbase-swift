@@ -15,19 +15,17 @@ public class Authenticate {
         
     }
     
+    // Generates random string of given length
     func generateRandomString(length : Int) -> String {
         return String((0...length-1).map{ _ in characters.randomElement()! })
     }
     
+    // Generates random ID of the following pattern "xxxxxxxx-xxxx-4xxx-xxxx-xxxxxxxxxxxx"
     public func generateRandomID() -> String {
         
-        //pattern: "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx"
         let id = generateRandomString(length: 8) + "-" + generateRandomString(length: 4) + "-4" + generateRandomString(length: 3) + generateRandomString(length: 4) + generateRandomString(length: 12)
         
         return id
     }
-    
-    public func validate() {
-        
-    }
+
 }
