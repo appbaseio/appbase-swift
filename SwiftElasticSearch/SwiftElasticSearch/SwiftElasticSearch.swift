@@ -2,7 +2,7 @@
 //  SwiftElasticSearch.swift
 //  SwiftElasticSearch
 //
-//  Created by Harsh Patel on 04/11/18.
+//  Created by Harsh Patel And Abhinav Raj
 //  Copyright © 2018 Harsh Patel. All rights reserved.
 //
 
@@ -82,7 +82,7 @@ public class SwiftElasticSearch : NSObject {
      Deletes data from the database for the provided unique id (GET request)
      - Parameters:
      - type: Type of data that is created in the app (Appbase dashboard)
-     - id: ID of query (Can be nil)
+     - id: ID of query
      
      - Returns: Void
      */
@@ -111,7 +111,8 @@ public class SwiftElasticSearch : NSObject {
     
     public func update(type: String, id : String, body : [String : AnyObject]?) {
         let method = util.getRequestType(RequestString: "POST")
-        APIkey!.postData(url: baseURL, type: type, method: method, appName: appName, id: id, body: body)
+        let updateID = id + "/_update"
+        APIkey!.postData(url: baseURL, type: type, method: method, appName: appName, id: updateID, body: body)
     }
     
 }
