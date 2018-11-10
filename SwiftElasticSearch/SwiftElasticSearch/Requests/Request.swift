@@ -66,7 +66,7 @@ public class Request {
     
     
     /**
-     Initiate the POST request
+     Initiate the GET request
      
      - Parameters:
          - url: Server endpoint URL
@@ -104,6 +104,18 @@ public class Request {
                 completionHandler(json, nil)
         }
     }
+    
+    /**
+     Initiate the DELETE request
+     
+     - Parameters:
+     - url: Server endpoint URL
+     - type: Type of data that is created in the app (Appbase dashboard)
+     - appName: Name of application
+     - id: ID of query
+     
+     - Returns: Void?
+     */
     
     public func deleteData(url: String, type: String, method: HTTPMethod, appName: String, id: String) {
         
