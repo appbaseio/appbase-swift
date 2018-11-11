@@ -51,7 +51,7 @@ public class SwiftElasticSearch : NSObject {
      
      - Returns: Void
     */
-    public func index(type: String, id : String?, body : [String : AnyObject]?) {
+    public func index(type: String, id : String? = nil, body : [String : Any]?) {
   
         var method = util.getRequestType(RequestString: "POST")
         if id != nil {
@@ -115,7 +115,7 @@ public class SwiftElasticSearch : NSObject {
      
     - Returns: Void
     */
-    public func update(type: String, id : String, body : [String : AnyObject]?) {
+    public func update(type: String, id : String, body : [String : Any]?) {
         let method = util.getRequestType(RequestString: "POST")
         let updateID = id + "/_update"
         APIkey!.postData(url: baseURL, type: type, method: method, appName: appName, id: updateID, body: body)

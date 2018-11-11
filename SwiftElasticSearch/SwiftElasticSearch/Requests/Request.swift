@@ -39,7 +39,7 @@ public class Request {
      
      - Returns: Void
     */
-    public func postData(url: String, type: String, method: HTTPMethod, appName: String, id: String?, body: [String : AnyObject]?) {
+    public func postData(url: String, type: String, method: HTTPMethod, appName: String, id: String?, body: [String : Any]?) {
 
         var requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type
         
