@@ -1,0 +1,11 @@
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "752645e8eac8c79eef0a32feeb54ec44"
+build_time: [1541966282, 334959000]
+inputs:
+  "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/SwiftElasticSearch/Response/Response.swift": [9223372036, 854775807]
+  "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/SwiftElasticSearch/Errors/Errors.swift": [9223372036, 854775807]
+  "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/SwiftElasticSearch/Requests/Request.swift": [9223372036, 854775807]
+  "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/SwiftElasticSearch/Authentication/Authenticate.swift": [9223372036, 854775807]
+  "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/SwiftElasticSearch/SwiftElasticSearch.swift": [9223372036, 854775807]
+  "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/SwiftElasticSearch/Utils/Utils.swift": [9223372036, 854775807]
+  "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/SwiftElasticSearch/Utils/JSONParsing.swift": [9223372036, 854775807]
