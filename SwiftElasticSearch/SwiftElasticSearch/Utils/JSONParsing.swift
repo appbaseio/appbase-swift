@@ -9,12 +9,11 @@
 import Foundation
 
 extension String{
-    /**
-     Parses the string to JSON object
-     
-     - Returns: JSON object in string.
-     
-     */
+
+/// Parses the string to JSON object
+///
+/// - returns: JSON object in string.
+///
     var parseJSONString : Any? {
         let data = self.data(using: String.Encoding.utf8, allowLossyConversion: false)
         if let jsonData = data {

@@ -15,30 +15,27 @@ public class Request {
     public var credentials : String
     public let authenticate = Authenticate()
     
-    
-    /**
-     Inititate parameters of a request that needs to be made
-     - Parameters:
-         - credentials: Credentials of the user
-    */
+
+/// Inititate parameters of a request that needs to be made
+///
+/// - parameter credentials: Credentials of the user
+///
     public init(credentials : String) {
         self.credentials = credentials
     }
     
-    
-    /**
-     Initiate the POST request
-     
-     - Parameters:
-        - url: Server endpoint URL
-        - type: Type of data that is created in the app (Appbase dashboard)
-        - method: Type of request
-        - appName: Name of application
-        - id: ID of query (Can be nil)
-        - body: Data parameters that needs to send (Can be nil)
-     
-     - Returns: Void
-    */
+
+/// Initiate the POST request
+///
+/// - parameter url: Server endpoint URL
+/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter method: Type of request
+/// - parameter appName: Name of application
+/// - parameter id: ID of query (Can be nil)
+/// - parameter body: Data parameters that needs to send (Can be nil)
+///
+/// - returns: Void
+///
     public func postData(url: String, type: String, method: HTTPMethod, appName: String, id: String?, body: [String : Any]?) {
 
         var requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type
@@ -65,17 +62,15 @@ public class Request {
     }
     
     
-    /**
-     Initiate the GET request
-     
-     - Parameters:
-         - url: Server endpoint URL
-         - type: Type of data that is created in the app (Appbase dashboard)
-         - appName: Name of application
-         - id: ID of query
-     
-     - Returns: JSON object in format [String : Any]?
-     */
+/// Initiate the GET request
+///
+/// - parameter url: Server endpoint URL
+/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter appName: Name of application
+/// - parameter id: ID of query
+///
+/// - returns: JSON object in format [String : Any]?
+///
     public func getData(url: String, type: String, appName: String, id: String, completionHandler: @escaping ([String : Any]?, Error?) -> ()) {
         
         let requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type + "/" + id
@@ -106,17 +101,15 @@ public class Request {
     }
     
     
-    /**
-     Initiate the DELETE request
-     
-     - Parameters:
-         - url: Server endpoint URL
-         - type: Type of data that is created in the app (Appbase dashboard)
-         - appName: Name of application
-         - id: ID of query
-     
-     - Returns: Void
-     */
+/// Initiate the DELETE request
+///
+/// - parameter url: Server endpoint URL
+/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter appName: Name of application
+/// - parameter id: ID of query
+///
+/// - returns: Void
+///
     public func deleteData(url: String, type: String, method: HTTPMethod, appName: String, id: String) {
         
         let requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type + "/" + id
