@@ -49,7 +49,7 @@ public class SwiftElasticSearch : NSObject {
 ///
 /// - returns: Void
 ///
-    public func index(type: String, id : String? = nil, body : [String : Any]?) {
+    public func index(type: String, id : String? = nil, body : [String : Any]? = nil) {
   
         var method = util.getRequestType(RequestString: "POST")
         if id != nil {
@@ -90,7 +90,9 @@ public class SwiftElasticSearch : NSObject {
 /// - returns: Void
 ///
     public func delete(type: String, id : String) {
+        
         let method = util.getRequestType(RequestString: "DELETE")
+        
         APIkey!.deleteData(url: baseURL, type: type, method: method, appName: appName, id: id)
     }
     
@@ -110,9 +112,11 @@ public class SwiftElasticSearch : NSObject {
 ///
 /// - returns: Void
 ///
-    public func update(type: String, id : String, body : [String : Any]?) {
+    public func update(type: String, id : String, body : [String : Any]? = nil) {
+        
         let method = util.getRequestType(RequestString: "POST")
         let updateID = id + "/_update"
+        
         APIkey!.postData(url: baseURL, type: type, method: method, appName: appName, id: updateID, body: body)
     }
     
