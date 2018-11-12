@@ -8,6 +8,21 @@ The library provides very high performance results i.e. it provides response to 
 
 ## Installation
 
+### Cloning project (Easiest way)
+
+* Download the project using command :
+
+```
+git clone "https://github.com/appbaseio-apps/SwiftElasticSearch.git"
+```
+* Navigate to file `SwiftElasticSearch.xcodeproj` and copy and paste it in your project directory (Under blue file icon in Xcode)
+
+* Navigate to General Settings (click on blue file icon) -> Linked Framweworks and binaries
+
+* Click on `+` icon and add the `SwiftElasticSearch.framework` file that is available under `Workspace` folder
+
+* Build the project and that's it. The library is ready to import
+
 ### Swift Package Manager
 
 The Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the swift compiler. It is in early development, but ElasticSwift does support its use on supported platforms.
