@@ -16,7 +16,7 @@ To add SwiftElasticSearch library as dependency, add the following line in the d
 
 ```
 dependencies: [
-.Package(url: "https://github.com/appbaseio-apps/SwiftElasticSearch.git", "1.0")
+.Package(url: "https://github.com/appbaseio-apps/SwiftElasticSearch.git", "1.1.0")
 ]
 ```
 ### Manual Installation
@@ -45,3 +45,7 @@ git clone "https://github.com/appbaseio-apps/SwiftElasticSearch.git"
 * Double click on the Objective-C Bridging Header and enter <appName>-Bridging-Header in the pop-up dialog box
 
 * Import the library in the new bridging header file and now the library is ready to use
+
+## Docs
+
+WIP docs are at https://swift-elasticsearch.netlify.com.
