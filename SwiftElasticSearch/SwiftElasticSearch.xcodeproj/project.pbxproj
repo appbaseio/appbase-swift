@@ -158,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				D91B67A921992B8C004B8D0D /* Alamofire.xcodeproj */,
-				D92762BB218F260A00564DF4 /* SwiftElasticSearch */,
+				D92762BB218F260A00564DF4 /* Source */,
 				D92762C6218F260B00564DF4 /* SwiftElasticSearchTests */,
 				D92762BA218F260A00564DF4 /* Products */,
 				D91B67D021992FA9004B8D0D /* Frameworks */,
@@ -174,7 +174,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D92762BB218F260A00564DF4 /* SwiftElasticSearch */ = {
+		D92762BB218F260A00564DF4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				D91B65662195F25A004B8D0D /* Authentication */,
@@ -186,7 +186,7 @@
 				D92762BD218F260B00564DF4 /* Info.plist */,
 				D92762DB218F280C00564DF4 /* SwiftElasticSearch.swift */,
 			);
-			path = SwiftElasticSearch;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		D92762C6218F260B00564DF4 /* SwiftElasticSearchTests */ = {
@@ -554,7 +554,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SwiftElasticSearch/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -584,7 +584,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = SwiftElasticSearch/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
