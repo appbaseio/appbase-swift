@@ -16,7 +16,7 @@ To add SwiftElasticSearch library as dependency, add the following line in the d
 
 ```
 dependencies: [
-.Package(url: "https://github.com/appbaseio-apps/SwiftElasticSearch.git", "1.0")
+.Package(url: "https://github.com/appbaseio-apps/SwiftElasticSearch.git", "1.1.0")
 ]
 ```
 ### Manual Installation
