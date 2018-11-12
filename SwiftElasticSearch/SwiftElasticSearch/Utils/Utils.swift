@@ -11,21 +11,30 @@ import Alamofire
 
 public class Utils {
     
+    /// init: Initialiser of the utility class
+    ///
     public init() {
         
     }
     
-    /**
-     Helper Enum holding corresponding value of HTTP Request types
-     */
+    /// Helper Enum holding corresponding value of HTTP Request types
+    ///
     public let RequestTypes: [(RequestString: String, HTTPvalue: HTTPMethod)] = [("GET", .get), ("POST", .post), ("PUT", .put), ("DELETE", .delete)]
     
+    
+    /// getRequestType: Return the HTTP Request type for the given request message
+    ///
+    /// - parameter RequestString: Request message
+    ///
+    /// - returns: HTTP Request method
+    ///
     public func getRequestType(RequestString: String) -> HTTPMethod{
         let method = RequestTypes.first(where: { $0.RequestString ==  RequestString} )?.HTTPvalue
         return method!
     }
     
-    // Network Errors with descriptions
+    /// Network Errors with descriptions
+    ///
     public enum NetworkError: Int, Error{
         case Success = 200
         case Unknown = 400
@@ -33,10 +42,16 @@ public class Utils {
         
         var localizedDescription: String{
             switch self{
+                
+            /// Success
             case .Success:
                 return "Success"
+                
+            /// Unknown request
             case .Unknown:
                 return "Bad request, couldn't parse the request."
+                
+            /// Request not found
             case .NotFound:
                 return "Server not found, please try again."
             }
@@ -44,9 +59,14 @@ public class Utils {
         var code: Int{ return self.rawValue}
     }
     
-    // Common Errors like Serialization Errors etc.
+    /// Common Errors like Serialization Errors etc.
+    ///
     public enum CommonError: String{
+        
+        /// JSON body parsing error
         case jsonSerialization = "Couldn't parse to/from json object."
+        
+        /// Network Connection error
         case networkConnection = "Network error."
     }
 }

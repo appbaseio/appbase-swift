@@ -13,6 +13,7 @@ public class ElasticsearchError: Error, Codable {
     var error: ElasticError?
     var status: Int?
     
+    /// init: Initialiser of Error class
     init() {}
 }
 
@@ -37,8 +38,8 @@ public class ElasticError: Codable {
     }
 }
 
-// Standard HTTP Errors
-
+/// Standard HTTP Errors
+///
 public struct HTTPError: CustomNSError {
     
     public let statusCode: Int
@@ -60,40 +61,42 @@ public struct HTTPError: CustomNSError {
     }
 }
 
+/// Enum holding status codes for corresponding error messages
+///
 public enum StatusCode: Int {
 
-    // Success
+    /// Success
     case ok = 200
     
-    // Invalid parameters
+    /// Invalid parameters
     case badRequest = 400
     
-    // Invalid authentication.
+    /// Invalid authentication.
     case unauthorized = 401
     
-    // Operation unauthorized with the provided credentials.
+    /// Operation unauthorized with the provided credentials.
     case forbidden = 403
     
-    // The targeted resource does not exist.
+    /// The targeted resource does not exist.
     case notFound = 404
     
-    // The server has encountered a fatal internal error.
+    /// The server has encountered a fatal internal error.
     case internalServerError = 500
     
-    // The server is temporarily down.
+    /// The server is temporarily down.
     case serviceUnavailable = 503
     
-    // Test whether a status code represents success
+    /// Test whether a status code represents success
     public static func isSuccess(_ statusCode: Int) -> Bool {
         return statusCode >= 200 && statusCode < 300
     }
     
-    // Test whether a status code represents a client error
+    /// Test whether a status code represents a client error
     public static func isClientError(_ statusCode: Int) -> Bool {
         return statusCode >= 400 && statusCode < 500
     }
     
-    // Test whether a status code represents a server error
+    /// Test whether a status code represents a server error
     public static func isServerError(_ statusCode: Int) -> Bool {
         return statusCode >= 500 && statusCode < 600
     }

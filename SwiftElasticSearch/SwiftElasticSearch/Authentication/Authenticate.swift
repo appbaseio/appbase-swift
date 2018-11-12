@@ -10,17 +10,30 @@ import Foundation
 
 public class Authenticate {
     
+    /// A string consisting of all the alphanumeric and some special characters
+    ///
     public let characters : String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
+    
+    /// init: initialiser of the Authenticate class
+    ///
     public init() {
         
     }
     
-    // Generates random string of given length
+    /// generateRandomString: Generates random string of given length
+    ///
+    /// - parameter length: Length of the string that is to be generated
+    ///
+    /// - returns: String of random characters of given length
+    ///
     func generateRandomString(length : Int) -> String {
         return String((0...length-1).map{ _ in characters.randomElement()! })
     }
     
-    // Generates random ID of the following pattern "xxxxxxxx-xxxx-4xxx-xxxx-xxxxxxxxxxxx"
+    /// generateRandomID : Generates random ID of the following pattern "xxxxxxxx-xxxx-4xxx-xxxx-xxxxxxxxxxxx"
+    ///
+    /// - returns: A random ID having a pattern followed by Appbase
+    ///
     public func generateRandomID() -> String {
         
         let id = generateRandomString(length: 8) + "-" + generateRandomString(length: 4) + "-4" + generateRandomString(length: 3) + generateRandomString(length: 4) + generateRandomString(length: 12)
