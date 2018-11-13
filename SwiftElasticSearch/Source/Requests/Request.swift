@@ -38,13 +38,19 @@ public class Request {
 ///
     public func postData(url: String, type: String, method: HTTPMethod, appName: String, id: String? = nil, body: [String : Any]? = nil) {
 
-        var requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type
+        var requestURL = url + "/" + appName + "/" + type
+        let data = (credentials).data(using: String.Encoding.utf8)
+        let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        let headers: HTTPHeaders = [
+            "Authorization": "Basic " + credentials64,
+            "Content-Type": "application/json"
+        ]
         
         if id != nil {
             requestURL = requestURL + "/" + id!
         }
         
-        Alamofire.request(requestURL, method: method, parameters: body, encoding: JSONEncoding.default).responseJSON {  (response) in
+        Alamofire.request(requestURL, method: method, parameters: body, encoding: JSONEncoding.default, headers:headers).responseJSON {  (response) in
                 switch response.result {
                     case .success(let JSON2):
                         print("Success with JSON: \(JSON2)")
@@ -73,9 +79,15 @@ public class Request {
 ///
     public func getData(url: String, type: String, appName: String, id: String, completionHandler: @escaping ([String : Any]?, Error?) -> ()) {
         
-        let requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type + "/" + id
+        let requestURL = url + "/" + appName + "/" + type + "/" + id
+        let data = (credentials).data(using: String.Encoding.utf8)
+        let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        let headers: HTTPHeaders = [
+            "Authorization": "Basic " + credentials64,
+            "Content-Type": "application/json"
+        ]
 
-        Alamofire.request(requestURL)
+        Alamofire.request(requestURL,headers:headers)
             .responseJSON { response in
                 // check for errors
                 guard response.result.error == nil else {
@@ -112,9 +124,15 @@ public class Request {
 ///
     public func deleteData(url: String, type: String, method: HTTPMethod, appName: String, id: String) {
         
-        let requestURL = "https://" + credentials + "@" + url + "/" + appName + "/" + type + "/" + id
+        let requestURL = url + "/" + appName + "/" + type + "/" + id
+        let data = (credentials).data(using: String.Encoding.utf8)
+        let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        let headers: HTTPHeaders = [
+            "Authorization": "Basic " + credentials64,
+            "Content-Type": "application/json"
+        ]
         
-        Alamofire.request(requestURL, method: .delete)
+        Alamofire.request(requestURL,method: .delete,headers:headers)
             .responseJSON { response in
                 guard response.result.error == nil else {
                     // got an error in getting the data, need to handle it
