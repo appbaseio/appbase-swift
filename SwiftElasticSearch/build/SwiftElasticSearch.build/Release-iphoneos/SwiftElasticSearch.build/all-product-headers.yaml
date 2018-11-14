@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/build/Release-iphoneos/SwiftElasticSearch.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "SwiftElasticSearch-Swift.h",
+          'external-contents': "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/build/Release-iphoneos/SwiftElasticSearch.framework/Headers/SwiftElasticSearch-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "SwiftElasticSearch.h",
+          'external-contents': "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/SwiftElasticSearch.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/build/Release-iphoneos/SwiftElasticSearch.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/build/SwiftElasticSearch.build/Release-iphoneos/SwiftElasticSearch.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
