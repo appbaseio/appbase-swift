@@ -98,17 +98,19 @@ class SwiftElasticSearchTests: XCTestCase {
 
     func testIndexMethod() {
         
-        guard let indexURL = URL(string: "https://scalr.api.appbase.io/mysearchapp/aaaaa") else { return }
+        guard let indexURL = URL(string: "https://scalr.api.appbase.io/SwiftClientES/SwiftClientES") else { return }
         
         let parameterDictionary = ["title" : "Sacred Games", "year" : "2017"]
         var request = URLRequest(url: indexURL)
         request.httpMethod = "POST"
-        let credential : String = "jXvc5mwpF:4550125e-d34d-450a-8f20-01c504d20f4d"
+        
+        let credential : String = "1YSEaFnBn:c0f90a88-771d-4f92-a9b4-6fe82d17cc72"
         let data = (credential).data(using: String.Encoding.utf8)
         let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
-        print(request)
+        
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
             return
         }

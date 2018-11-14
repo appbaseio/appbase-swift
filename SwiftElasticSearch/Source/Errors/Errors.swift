@@ -45,6 +45,11 @@ public struct HTTPError: CustomNSError {
     public let statusCode: Int
     public let message: String?
     
+    /// Initialize the HTTP Error
+    ///
+    /// - parameter statusCode: The code that is used to identify the error
+    /// - parameter message: The server message that is obtained
+    ///
     public init(statusCode: Int, message: String? = nil) {
         self.statusCode = statusCode
         self.message = message

@@ -12,11 +12,11 @@ import Alamofire
 
 public class SwiftElasticSearch : NSObject {
     
-    public var baseURL : String
-    public var appName : String
+    public var url : String
+    public var app : String
     public var credentials : String
-    public var APIkey : Request?
-    public let util = Utils()
+    var APIkey : Request?
+    let util = Utils()
     
     
 /// Creates an Elastic Search class object for Appbase
@@ -28,8 +28,8 @@ public class SwiftElasticSearch : NSObject {
 /// - returns: SwiftElasticSearch class Object
 ///
     public init(url baseURL : String, appName : String, credentials : String) {
-        self.baseURL = baseURL
-        self.appName = appName
+        self.url = baseURL
+        self.app = appName
         self.credentials = credentials
         self.APIkey = Request(credentials : credentials)
     }
@@ -56,7 +56,7 @@ public class SwiftElasticSearch : NSObject {
             method = util.getRequestType(RequestString: "PUT")
         }
             
-        APIkey!.postData(url: baseURL, type: type, method: method, appName: appName, id: id, body: body)
+        APIkey!.postData(url: url, type: type, method: method, appName: app, id: id, body: body)
     }
     
     
@@ -69,7 +69,7 @@ public class SwiftElasticSearch : NSObject {
 ///
     public func get(type: String, id: String, completionHandler: @escaping ([String : Any]?, Error?) -> ()) {
         
-        APIkey?.getData(url: baseURL, type: type, appName: appName, id: id) {
+        APIkey?.getData(url: url, type: type, appName: app, id: id) {
             JSON, error in
             
             if error == nil {
@@ -93,7 +93,7 @@ public class SwiftElasticSearch : NSObject {
         
         let method = util.getRequestType(RequestString: "DELETE")
         
-        APIkey!.deleteData(url: baseURL, type: type, method: method, appName: appName, id: id)
+        APIkey!.deleteData(url: url, type: type, method: method, appName: app, id: id)
     }
     
     
@@ -117,7 +117,7 @@ public class SwiftElasticSearch : NSObject {
         let method = util.getRequestType(RequestString: "POST")
         let updateID = id + "/_update"
         
-        APIkey!.postData(url: baseURL, type: type, method: method, appName: appName, id: updateID, body: body)
+        APIkey!.postData(url: url, type: type, method: method, appName: app, id: updateID, body: body)
     }
     
 }

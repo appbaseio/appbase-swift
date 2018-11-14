@@ -9,17 +9,17 @@
 import Foundation
 import Alamofire
 
-public class Utils {
+class Utils {
     
     /// init: Initialiser of the utility class
     ///
-    public init() {
+    init() {
         
     }
     
     /// Helper Enum holding corresponding value of HTTP Request types
     ///
-    public let RequestTypes: [(RequestString: String, HTTPvalue: HTTPMethod)] = [("GET", .get), ("POST", .post), ("PUT", .put), ("DELETE", .delete)]
+    let RequestTypes: [(RequestString: String, HTTPvalue: HTTPMethod)] = [("GET", .get), ("POST", .post), ("PUT", .put), ("DELETE", .delete)]
     
     
     /// getRequestType: Return the HTTP Request type for the given request message
@@ -28,7 +28,7 @@ public class Utils {
     ///
     /// - returns: HTTP Request method
     ///
-    public func getRequestType(RequestString: String) -> HTTPMethod{
+    func getRequestType(RequestString: String) -> HTTPMethod{
         let method = RequestTypes.first(where: { $0.RequestString ==  RequestString} )?.HTTPvalue
         return method!
     }

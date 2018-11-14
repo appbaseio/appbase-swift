@@ -12,8 +12,8 @@ import Alamofire
 
 public class Request {
     
-    public var credentials : String
-    public let authenticate = Authenticate()
+    var credentials : String
+    let authenticate = Authenticate()
     
 
 /// Inititate parameters of a request that needs to be made

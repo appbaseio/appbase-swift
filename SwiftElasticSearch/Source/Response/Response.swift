@@ -10,24 +10,24 @@ import Foundation
 
 public class Response {
     
-    public let data: Data?
-    public let httpResponse: URLResponse?
-    public let error: Error?
+    let data: Data?
+    let httpResponse: URLResponse?
+    let error: Error?
     
-    init(data: Data? ,httpResponse: URLResponse?, error: Error?) {
+    public init(data: Data? ,httpResponse: URLResponse?, error: Error?) {
         self.data = data
         self.httpResponse = httpResponse
         self.error = error
     }
 }
 
-public class GetResponse<T: Codable>: Codable {
+class GetResponse<T: Codable>: Codable {
     
-    public var index: String?
-    public var type: String?
-    public var id: String?
-    public var version: Int?
-    public var found: Bool?
+    var index: String?
+    var type: String?
+    var id: String?
+    var version: Int?
+    var found: Bool?
     
     public var source: T?
     
@@ -44,65 +44,6 @@ public class GetResponse<T: Codable>: Codable {
         
         case found
     }
-}
-
-public class IndexResponse: Codable {
-    
-    public var shards: Shards?
-    public var index: String?
-    public var type: String?
-    public var id: String?
-    public var version: Int?
-    public var seqNumber: Int?
-    public var primaryTerm: Int?
-    public var result: String?
-    
-    init() {
-        
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case shards = "_shards"
-        case index = "_index"
-        case type = "_type"
-        case id = "_id"
-        case version = "_version"
-        case seqNumber = "_seq_no"
-        case primaryTerm = "_primary_term"
-        case result
-    }
-}
-
-public class SearchResponse<T: Codable>: Codable {
-    
-    public var took: Int?
-    public var timedOut: Bool?
-    public var shards: Shards?
-    public var hits: Hits<T>?
-    
-    init() {
-        
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case took
-        case timedOut = "timed_out"
-        case shards = "_shards"
-        case hits
-    }
-}
-
-public class Shards: Codable {
-    
-    public var total: Int?
-    public var successful: Int?
-    public var skipped: Int?
-    public var failed: Int?
-    
-    init() {
-        
-    }
-    
 }
 
 public class Hits<T: Codable>: Codable {
@@ -125,11 +66,11 @@ public class Hits<T: Codable>: Codable {
 
 public class SearchHit<T: Codable>: Codable {
     
-    public var index: String?
-    public var type: String?
-    public var id: String?
-    public var score: Double?
-    public var source: T?
+    var index: String?
+    var type: String?
+    var id: String?
+    var score: Double?
+    var source: T?
     
     
     init() {
