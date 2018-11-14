@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// This class handles the responses that are received from the server when any request is made. It also handles any error while receiving the response.
+///
 public class Response {
     
     let data: Data?

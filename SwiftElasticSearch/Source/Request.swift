@@ -10,12 +10,16 @@ import Foundation
 import UIKit
 import Alamofire
 
+/// Class to handle the GET, POST PUT and DELETE requests made from any class inside the library
+///
 public class Request {
     
     var credentials : String
     let authenticate = Authenticate()
     
-
+    
+    // MARK: - Initializer
+    
 /// Inititate parameters of a request that needs to be made
 ///
 /// - parameter credentials: Credentials of the user
@@ -23,7 +27,9 @@ public class Request {
     public init(credentials : String) {
         self.credentials = credentials
     }
+
     
+    // MARK: - Methods
 
 /// Initiate the POST request
 ///

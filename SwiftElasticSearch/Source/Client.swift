@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Alamofire
 
+/// Entry point in the SwiftElasticSearch library
+///
 public class Client : NSObject {
     
     public var url : String
@@ -18,6 +20,7 @@ public class Client : NSObject {
     var APIkey : Request?
     let util = Utils()
     
+    // MARK: - Initializer
     
 /// Creates an Elastic Search class object for Appbase
 ///
@@ -34,6 +37,7 @@ public class Client : NSObject {
         self.APIkey = Request(credentials : credentials)
     }
     
+    // MARK: - Operations
     
 /// Adds given JSON data to the database (POST/PUT request)
 ///
@@ -45,7 +49,7 @@ public class Client : NSObject {
 ///                            "year": 2018
 ///                        ]
 ///                 ]
-///                For more information visit: "https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document"
+///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
 ///
 /// - returns: Void
 ///
@@ -100,7 +104,7 @@ public class Client : NSObject {
 /// Update data of the provided unique id (GET request)
 ///
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
-/// - parameter id: ID of query (Can be nil)
+/// - parameter id: ID of query
 /// - parameter body: JSON structured data parameter that has to be passed for updating, Note: For updating data, the JSON
 ///                must be of the format doc{ JSON FOR THE PARAMETER TO BE UPDATED }. Eg :
 ///                let updateParameters:[String:Any] = [
@@ -108,7 +112,7 @@ public class Client : NSObject {
 ///                            "year": 2018
 ///                            ]
 ///                        ]
-///                For more information visit: "https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document"
+///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
 ///
 /// - returns: Void
 ///
