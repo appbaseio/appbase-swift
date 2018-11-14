@@ -12,7 +12,7 @@ public class Authenticate {
     
     /// A string consisting of all the alphanumeric and some special characters
     ///
-    public let characters : String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
+    let characters : String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
     
     /// init: initialiser of the Authenticate class
     ///

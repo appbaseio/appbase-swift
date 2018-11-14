@@ -14,7 +14,9 @@ import Alamofire
 ///
 public class Request {
     
-    var credentials : String
+    // MARK: - Properties
+    
+    public var credentials : String
     let authenticate = Authenticate()
     
     

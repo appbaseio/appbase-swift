@@ -14,6 +14,8 @@ import Alamofire
 ///
 public class Client : NSObject {
     
+    // MARK: - Properties
+    
     public var url : String
     public var app : String
     public var credentials : String

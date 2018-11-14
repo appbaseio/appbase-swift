@@ -13,7 +13,7 @@ public class ElasticsearchError: Error, Codable {
     var error: ElasticError?
     var status: Int?
     
-    /// init: Initialiser of Error class
+    /// Initialiser of Error class
     init() {}
 }
 
@@ -42,8 +42,12 @@ public class ElasticError: Codable {
 ///
 public struct HTTPError: CustomNSError {
     
+    // MARK: - Properties
+    
     public let statusCode: Int
     public let message: String?
+    
+    // MARK: Initializer
     
     /// Initialize the HTTP Error
     ///
@@ -65,6 +69,9 @@ public struct HTTPError: CustomNSError {
         return userInfo
     }
 }
+
+
+    // MARK: Operators
 
 /// Enum holding status codes for corresponding error messages
 ///
