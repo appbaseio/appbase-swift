@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// Used for authenticating app and type properties used in Client.swift class
+///
 public class Authenticate {
     
     /// A string consisting of all the alphanumeric and some special characters
@@ -34,7 +36,7 @@ public class Authenticate {
     ///
     /// - returns: A random ID having a pattern followed by Appbase
     ///
-    public func generateRandomID() -> String {
+    func generateRandomID() -> String {
         
         let id = generateRandomString(length: 8) + "-" + generateRandomString(length: 4) + "-4" + generateRandomString(length: 3) + generateRandomString(length: 4) + generateRandomString(length: 12)
         

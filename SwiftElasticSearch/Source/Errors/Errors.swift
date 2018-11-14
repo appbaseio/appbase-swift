@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ElasticsearchError: Error, Codable {
+class ElasticsearchError: Error, Codable {
     
     var error: ElasticError?
     var status: Int?
@@ -17,7 +17,7 @@ public class ElasticsearchError: Error, Codable {
     init() {}
 }
 
-public class ElasticError: Codable {
+class ElasticError: Codable {
     
     var type: String?
     var index: String?
