@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 
-public class SwiftElasticSearch : NSObject {
+public class Client : NSObject {
     
     public var url : String
     public var app : String
