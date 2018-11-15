@@ -53,7 +53,7 @@ public class Client : NSObject {
 ///                 ]
 ///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
 ///
-/// - returns: Void
+/// - returns: JSON object and the error occured if object not found in format (Any?, Error?)
 ///
     public func index(type: String, id : String? = nil, body : [String : Any], completionHandler: @escaping (Any?, Error?) -> ()) {
   
