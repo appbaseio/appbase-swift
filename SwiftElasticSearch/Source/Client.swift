@@ -103,11 +103,18 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func delete(type: String, id : String) {
+    public func delete(type: String, id : String, completionHandler: @escaping (Any?, Error?) -> ()) {
         
-        let method = util.getRequestType(RequestString: "DELETE")
-        
-        APIkey!.deleteData(url: url, type: type, method: method, appName: app, id: id)
+        APIkey!.deleteData(url: url, app: app, type: type, id: id) {
+            JSON, error in
+            
+            if error == nil {
+                completionHandler(JSON,nil)
+            }
+            else {
+                completionHandler(nil,error)
+            }
+        }
     }
     
     

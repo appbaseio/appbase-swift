@@ -173,32 +173,40 @@ public class Request {
 /// Initiate the DELETE request
 ///
 /// - parameter url: Server endpoint URL
+/// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
-/// - parameter appName: Name of application
 /// - parameter id: ID of query
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func deleteData(url: String, type: String, method: HTTPMethod, appName: String, id: String) {
+    public func deleteData(url: String, app: String, type: String, id: String, completionHandler: @escaping (Any?, Error?) -> ()) {
         
-        let requestURL = url + "/" + appName + "/" + type + "/" + id
-        let data = (credentials).data(using: String.Encoding.utf8)
-        let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        let headers: HTTPHeaders = [
-            "Authorization": "Basic " + credentials64,
-            "Content-Type": "application/json"
-        ]
+        let finalURL = url + "/" + app + "/" + type + "/" + id
+        let method = "DELETE"
         
-        Alamofire.request(requestURL,method: .delete,headers:headers)
-            .responseJSON { response in
-                guard response.result.error == nil else {
-                    // got an error in getting the data, need to handle it
-                    print("error calling DELETE")
-                    print(response.result.error!)
-                    return
+        let requestURL =  URL(string : finalURL)
+        
+            var request = URLRequest(url: requestURL!)
+            request.httpMethod = method
+            
+            let tempCredentials = (credentials).data(using: String.Encoding.utf8)
+            let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+            
+            let task = URLSession.shared.dataTask(with: request) {
+                (data, response, error) in
+                
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        completionHandler(json, nil)
+                    }catch {
+                        completionHandler(nil, error)
+                    }
                 }
-                print("Succesfully deleted")
-        }
+            }
+            task.resume()
     }
     
 }
