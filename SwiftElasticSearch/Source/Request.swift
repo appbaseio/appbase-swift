@@ -131,6 +131,48 @@ public class Request {
         }
     }
     
+/// Initiate the mapping request (GET)
+///
+/// - parameter url: Server endpoint URL
+/// - parameter app: Name of application
+/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+///
+/// - returns: JSON object and the error occured if object not found in format (Any?, Error?)
+///
+    public func getMapping(url: String, app: String, type: String?, completionHandler: @escaping (Any?, Error?) -> ()) {
+        
+        var finalURL = url + "/" + app + "/_mapping"
+        
+        if type != nil {
+            finalURL += "/" + type!
+        }
+        
+        let data = (credentials).data(using: String.Encoding.utf8)
+        let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        
+        let requestURL = URL(string : finalURL)
+        
+        var request = URLRequest(url: requestURL!)
+        request.httpMethod = "GET"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response
+            , error) in
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    completionHandler(json, nil)
+                }catch {
+                    completionHandler(nil, error)
+                }
+            }
+            
+            }.resume()
+    }
+    
     
 /// Initiate the DELETE request
 ///
