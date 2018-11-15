@@ -90,46 +90,42 @@ public class Request {
 /// Initiate the GET request
 ///
 /// - parameter url: Server endpoint URL
+/// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
-/// - parameter appName: Name of application
 /// - parameter id: ID of query
 ///
-/// - returns: JSON object in format [String : Any]?
+/// - returns: JSON object and the error occured if object not found in format (Any?, Error?)
 ///
-    public func getData(url: String, type: String, appName: String, id: String, completionHandler: @escaping ([String : Any]?, Error?) -> ()) {
+    public func getData(url: String, app: String, type: String, id: String, completionHandler: @escaping (Any?, Error?) -> ()) {
+
+        let finalURL = url + "/" + app + "/" + type + "/" + id
         
-        let requestURL = url + "/" + appName + "/" + type + "/" + id
         let data = (credentials).data(using: String.Encoding.utf8)
         let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        let headers: HTTPHeaders = [
-            "Authorization": "Basic " + credentials64,
-            "Content-Type": "application/json"
-        ]
-
-        Alamofire.request(requestURL,headers:headers)
-            .responseJSON { response in
-                // check for errors
-                guard response.result.error == nil else {
-                    // got an error in getting the data, need to handle it
-                    print("error calling GET on /todos/1")
-                    print(response.result.error!)
-                    completionHandler(nil,response.result.error!)
-                    return
+        
+        let requestURL = URL(string : finalURL)
+        
+        var request = URLRequest(url: requestURL!)
+        request.httpMethod = "GET"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response
+            , error) in
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    completionHandler(json, nil)
+                }catch {
+                    completionHandler(nil, error)
                 }
-                
-                // Check to see if returned data is in JSON format
-                guard let json = response.result.value as? [String: Any] else {
-                    print("didn't get todo object as JSON from API")
-                    if let error = response.result.error {
-                        print("Error: \(error)")
-                        completionHandler(nil, error)
-                    }
-                    return
-                }
-                
-                completionHandler(json, nil)
-        }
+            }
+            
+            }.resume()
     }
+    
     
 /// Initiate the mapping request (GET)
 ///

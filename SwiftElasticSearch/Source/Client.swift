@@ -79,11 +79,11 @@ public class Client : NSObject {
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter id: ID of query
 ///
-/// - returns: JSON object in format [String : Any]?
+/// - returns: JSON object and the error occured if object not found in format (Any?, Error?)
 ///
-    public func get(type: String, id: String, completionHandler: @escaping ([String : Any]?, Error?) -> ()) {
+    public func get(type: String, id: String, completionHandler: @escaping (Any?, Error?) -> ()) {
         
-        APIkey?.getData(url: url, type: type, appName: app, id: id) {
+        APIkey?.getData(url: url, app: app, type: type, id: id) {
             JSON, error in
             
             if error == nil {
