@@ -170,8 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				D91B64D02191AECE004B8D0D /* Utils */,
-				D92762EB218F29F600564DF4 /* Errors */,
 				D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */,
+				D92762EC218F2A0C00564DF4 /* Errors.swift */,
 				D92762E0218F28CF00564DF4 /* Request.swift */,
 				D91B65672195F272004B8D0D /* Authenticate.swift */,
 				D92762BD218F260B00564DF4 /* Info.plist */,
@@ -188,14 +188,6 @@
 				D92762C9218F260B00564DF4 /* Info.plist */,
 			);
 			path = SwiftElasticSearchTests;
-			sourceTree = "<group>";
-		};
-		D92762EB218F29F600564DF4 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				D92762EC218F2A0C00564DF4 /* Errors.swift */,
-			);
-			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

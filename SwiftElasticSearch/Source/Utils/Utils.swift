@@ -32,41 +32,5 @@ class Utils {
         let method = RequestTypes.first(where: { $0.RequestString ==  RequestString} )?.HTTPvalue
         return method!
     }
-    
-    /// Network Errors with descriptions
-    ///
-    public enum NetworkError: Int, Error{
-        case Success = 200
-        case Unknown = 400
-        case NotFound = 500
-        
-        var localizedDescription: String{
-            switch self{
-                
-            /// Success
-            case .Success:
-                return "Success"
-                
-            /// Unknown request
-            case .Unknown:
-                return "Bad request, couldn't parse the request."
-                
-            /// Request not found
-            case .NotFound:
-                return "Server not found, please try again."
-            }
-        }
-        var code: Int{ return self.rawValue}
-    }
-    
-    /// Common Errors like Serialization Errors etc.
-    ///
-    public enum CommonError: String{
-        
-        /// JSON body parsing error
-        case jsonSerialization = "Couldn't parse to/from json object."
-        
-        /// Network Connection error
-        case networkConnection = "Network error."
-    }
+
 }
