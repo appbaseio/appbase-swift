@@ -1,0 +1,11 @@
+framework module SwiftElasticSearch {
+  umbrella header "SwiftElasticSearch.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftElasticSearch.Swift {
+    header "SwiftElasticSearch-Swift.h"
+    requires objc
+}
