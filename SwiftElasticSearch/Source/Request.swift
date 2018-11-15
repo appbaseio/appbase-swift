@@ -42,11 +42,11 @@ public class Request {
 /// - parameter id: ID of query (Can be nil)
 /// - parameter body: Data that needs to indexed
 ///
-/// - returns: JSON object and the error occured if object not found in format (Any?, Error?)
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func postData(url: String, method: String, appName: String, type: String, id: String? = nil, body: [String : Any], completionHandler: @escaping (Any?, Error?) -> ()) {
+    public func postData(url: String, method: String, app: String, type: String, id: String? = nil, body: [String : Any], completionHandler: @escaping (Any?, Error?) -> ()) {
 
-        var finalURL = url + "/" + appName + "/" + type
+        var finalURL = url + "/" + app + "/" + type
         
         if id != nil {
             finalURL += "/" + id!
@@ -94,7 +94,7 @@ public class Request {
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter id: ID of query
 ///
-/// - returns: JSON object and the error occured if object not found in format (Any?, Error?)
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
     public func getData(url: String, app: String, type: String, id: String, completionHandler: @escaping (Any?, Error?) -> ()) {
 
@@ -127,13 +127,13 @@ public class Request {
     }
     
     
-/// Initiate the mapping request (GET)
+/// Initiate the mapping request (GET Request)
 ///
 /// - parameter url: Server endpoint URL
 /// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 ///
-/// - returns: JSON object and the error occured if object not found in format (Any?, Error?)
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
     public func getMapping(url: String, app: String, type: String?, completionHandler: @escaping (Any?, Error?) -> ()) {
         
@@ -177,7 +177,7 @@ public class Request {
 /// - parameter appName: Name of application
 /// - parameter id: ID of query
 ///
-/// - returns: Void
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
     public func deleteData(url: String, type: String, method: HTTPMethod, appName: String, id: String) {
         

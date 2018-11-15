@@ -53,7 +53,7 @@ public class Client : NSObject {
 ///                 ]
 ///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
 ///
-/// - returns: JSON object and the error occured if object not found in format (Any?, Error?)
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
     public func index(type: String, id : String? = nil, body : [String : Any], completionHandler: @escaping (Any?, Error?) -> ()) {
   
@@ -62,7 +62,7 @@ public class Client : NSObject {
             method = "PUT"
         }
             
-        APIkey!.postData(url: url, method: method, appName: app, type: type, id: id, body: body) { ( JSON, error ) in
+        APIkey!.postData(url: url, method: method, app: app, type: type, id: id, body: body) { ( JSON, error ) in
             
             if error == nil {
                 completionHandler(JSON,nil)
@@ -79,7 +79,7 @@ public class Client : NSObject {
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter id: ID of query
 ///
-/// - returns: JSON object and the error occured if object not found in format (Any?, Error?)
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
     public func get(type: String, id: String, completionHandler: @escaping (Any?, Error?) -> ()) {
         
@@ -101,7 +101,7 @@ public class Client : NSObject {
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter id: ID of query
 ///
-/// - returns: Void
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
     public func delete(type: String, id : String) {
         
@@ -124,14 +124,22 @@ public class Client : NSObject {
 ///                        ]
 ///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
 ///
-/// - returns: Void
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func update(type: String, id : String, body : [String : Any]? = nil) {
+    public func update(type: String, id : String, body : [String : Any], completionHandler: @escaping (Any?, Error?) -> ()) {
         
-        let method = util.getRequestType(RequestString: "POST")
+        let method = "POST"
         let updateID = id + "/_update"
         
-        //APIkey!.postData(url: url, type: type, method: method, appName: app, id: updateID, body: body)
+        APIkey!.postData(url: url, method: method, app: app, type: type, id: updateID, body: body) { ( JSON, error ) in
+            
+            if error == nil {
+                completionHandler(JSON,nil)
+            }
+            else {
+                completionHandler(nil,error)
+            }
+        }
     }
     
 }
