@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Alamofire
 
 /// Class to handle the GET, POST PUT and DELETE requests made from any class inside the library
 ///

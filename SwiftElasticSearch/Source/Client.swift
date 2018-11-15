@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Alamofire
 
 /// Entry point in the SwiftElasticSearch library
 ///
