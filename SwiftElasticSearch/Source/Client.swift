@@ -32,9 +32,9 @@ public class Client : NSObject {
 ///
 /// - returns: SwiftElasticSearch class Object
 ///
-    public init(url baseURL : String, appName : String, credentials : String) {
-        self.url = baseURL
-        self.app = appName
+    public init(url : String, app : String, credentials : String) {
+        self.url = url
+        self.app = app
         self.credentials = credentials
         self.APIkey = Request(credentials : credentials)
     }
@@ -45,7 +45,7 @@ public class Client : NSObject {
 ///
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter id: ID of query (Can be nil)
-/// - parameter body: Data parameters that needs to send (Can be nil). The data must be in valid JSON format. Eg :
+/// - parameter body: Data that needs to indexed. The data must be in valid JSON format. Eg :
 ///                     let updateParameters:[String:Any] = [
 ///                         "doc": [
 ///                            "year": 2018
@@ -55,14 +55,22 @@ public class Client : NSObject {
 ///
 /// - returns: Void
 ///
-    public func index(type: String, id : String? = nil, body : [String : Any]? = nil) {
+    public func index(type: String, id : String? = nil, body : [String : Any], completionHandler: @escaping (Any?, Error?) -> ()) {
   
-        var method = util.getRequestType(RequestString: "POST")
+        var method = "POST"
         if id != nil {
-            method = util.getRequestType(RequestString: "PUT")
+            method = "PUT"
         }
             
-        APIkey!.postData(url: url, type: type, method: method, appName: app, id: id, body: body)
+        APIkey!.postData(url: url, method: method, appName: app, type: type, id: id, body: body) { ( JSON, error ) in
+            
+            if error == nil {
+                completionHandler(JSON,nil)
+            }
+            else {
+                completionHandler(nil,error)
+            }
+        }
     }
     
     
@@ -123,7 +131,7 @@ public class Client : NSObject {
         let method = util.getRequestType(RequestString: "POST")
         let updateID = id + "/_update"
         
-        APIkey!.postData(url: url, type: type, method: method, appName: app, id: updateID, body: body)
+        //APIkey!.postData(url: url, type: type, method: method, appName: app, id: updateID, body: body)
     }
     
 }

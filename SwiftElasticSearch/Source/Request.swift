@@ -36,43 +36,54 @@ public class Request {
 /// Initiate the POST request
 ///
 /// - parameter url: Server endpoint URL
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter method: Type of request
 /// - parameter appName: Name of application
+/// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter id: ID of query (Can be nil)
-/// - parameter body: Data parameters that needs to send (Can be nil)
+/// - parameter body: Data that needs to indexed
 ///
-/// - returns: Void
+/// - returns: JSON object and the error occured if object not found in format (Any?, Error?)
 ///
-    public func postData(url: String, type: String, method: HTTPMethod, appName: String, id: String? = nil, body: [String : Any]? = nil) {
+    public func postData(url: String, method: String, appName: String, type: String, id: String? = nil, body: [String : Any], completionHandler: @escaping (Any?, Error?) -> ()) {
 
-        var requestURL = url + "/" + appName + "/" + type
-        let data = (credentials).data(using: String.Encoding.utf8)
-        let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        let headers: HTTPHeaders = [
-            "Authorization": "Basic " + credentials64,
-            "Content-Type": "application/json"
-        ]
+        var finalURL = url + "/" + appName + "/" + type
         
         if id != nil {
-            requestURL = requestURL + "/" + id!
+            finalURL += "/" + id!
         }
         
-        Alamofire.request(requestURL, method: method, parameters: body, encoding: JSONEncoding.default, headers:headers).responseJSON {  (response) in
-                switch response.result {
-                    case .success(let JSON2):
-                        print("Success with JSON: \(JSON2)")
-                        break
+        let requestURL = URL(string : finalURL)
+        
+        do {
+
+            let data = try JSONSerialization.data(withJSONObject: body, options: [])
+            var request = URLRequest(url: requestURL!)
+            request.httpMethod = method
+            request.httpBody = data
             
-                    case .failure(let error):
-                        print("Request failed with error: \(error)")
-                        //callback(response.result.value as? NSMutableDictionary,error as NSError?)
-                        break
+            let tempCredentials = (credentials).data(using: String.Encoding.utf8)
+            let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+            
+            let task = URLSession.shared.dataTask(with: request) {
+                (data, response, error) in
+                
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        completionHandler(json, nil)
+                    }catch {
+                        completionHandler(nil, error)
                     }
                 }
-                .responseString { response in
-                        print("Response String: \(String(describing: response.result.value))")
-                }
+            }
+            task.resume()
+            
+        } catch let err {
+            print("Error", err)
+        }
+        
     }
     
     
