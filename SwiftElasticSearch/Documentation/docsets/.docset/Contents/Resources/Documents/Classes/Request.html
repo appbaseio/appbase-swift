@@ -14,7 +14,7 @@
     <a title="Request Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (71% documented)</p>
+        <p><a href="../index.html"> Docs</a> (78% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -54,15 +54,10 @@
             <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums/StatusCode.html">StatusCode</a>
+                <a href="../Enums/CommonError.html">CommonError</a>
               </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Structs.html">Structures</a>
-            <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/HTTPError.html">HTTPError</a>
+                <a href="../Enums/StatusCode.html">StatusCode</a>
               </li>
             </ul>
           </li>
@@ -189,9 +184,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
-                    <a name="//apple_ref/swift/Method/postData(url:type:method:appName:id:body:)" class="dashAnchor"></a>
-                    <a class="token" href="#/">postData(url:type:method:appName:id:body:)</a>
+                    <a name="/s:18SwiftElasticSearch7RequestC8postData3url6method3app4type2id4body17completionHandlerySS_S4SSgSDySSypGyypSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/postData(url:method:app:type:id:body:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC8postData3url6method3app4type2id4body17completionHandlerySS_S4SSgSDySSypGyypSg_s5Error_pSgtctF">postData(url:method:app:type:id:body:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -206,7 +201,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">HTTPMethod</span><span class="p">,</span> <span class="nv">appName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -223,18 +218,6 @@
                               <td>
                                 <div>
                                   <p>Server endpoint URL</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>type</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Type of data that is created in the app (Appbase dashboard)</p>
                                 </div>
                               </td>
                             </tr>
@@ -265,6 +248,18 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Type of data that is created in the app (Appbase dashboard)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>id</em>
                                 </code>
                               </td>
@@ -282,7 +277,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Data parameters that needs to send (Can be nil)</p>
+                                  <p>Data that needs to indexed</p>
                                 </div>
                               </td>
                             </tr>
@@ -291,7 +286,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Void</p>
+                        <p>JSON response and the error occured if any in format (Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -299,9 +294,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18SwiftElasticSearch7RequestC7getData3url4type7appName2id17completionHandlerySS_S3SySDySSypGSg_s5Error_pSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/getData(url:type:appName:id:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC7getData3url4type7appName2id17completionHandlerySS_S3SySDySSypGSg_s5Error_pSgtctF">getData(url:type:appName:id:completionHandler:)</a>
+                    <a name="/s:18SwiftElasticSearch7RequestC7getData3url3app4type2id17completionHandlerySS_S3SyypSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/getData(url:app:type:id:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC7getData3url3app4type2id17completionHandlerySS_S3SyypSg_s5Error_pSgtctF">getData(url:app:type:id:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -316,7 +311,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">appName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -339,24 +334,24 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>type</em>
+                                <em>app</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of data that is created in the app (Appbase dashboard)</p>
+                                  <p>Name of application</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>appName</em>
+                                <em>type</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Name of application</p>
+                                  <p>Type of data that is created in the app (Appbase dashboard)</p>
                                 </div>
                               </td>
                             </tr>
@@ -377,7 +372,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>JSON object in format [String : Any]?</p>
+                        <p>JSON response and the error occured if any in format (Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -385,9 +380,83 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
-                    <a name="//apple_ref/swift/Method/deleteData(url:type:method:appName:id:)" class="dashAnchor"></a>
-                    <a class="token" href="#/">deleteData(url:type:method:appName:id:)</a>
+                    <a name="/s:18SwiftElasticSearch7RequestC10getMapping3url3app4type17completionHandlerySS_S2SSgyypSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/getMapping(url:app:type:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC10getMapping3url3app4type17completionHandlerySS_S2SSgyypSg_s5Error_pSgtctF">getMapping(url:app:type:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initiate the mapping request (GET Request)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMapping</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>url</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Server endpoint URL</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>app</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Name of application</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Type of data that is created in the app (Appbase dashboard)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>JSON response and the error occured if any in format (Any?, Error?)</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18SwiftElasticSearch7RequestC10deleteData3url3app4type2id17completionHandlerySS_S3SyypSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/deleteData(url:app:type:id:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC10deleteData3url3app4type2id17completionHandlerySS_S3SyypSg_s5Error_pSgtctF">deleteData(url:app:type:id:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -402,7 +471,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">HTTPMethod</span><span class="p">,</span> <span class="nv">appName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="o">&lt;&lt;</span><span class="n">error</span> <span class="n">type</span><span class="o">&gt;&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -425,24 +494,24 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>type</em>
+                                <em>app</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of data that is created in the app (Appbase dashboard)</p>
+                                  <p>Name of application</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>appName</em>
+                                <em>type</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Name of application</p>
+                                  <p>Type of data that is created in the app (Appbase dashboard)</p>
                                 </div>
                               </td>
                             </tr>
@@ -463,7 +532,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Void</p>
+                        <p>JSON response and the error occured if any in format (Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -473,7 +542,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-11-15)</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-11-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

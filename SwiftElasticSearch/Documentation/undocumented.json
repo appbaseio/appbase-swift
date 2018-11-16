@@ -2,42 +2,28 @@
   "warnings": [
     {
       "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Client.swift",
-      "line": 19,
+      "line": 18,
       "symbol": "Client.url",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Client.swift",
-      "line": 20,
+      "line": 19,
       "symbol": "Client.app",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Client.swift",
-      "line": 21,
+      "line": 20,
       "symbol": "Client.credentials",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Errors/Errors.swift",
-      "line": 47,
-      "symbol": "HTTPError.statusCode",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Errors/Errors.swift",
-      "line": 48,
-      "symbol": "HTTPError.message",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Request.swift",
-      "line": 19,
+      "line": 18,
       "symbol": "Request.credentials",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
