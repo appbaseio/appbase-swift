@@ -1,0 +1,75 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Client.swift",
+      "line": 18,
+      "symbol": "Client.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Client.swift",
+      "line": 19,
+      "symbol": "Client.app",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Client.swift",
+      "line": 20,
+      "symbol": "Client.credentials",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Request.swift",
+      "line": 18,
+      "symbol": "Request.credentials",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Response.swift",
+      "line": 19,
+      "symbol": "Response.init(data:httpResponse:error:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Response.swift",
+      "line": 51,
+      "symbol": "Hits",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Response.swift",
+      "line": 53,
+      "symbol": "Hits.total",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Response.swift",
+      "line": 54,
+      "symbol": "Hits.maxScore",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Response.swift",
+      "line": 55,
+      "symbol": "Hits.hits",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch/Source/Response.swift",
+      "line": 69,
+      "symbol": "SearchHit",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/abhinavraj/Desktop/SwiftElasticSearch/SwiftElasticSearch"
+}

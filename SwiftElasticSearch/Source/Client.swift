@@ -253,7 +253,7 @@ public class Client : NSObject {
         }
     }
     
-/// Provides the data mapping corresponding to the app or the rype.
+/// Provides the data mapping corresponding to the app or the type.
 ///
 /// - parameter type: (optional field) Type of data that is created in the app (Appbase dashboard), provide if you want to get the data mapping from the correspong type.
 ///
