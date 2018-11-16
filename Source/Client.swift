@@ -259,7 +259,7 @@ public class Client : NSObject {
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
     
-    public func getMapping(type:String?,completionHandler: @escaping (Any?, Error?) -> ()){
+    public func getMapping(type:String?=nil ,completionHandler: @escaping (Any?, Error?) -> ()){
        
         APIkey?.getMapping(url: url, app: app, type: type){
             JSON, error in
@@ -271,5 +271,27 @@ public class Client : NSObject {
                 completionHandler(nil,error)
             }
         }
+    }
+    
+/// Provides the number of types which you have made in your appbase dashboard.
+///
+/// - returns: The number of types in your app.
+///
+
+    public func getTypes()->Int{
+        
+        var innerJson:NSDictionary?
+        let group = DispatchGroup()
+        group.enter()
+        
+        DispatchQueue.global().async {
+            self.getMapping { (json, error) in
+                innerJson = ((json! as? [String:Any])![self.app]! as? [String:Any])!["mappings"]! as? NSDictionary
+                group.leave()
+            }
+        }
+
+        group.wait()
+        return (innerJson?.count)! - 2
     }
 }
