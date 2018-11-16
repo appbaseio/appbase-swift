@@ -114,7 +114,7 @@ public class Client : NSObject {
                 completionHandler(nil,error)
             }
         }
-    }
+}
     
     
 /// Update data of the provided unique id (GET request)
@@ -148,4 +148,129 @@ public class Client : NSObject {
         }
     }
     
+/// Make bulk requests on a specified app or a specific type. Bulk requests can be any of index, update and delete requests.
+///
+/// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
+/// - parameter body: JSON structured data parameter that has to be passed for updating, Note: For updating data,  the JSON
+    ///            must be of the format {"request_type":{JSON}} :
+///                { "index": { "_type": "users", "_id": "2" } }
+///                { "doc" : {"field2" : "value2"} }
+///                { "delete": { "_id": "2" } }
+///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html)
+///
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+///
+    
+    public func bulk(type: String? = nil, body : [String : Any]? = nil,completionHandler: @escaping (Any?, Error?) -> ()){
+        let method = util.getRequestType(RequestString: "POST")
+        var bulk = "/_bulk"
+        if type != nil {
+            bulk = type! + "/_bulk"
+        }
+        APIkey!.postData(url: url, method: method.rawValue, app: app, type: bulk, body: body!) { ( JSON, error ) in
+            
+            if error == nil {
+                completionHandler(JSON,nil)
+            }
+            else {
+                completionHandler(nil,error)
+            }
+        }
+    }
+    
+/// Make search of JSON documents through given string using Elasticsearch's expressive Query DSL.
+///
+/// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
+/// - parameter String: The string for which the search has to be made
+///
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+///
+    
+    public func search(type:String, searchString: String,  completionHandler: @escaping (Any?, Error?) -> ()){
+        
+        let searchID = "_search?q="+searchString
+        
+        APIkey?.getData(url: url, app: app, type: type, id: searchID) {
+            JSON, error in
+            
+            if error == nil {
+                completionHandler(JSON,nil)
+            }
+            else {
+                completionHandler(nil,error)
+            }
+        }
+    }
+    
+    
+/// Apply a search via the request body. The request body is constructed using the Query DSL.
+///
+/// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
+/// - parameter body: The request body through which the query has to be made.The request body is constructed using the Query DSL.
+/// More information on how to make a request body can be found on : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html)
+///
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+///
+    
+    
+    public func msearch(type:String, body : [String : Any],completionHandler: @escaping (Any?, Error?) -> ()){
+        
+        let msearchType = type + "/_search"
+        let method = util.getRequestType(RequestString: "POST")
+        
+        APIkey!.postData(url: url, method: method.rawValue, app: app, type: msearchType, body: body) { ( JSON, error ) in
+            
+            if error == nil {
+                completionHandler(JSON,nil)
+            }
+            else {
+                completionHandler(nil,error)
+            }
+        }
+    }
+    
+/// Get streaming updates to a document with the specified id. The stream=true parameter informs the appbase.io service to keep the connection open, which is used to provide subsequent updates.
+///
+/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter id: ID of query
+///
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+///
+    
+    public func getStream(type: String, id: String, completionHandler: @escaping (Any?, Error?) -> ()) {
+        
+        let streamID = id + "?stream=true"
+        
+        APIkey?.getData(url: url, app: app, type: type, id: streamID) {
+            JSON, error in
+            
+            if error == nil {
+                completionHandler(JSON,nil)
+            }
+            else {
+                completionHandler(nil,error)
+            }
+        }
+    }
+    
+/// Provides the data mapping corresponding to the app or the rype.
+///
+/// - parameter type: (optional field) Type of data that is created in the app (Appbase dashboard), provide if you want to get the data mapping from the correspong type.
+///
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+///
+    
+    public func getMapping(type:String?,completionHandler: @escaping (Any?, Error?) -> ()){
+       
+        APIkey?.getMapping(url: url, app: app, type: type){
+            JSON, error in
+            
+            if error == nil {
+                completionHandler(JSON,nil)
+            }
+            else {
+                completionHandler(nil,error)
+            }
+        }
+    }
 }
