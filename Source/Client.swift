@@ -19,7 +19,6 @@ public class Client : NSObject {
     public var app : String
     public var credentials : String
     var APIkey : Request?
-    let util = Utils()
     
     // MARK: - Initializer
     
@@ -162,12 +161,12 @@ public class Client : NSObject {
 ///
     
     public func bulk(type: String? = nil, body : [String : Any]? = nil,completionHandler: @escaping (Any?, Error?) -> ()){
-        let method = util.getRequestType(RequestString: "POST")
+        let method = "POST"
         var bulk = "/_bulk"
         if type != nil {
             bulk = type! + "/_bulk"
         }
-        APIkey!.postData(url: url, method: method.rawValue, app: app, type: bulk, body: body!) { ( JSON, error ) in
+        APIkey!.postData(url: url, method: method, app: app, type: bulk, body: body!) { ( JSON, error ) in
             
             if error == nil {
                 completionHandler(JSON,nil)
@@ -216,9 +215,9 @@ public class Client : NSObject {
     public func msearch(type:String, body : [String : Any],completionHandler: @escaping (Any?, Error?) -> ()){
         
         let msearchType = type + "/_search"
-        let method = util.getRequestType(RequestString: "POST")
+        let method = "POST"
         
-        APIkey!.postData(url: url, method: method.rawValue, app: app, type: msearchType, body: body) { ( JSON, error ) in
+        APIkey!.postData(url: url, method: method, app: app, type: msearchType, body: body) { ( JSON, error ) in
             
             if error == nil {
                 completionHandler(JSON,nil)
