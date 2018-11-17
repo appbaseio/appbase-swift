@@ -45,9 +45,8 @@ public class Client : NSObject {
 /// - parameter id: ID of query (Can be nil)
 /// - parameter body: Data that needs to indexed. The data must be in valid JSON format. Eg :
 ///                     let updateParameters:[String:Any] = [
-///                         "doc": [
-///                            "year": 2018
-///                        ]
+///                         "year": 2018,
+///                          "movieName": "La La Land"
 ///                 ]
 ///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
 ///
@@ -127,6 +126,8 @@ public class Client : NSObject {
 ///                            "year": 2018
 ///                            ]
 ///                        ]
+///
+///                While updating, all the JSON body needs to be put inside a doc array as shown above else the method won't work.
 ///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)

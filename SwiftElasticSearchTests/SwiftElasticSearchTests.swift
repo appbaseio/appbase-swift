@@ -65,4 +65,55 @@ class SwiftElasticSearchTests: XCTestCase {
         group.wait()
     }
     
+    func test_update_is_updated() {
+        
+        let client = Client.init(url: "https://scalr.api.appbase.io", app: "SwiftClientES", credentials: "9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b")
+        let group = DispatchGroup()
+        group.enter()
+        
+        DispatchQueue.global().async {
+            
+            let updateParameters:[String:Any] = [
+                                        "doc": [
+                                            "year": 2018
+                                            ]
+                                        ]
+            
+            client.update(type: "SwiftClientES", id: "AWbvtPuIUHDq8oqypACI", body: updateParameters, completionHandler: { (json, error) in
+                
+                let innerJson = ((json! as? [String : Any])!)["result"]!
+                
+                // updated - When the data is updated
+                // noop - When the same data is overwritten (No operation)
+                XCTAssert(innerJson as? String == "updated" || innerJson as? String == "noop")
+                
+                group.leave()
+            })
+            
+        }
+        
+        group.wait()
+    }
+    
+    func test_delete_is_deleted() {
+        
+        let client = Client.init(url: "https://scalr.api.appbase.io", app: "SwiftClientES", credentials: "9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b")
+        let group = DispatchGroup()
+        group.enter()
+        
+        DispatchQueue.global().async {
+            
+            client.delete(type: "SwiftClientES", id: "AWbvtMgpUHDq8oqyo_Vx", completionHandler: { (json, error) in
+                
+                let innerJson = ((json! as? [String : Any])!)["result"]!
+                XCTAssert(innerJson as? String == "deleted")
+                
+                group.leave()
+            })
+            
+        }
+        
+        group.wait()
+    }
+    
 }
