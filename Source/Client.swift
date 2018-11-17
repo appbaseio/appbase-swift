@@ -147,6 +147,7 @@ public class Client : NSObject {
         }
     }
     
+    
 /// Make bulk requests on a specified app or a specific type. Bulk requests can be any of index, update and delete requests.
 ///
 /// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
@@ -159,7 +160,6 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    
     public func bulk(type: String? = nil, body : [String : Any]? = nil,completionHandler: @escaping (Any?, Error?) -> ()){
         let method = "POST"
         var bulk = "/_bulk"
@@ -177,6 +177,7 @@ public class Client : NSObject {
         }
     }
     
+    
 /// Make search of JSON documents through given string using Elasticsearch's expressive Query DSL.
 ///
 /// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
@@ -184,7 +185,6 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    
     public func search(type:String, searchString: String,  completionHandler: @escaping (Any?, Error?) -> ()){
         
         let searchID = "_search?q="+searchString
@@ -202,6 +202,7 @@ public class Client : NSObject {
     }
     
     
+    
 /// Apply a search via the request body. The request body is constructed using the Query DSL.
 ///
 /// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
@@ -210,8 +211,6 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    
-    
     public func msearch(type:String, body : [String : Any],completionHandler: @escaping (Any?, Error?) -> ()){
         
         let msearchType = type + "/_search"
@@ -228,6 +227,7 @@ public class Client : NSObject {
         }
     }
     
+    
 /// Get streaming updates to a document with the specified id. The stream=true parameter informs the appbase.io service to keep the connection open, which is used to provide subsequent updates.
 ///
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
@@ -235,7 +235,6 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    
     public func getStream(type: String, id: String, completionHandler: @escaping (Any?, Error?) -> ()) {
         
         let streamID = id + "?stream=true"
@@ -252,13 +251,13 @@ public class Client : NSObject {
         }
     }
     
+    
 /// Provides the data mapping corresponding to the app or the type.
 ///
 /// - parameter type: (optional field) Type of data that is created in the app (Appbase dashboard), provide if you want to get the data mapping from the correspong type.
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    
     public func getMapping(type:String?=nil ,completionHandler: @escaping (Any?, Error?) -> ()){
        
         APIkey?.getMapping(url: url, app: app, type: type){
@@ -273,11 +272,11 @@ public class Client : NSObject {
         }
     }
     
+    
 /// Provides the number of types which you have made in your appbase dashboard.
 ///
 /// - returns: The number of types in your app.
 ///
-
     public func getTypes()->Int{
         
         var innerJson:NSDictionary?
