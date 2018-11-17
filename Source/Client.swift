@@ -48,7 +48,7 @@ public class Client : NSObject {
 ///                         "year": 2018,
 ///                          "movieName": "La La Land"
 ///                 ]
-///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
+///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-index_.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-index_.html)
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
