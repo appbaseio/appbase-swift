@@ -8,20 +8,21 @@ The library provides very high performance results i.e. it provides response to 
 
 ## Installation
 
-### Cloning project (Easiest way)
+### Dynamic Framework (Simplest way)
 
-* Download the project using command :
+* Download the latest release of [SwiftElasticSearch](https://github.com/appbaseio-apps/SwiftElasticSearch/archive/v0.0.3.zip) from Github and extract the zip 
 
-```
-git clone "https://github.com/appbaseio-apps/SwiftElasticSearch.git"
-```
-* Navigate to file `SwiftElasticSearch.xcodeproj` and copy and paste it in your project directory (Under blue file icon in Xcode)
+* Navigate to your Xcode's project `General` settings (Click on the the blue icon showing your project's workspace -> General)
 
-* Navigate to General Settings (click on blue file icon) -> Linked Framweworks and binaries
+* Drag the `SwiftElasticSearch.framework` in the `Embedded Binaries` section and select the `Copy items if needed` checkbox in the prompted dialog box and click Finish
 
-* Click on `+` icon and add the `SwiftElasticSearch.framework` file that is available under `Workspace` folder
+* Go to `Linked Frameworks and Libraries` section and click on the `+` icon
 
-* Build the project and that's it. The library is ready to import
+* Click on `Add Other` option and navigate to SwiftElasticSearch-<Release Version> -> build -> Release-iphoneos
+
+* Click on the `SwiftElasticSearch.framework` to add it to dependencies
+
+* Build the project
 
 ### Carthage
 
@@ -57,6 +58,8 @@ The current latest Release Version is 0.0.3
 * Run `carthage update` to build the framework
 
 * Drag the `SwiftElasticSearch.framework` file that is generated inside Build folder of Carthage to your Xcode project
+
+* Build the project
 
 ### Swift Package Manager
 
