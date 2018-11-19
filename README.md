@@ -18,7 +18,7 @@ The library provides very high performance results i.e. it provides response to 
 
 * Go to `Linked Frameworks and Libraries` section and click on the `+` icon
 
-* Click on `Add Other` option and navigate to SwiftElasticSearch-<Release Version> -> build -> Release-iphoneos
+* Click on `Add Other` option and navigate to SwiftElasticSearch-0.0.3 (The file name can change depending upon the version downloaded) -> build -> Release-iphoneos
 
 * Click on the `SwiftElasticSearch.framework` to add it to dependencies
 
