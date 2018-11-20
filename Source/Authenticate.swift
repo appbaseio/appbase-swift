@@ -14,33 +14,69 @@ public class Authenticate {
     
     /// A string consisting of all the alphanumeric and some special characters
     ///
-    let characters : String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
+    public var credentials: String
+    public var appName: String
+    public var url:String
     
     /// init: initialiser of the Authenticate class
     ///
-    public init() {
-        
+    public init(url:String, app:String, credentials:String) {
+        self.appName = app
+        self.credentials = credentials
+        self.url = url
     }
     
-    /// generateRandomString: Generates random string of given length
-    ///
-    /// - parameter length: Length of the string that is to be generated
-    ///
-    /// - returns: String of random characters of given length
-    ///
-    func generateRandomString(length : Int) -> String {
-        return String((0...length-1).map{ _ in characters.randomElement()! })
+    public func appExists()->Bool{
+        let finalURL = url + "/" + appName
+        let data = (credentials).data(using: String.Encoding.utf8)
+        let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+    
+        let group = DispatchGroup()
+        group.enter()
+        let requestURL = URL(string : finalURL)
+    
+        var request = URLRequest(url: requestURL!)
+        request.httpMethod = "HEAD"
+        request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+        var statusCode:Int?
+        DispatchQueue.global().async {
+            
+            URLSession.shared.dataTask(with: request) { (data, response
+                , error) in
+                    if let httpResponse = response as? HTTPURLResponse {
+                        statusCode = httpResponse.statusCode as Int
+                    }
+                    group.leave()
+                }.resume()
+        }
+        group.wait()
+        return(statusCode == 200)
     }
     
-    /// generateRandomID : Generates random ID of the following pattern "xxxxxxxx-xxxx-4xxx-xxxx-xxxxxxxxxxxx"
-    ///
-    /// - returns: A random ID having a pattern followed by Appbase
-    ///
-    func generateRandomID() -> String {
+    public func typeExits(type:String)->Bool{
+        let finalURL = url + "/" + appName + "/_mapping/" + type
+        let data = (credentials).data(using: String.Encoding.utf8)
+        let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         
-        let id = generateRandomString(length: 8) + "-" + generateRandomString(length: 4) + "-4" + generateRandomString(length: 3) + generateRandomString(length: 4) + generateRandomString(length: 12)
+        let group = DispatchGroup()
+        group.enter()
+        let requestURL = URL(string : finalURL)
         
-        return id
+        var request = URLRequest(url: requestURL!)
+        request.httpMethod = "GET"
+        request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+        var statusCode:Int?
+        DispatchQueue.global().async {
+    
+            URLSession.shared.dataTask(with: request) { (data, response
+                , error) in
+                    if let httpResponse = response as? HTTPURLResponse {
+                        statusCode = httpResponse.statusCode as Int
+                    }
+                    group.leave()
+                }.resume()
+        }
+        group.wait()
+        return(statusCode == 200)
     }
-
 }

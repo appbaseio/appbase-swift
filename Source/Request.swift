@@ -16,7 +16,6 @@ public class Request {
     // MARK: - Properties
     
     public var credentials : String
-    let authenticate = Authenticate()
     
     
     // MARK: - Initializer
