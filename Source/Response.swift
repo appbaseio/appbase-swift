@@ -12,10 +12,21 @@ import Foundation
 ///
 public class Response {
     
-    let data: Data?
-    let httpResponse: URLResponse?
-    let error: Error?
+    // MARK: - Properties
     
+    public let data: Data?
+    public let httpResponse: URLResponse?
+    public let error: Error?
+   
+    
+    // MARK: - Initializer
+
+/// Initialises the Response class by providing the parameters as received response from the server
+///
+/// - parameter data: Data that is received for the request made
+/// - parameter httpResponse: Response received from the server
+/// - parameter error: Error(if any) that is encountered
+///
     public init(data: Data? ,httpResponse: URLResponse?, error: Error?) {
         self.data = data
         self.httpResponse = httpResponse
@@ -48,11 +59,11 @@ class GetResponse<T: Codable>: Codable {
     }
 }
 
-public class Hits<T: Codable>: Codable {
+class Hits<T: Codable>: Codable {
     
-    public var total: Int?
-    public var maxScore: Double?
-    public var hits: [SearchHit<T>] = []
+    var total: Int?
+    var maxScore: Double?
+    var hits: [SearchHit<T>] = []
     
     init() {
         
@@ -66,7 +77,7 @@ public class Hits<T: Codable>: Codable {
     
 }
 
-public class SearchHit<T: Codable>: Codable {
+class SearchHit<T: Codable>: Codable {
     
     var index: String?
     var type: String?

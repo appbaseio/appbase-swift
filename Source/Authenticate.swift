@@ -29,6 +29,8 @@ public class Authenticate {
     
     /// The appExists method checks if the app provide in the Client class as inititaliser exists
     ///
+    /// - returns: Boolean value for the question if the app exists or not
+    ///
     public func appExists() -> Bool {
         
         let finalURL = url + "/" + appName
@@ -64,6 +66,8 @@ public class Authenticate {
     /// It is compulsory for some methods to provide correct type else the request fails
     ///
     /// - parameter type: Type of data that is created in the app (Appbase dashboard)
+    ///
+    /// - returns: Boolean value for the question if given type exists or not
     ///
     public func typeExits(type : String) -> Bool {
         
