@@ -375,8 +375,8 @@ public class Client : NSObject {
                     group.leave()
                 }
             }
-            
             group.wait()
+            
             return (innerJson?.count)! - 2
 
         } else {
