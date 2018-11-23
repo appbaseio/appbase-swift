@@ -1,0 +1,68 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Authenticate.swift",
+      "line": 18,
+      "symbol": "Authenticate.appName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Authenticate.swift",
+      "line": 19,
+      "symbol": "Authenticate.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Client.swift",
+      "line": 18,
+      "symbol": "Client.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Client.swift",
+      "line": 19,
+      "symbol": "Client.app",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Client.swift",
+      "line": 20,
+      "symbol": "Client.credentials",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Request.swift",
+      "line": 18,
+      "symbol": "Request.credentials",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Response.swift",
+      "line": 17,
+      "symbol": "Response.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Response.swift",
+      "line": 18,
+      "symbol": "Response.httpResponse",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Response.swift",
+      "line": 19,
+      "symbol": "Response.error",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/abhinavraj/Desktop/SwiftElasticSearch"
+}
