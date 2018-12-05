@@ -31,7 +31,7 @@ public class Authenticate {
     ///
     /// - returns: Boolean value for the question if the app exists or not
     ///
-    public func appExists() -> Bool {
+    public func appExists(headers: [String: String]? = nil) -> Bool {
         
         let finalURL = url + "/" + appName
         let data = (credentials).data(using: String.Encoding.utf8)
@@ -40,10 +40,14 @@ public class Authenticate {
         let group = DispatchGroup()
         group.enter()
         let requestURL = URL(string : finalURL)
-    
         var request = URLRequest(url: requestURL!)
         request.httpMethod = "HEAD"
         request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+        if headers != nil {
+            for (key, value) in headers! {
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        }
         var statusCode:Int?
         
         DispatchQueue.global().async {
@@ -69,7 +73,7 @@ public class Authenticate {
     ///
     /// - returns: Boolean value for the question if given type exists or not
     ///
-    public func typeExits(type : String) -> Bool {
+    public func typeExits(type : String, headers: [String: String]? = nil) -> Bool {
         
         let finalURL = url + "/" + appName + "/_mapping/" + type
         let data = (credentials).data(using: String.Encoding.utf8)
@@ -82,6 +86,11 @@ public class Authenticate {
         var request = URLRequest(url: requestURL!)
         request.httpMethod = "GET"
         request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+        if headers != nil {
+            for (key, value) in headers! {
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        }
         var statusCode:Int?
         
         DispatchQueue.global().async {

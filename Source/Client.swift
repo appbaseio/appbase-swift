@@ -51,18 +51,19 @@ public class Client : NSObject {
 ///                          "movieName": "La La Land"
 ///                 ]
 ///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-index_.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-index_.html)
+/// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func index(type: String, id : String? = nil, body : [String : Any], completionHandler: @escaping (Any?, Any?) -> ()) {
+    public func index(type: String, id : String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()) {
         
-        if((authenticate?.appExists() == true)){
+        if(authenticate!.appExists(headers:headers)){
             var method = "POST"
             if id != nil {
                 method = "PUT"
             }
             
-            APIkey!.postData(url: url, method: method, app: app, type: type, id: id, body: body) { ( JSON, error ) in
+            APIkey!.postData(url: url, method: method, app: app, type: type, id: id, body: body, headers: headers) { ( JSON, error ) in
                 
                 if error == nil {
                     completionHandler(JSON,nil)
@@ -82,12 +83,13 @@ public class Client : NSObject {
 ///
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter id: ID of query
+/// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func get(type: String, id: String, completionHandler: @escaping (Any?, Error?) -> ()) {
+    public func get(type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
         
-        APIkey?.getData(url: url, app: app, type: type, id: id) {
+        APIkey?.getData(url: url, app: app, type: type, id: id, headers: headers) {
             JSON, error in
             
             if error == nil {
@@ -104,14 +106,15 @@ public class Client : NSObject {
 ///
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter id: ID of query
+/// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func delete(type: String, id : String, completionHandler: @escaping (Any?, Any?) -> ()) {
+    public func delete(type: String, id : String, headers: [String: String]? = nil,completionHandler: @escaping (Any?, Any?) -> ()) {
         
-        if((authenticate?.appExists() == true) && (authenticate?.typeExits(type: type) == true)){
+        if((authenticate!.appExists(headers: headers)) && (authenticate!.typeExits(type: type,headers: headers))){
             
-            APIkey!.deleteData(url: url, app: app, type: type, id: id) {
+            APIkey!.deleteData(url: url, app: app, type: type, id: id, headers: headers) {
                 JSON, error in
                 
                 if error == nil {
@@ -124,7 +127,7 @@ public class Client : NSObject {
             
         } else {
             
-            if(authenticate?.appExists() == true){
+            if(authenticate!.appExists(headers: headers)){
                 completionHandler(nil, "Type not found")
             } else {
                 completionHandler(nil,"No such app exists")
@@ -149,17 +152,18 @@ public class Client : NSObject {
 ///
 ///                While updating, all the JSON body needs to be put inside a doc array as shown above else the method won't work.
 ///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
+/// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func update(type: String, id : String, body : [String : Any], completionHandler: @escaping (Any?, Any?) -> ()) {
+    public func update(type: String, id : String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()) {
         
-        if((authenticate?.appExists() == true) && (authenticate?.typeExits(type: type) == true)){
+        if((authenticate!.appExists(headers: headers)) && (authenticate!.typeExits(type: type,headers: headers))){
             
             let method = "POST"
             let updateID = id + "/_update"
             
-            APIkey!.postData(url: url, method: method, app: app, type: type, id: updateID, body: body) { ( JSON, error ) in
+            APIkey!.postData(url: url, method: method, app: app, type: type, id: updateID, body: body,headers: headers) { ( JSON, error ) in
                 
                 if error == nil {
                     completionHandler(JSON,nil)
@@ -171,7 +175,7 @@ public class Client : NSObject {
             
         } else {
             
-            if(authenticate?.appExists() == true){
+            if(authenticate!.appExists(headers: headers)){
                 completionHandler(nil, "Type not found")
             } else {
                 completionHandler(nil,"No such app exists")
@@ -191,18 +195,19 @@ public class Client : NSObject {
 ///                { "doc" : {"field2" : "value2"} }
 ///                { "delete": { "_id": "2" } }
 ///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html)
+/// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func bulk(type: String? = nil, body : [String : Any]? = nil,completionHandler: @escaping (Any?, Any?) -> ()){
+    public func bulk(type: String? = nil, body : [String : Any]? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()){
         
-        if((authenticate?.appExists() == true)){
+        if(authenticate!.appExists(headers: headers)){
             let method = "POST"
             var bulk = "/_bulk"
             if type != nil {
                 bulk = type! + "/_bulk"
             }
-            APIkey!.postData(url: url, method: method, app: app, type: bulk, body: body!) { ( JSON, error ) in
+            APIkey!.postData(url: url, method: method, app: app, type: bulk, body: body!, headers:headers) { ( JSON, error ) in
                 
                 if error == nil {
                     completionHandler(JSON,nil)
@@ -221,13 +226,13 @@ public class Client : NSObject {
 ///
 /// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
 /// - parameter String: The string for which the search has to be made
+/// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func search(type:String, searchString: String,  completionHandler: @escaping (Any?, Any?) -> ()){
+    public func search(type:String, searchString: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()){
         
-        if((authenticate?.appExists() == true) && (authenticate?.typeExits(type: type) == true)){
-            
+        if((authenticate!.appExists(headers: headers)) && (authenticate!.typeExits(type: type,headers:headers))){
             let searchID = "_search?q="+searchString
             
             APIkey?.getData(url: url, app: app, type: type, id: searchID) {
@@ -242,7 +247,7 @@ public class Client : NSObject {
             }
         } else {
             
-            if(authenticate?.appExists() == true){
+            if(authenticate!.appExists(headers: headers)){
                 completionHandler(nil, "Type not found")
             } else {
                 completionHandler(nil,"No such app exists")
@@ -259,17 +264,18 @@ public class Client : NSObject {
 /// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
 /// - parameter body: The request body through which the query has to be made.The request body is constructed using the Query DSL.
 /// More information on how to make a request body can be found on : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html)
+/// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func msearch(type:String, body : [String : Any],completionHandler: @escaping (Any?, Any?) -> ()){
+    public func msearch(type:String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()){
         
-        if((authenticate?.appExists() == true) && (authenticate?.typeExits(type: type) == true)){
+        if((authenticate!.appExists(headers: headers)) && (authenticate!.typeExits(type: type,headers:headers))){
             
             let msearchType = type + "/_search"
             let method = "POST"
             
-            APIkey!.postData(url: url, method: method, app: app, type: msearchType, body: body) { ( JSON, error ) in
+            APIkey!.postData(url: url, method: method, app: app, type: msearchType, body: body,headers: headers) { ( JSON, error ) in
                 
                 if error == nil {
                     completionHandler(JSON,nil)
@@ -281,7 +287,7 @@ public class Client : NSObject {
             
         } else {
             
-            if(authenticate?.appExists() == true){
+            if(authenticate!.appExists(headers: headers)){
                 completionHandler(nil, "Type not found")
             } else {
                 completionHandler(nil,"No such app exists")
@@ -296,16 +302,17 @@ public class Client : NSObject {
 ///
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter id: ID of query
+/// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func getStream(type: String, id: String, completionHandler: @escaping (Any?, Any?) -> ()) {
+    public func getStream(type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()) {
         
-        if((authenticate?.appExists() == true) && (authenticate?.typeExits(type: type) == true)){
+        if((authenticate!.appExists(headers: headers)) && (authenticate!.typeExits(type:type ,headers:headers))){
             
             let streamID = id + "?stream=true"
             
-            APIkey?.getData(url: url, app: app, type: type, id: streamID) {
+            APIkey?.getData(url: url, app: app, type: type, id: streamID, headers: headers) {
                 JSON, error in
                 
                 if error == nil {
@@ -318,7 +325,7 @@ public class Client : NSObject {
             
         } else {
             
-            if(authenticate?.appExists() == true){
+            if(authenticate!.appExists(headers: headers)){
                 completionHandler(nil, "Type not found")
             } else {
                 completionHandler(nil,"No such app exists")
@@ -332,15 +339,15 @@ public class Client : NSObject {
 /// Provides the data mapping corresponding to the app or the type.
 ///
 /// - parameter type: (optional field) Type of data that is created in the app (Appbase dashboard), provide if you want to get the data mapping from the correspong type.
+/// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func getMapping(type:String?=nil ,completionHandler: @escaping (Any?, Any?) -> ()){
+    public func getMapping(type:String?=nil , headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()){
        
-        
-        if((authenticate?.appExists() == true)){
+        if(authenticate!.appExists(headers: headers)){
             
-            APIkey?.getMapping(url: url, app: app, type: type){
+            APIkey?.getMapping(url: url, app: app, type: type, headers: headers){
                 JSON, error in
                 
                 if error == nil {
@@ -358,19 +365,20 @@ public class Client : NSObject {
     
     
 /// Provides the number of types which you have made in your appbase dashboard.
+/// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: The number of types in your app.
 ///
-    public func getTypes()->Int{
+    public func getTypes(headers: [String: String]? = nil)->Int{
         
-        if((authenticate?.appExists() == true)){
+        if(authenticate!.appExists(headers: headers)){
             
             var innerJson:NSDictionary?
             let group = DispatchGroup()
             group.enter()
             
             DispatchQueue.global().async {
-                self.getMapping { (json, error) in
+                self.getMapping(headers:headers) { (json, error) in
                     innerJson = ((json! as? [String:Any])![self.app]! as? [String:Any])!["mappings"]! as? NSDictionary
                     group.leave()
                 }
