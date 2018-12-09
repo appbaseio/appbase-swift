@@ -1,20 +1,6 @@
 {
   "warnings": [
     {
-      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Authenticate.swift",
-      "line": 18,
-      "symbol": "Authenticate.appName",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Authenticate.swift",
-      "line": 19,
-      "symbol": "Authenticate.url",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Client.swift",
       "line": 18,
       "symbol": "Client.url",

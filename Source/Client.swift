@@ -19,7 +19,7 @@ public class Client : NSObject {
     public var app : String
     public var credentials : String
     var APIkey : Request?
-    var authenticate:Authenticate?
+    
     
     // MARK: - Initializer
     
@@ -36,8 +36,7 @@ public class Client : NSObject {
         self.app = app
         self.credentials = credentials
         self.APIkey = Request(credentials : credentials)
-        self.authenticate = Authenticate(url:url, app: app, credentials: credentials)
-    }
+        }
     
     // MARK: - Operations
     
@@ -55,9 +54,8 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func index(type: String, id : String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()) {
+    public func index(type: String, id : String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
         
-        if(authenticate!.appExists(headers:headers)){
             var method = "POST"
             if id != nil {
                 method = "PUT"
@@ -72,10 +70,6 @@ public class Client : NSObject {
                     completionHandler(nil,error)
                 }
             }
-        } else {
-            completionHandler(nil, "No such app exists")
-        }
-
     }
     
     
@@ -110,10 +104,8 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func delete(type: String, id : String, headers: [String: String]? = nil,completionHandler: @escaping (Any?, Any?) -> ()) {
+    public func delete(type: String, id : String, headers: [String: String]? = nil,completionHandler: @escaping (Any?, Error?) -> ()) {
         
-        if((authenticate!.appExists(headers: headers)) && (authenticate!.typeExits(type: type,headers: headers))){
-            
             APIkey!.deleteData(url: url, app: app, type: type, id: id, headers: headers) {
                 JSON, error in
                 
@@ -124,17 +116,6 @@ public class Client : NSObject {
                     completionHandler(nil,error)
                 }
             }
-            
-        } else {
-            
-            if(authenticate!.appExists(headers: headers)){
-                completionHandler(nil, "Type not found")
-            } else {
-                completionHandler(nil,"No such app exists")
-            }
-            
-        }
-
 }
     
     
@@ -156,10 +137,8 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func update(type: String, id : String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()) {
+    public func update(type: String, id : String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
         
-        if((authenticate!.appExists(headers: headers)) && (authenticate!.typeExits(type: type,headers: headers))){
-            
             let method = "POST"
             let updateID = id + "/_update"
             
@@ -171,18 +150,7 @@ public class Client : NSObject {
                 else {
                     completionHandler(nil,error)
                 }
-            }
-            
-        } else {
-            
-            if(authenticate!.appExists(headers: headers)){
-                completionHandler(nil, "Type not found")
-            } else {
-                completionHandler(nil,"No such app exists")
-            }
-            
         }
-    
     }
     
     
@@ -199,9 +167,8 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func bulk(type: String? = nil, body : [String : Any]? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()){
+    public func bulk(type: String? = nil, body : [String : Any]? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()){
         
-        if(authenticate!.appExists(headers: headers)){
             let method = "POST"
             var bulk = "/_bulk"
             if type != nil {
@@ -216,9 +183,6 @@ public class Client : NSObject {
                     completionHandler(nil,error)
                 }
             }
-        } else {
-            completionHandler(nil, "No such app exists")
-        }
     }
     
     
@@ -230,9 +194,8 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func search(type:String, searchString: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()){
+    public func search(type:String, searchString: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()){
         
-        if((authenticate!.appExists(headers: headers)) && (authenticate!.typeExits(type: type,headers:headers))){
             let searchID = "_search?q="+searchString
             
             APIkey?.getData(url: url, app: app, type: type, id: searchID) {
@@ -245,16 +208,6 @@ public class Client : NSObject {
                     completionHandler(nil,error)
                 }
             }
-        } else {
-            
-            if(authenticate!.appExists(headers: headers)){
-                completionHandler(nil, "Type not found")
-            } else {
-                completionHandler(nil,"No such app exists")
-            }
-            
-        }
-        
     }
     
     
@@ -268,10 +221,8 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func msearch(type:String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()){
+    public func msearch(type:String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()){
         
-        if((authenticate!.appExists(headers: headers)) && (authenticate!.typeExits(type: type,headers:headers))){
-            
             let msearchType = type + "/_search"
             let method = "POST"
             
@@ -284,17 +235,6 @@ public class Client : NSObject {
                     completionHandler(nil,error)
                 }
             }
-            
-        } else {
-            
-            if(authenticate!.appExists(headers: headers)){
-                completionHandler(nil, "Type not found")
-            } else {
-                completionHandler(nil,"No such app exists")
-            }
-            
-        }
-        
     }
     
     
@@ -306,10 +246,8 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func getStream(type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()) {
+    public func getStream(type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
         
-        if((authenticate!.appExists(headers: headers)) && (authenticate!.typeExits(type:type ,headers:headers))){
-            
             let streamID = id + "?stream=true"
             
             APIkey?.getData(url: url, app: app, type: type, id: streamID, headers: headers) {
@@ -322,17 +260,6 @@ public class Client : NSObject {
                     completionHandler(nil,error)
                 }
             }
-            
-        } else {
-            
-            if(authenticate!.appExists(headers: headers)){
-                completionHandler(nil, "Type not found")
-            } else {
-                completionHandler(nil,"No such app exists")
-            }
-            
-        }
-        
     }
     
     
@@ -343,9 +270,7 @@ public class Client : NSObject {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func getMapping(type:String?=nil , headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?) -> ()){
-       
-        if(authenticate!.appExists(headers: headers)){
+    public func getMapping(type:String?=nil , headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()){
             
             APIkey?.getMapping(url: url, app: app, type: type, headers: headers){
                 JSON, error in
@@ -357,10 +282,6 @@ public class Client : NSObject {
                     completionHandler(nil,error)
                 }
             }
-            
-        } else {
-            completionHandler(nil, "No such app exists")
-        }
     }
     
     
@@ -370,9 +291,7 @@ public class Client : NSObject {
 /// - returns: The number of types in your app.
 ///
     public func getTypes(headers: [String: String]? = nil)->Int{
-        
-        if(authenticate!.appExists(headers: headers)){
-            
+                    
             var innerJson:NSDictionary?
             let group = DispatchGroup()
             group.enter()
@@ -386,9 +305,5 @@ public class Client : NSObject {
             group.wait()
             
             return (innerJson?.count)! - 2
-
-        } else {
-            return -1
         }
-    }
 }

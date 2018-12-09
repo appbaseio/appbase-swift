@@ -36,6 +36,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Errors.swift",
+      "line": 17,
+      "symbol": "Errors.statusCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Request.swift",
       "line": 18,
       "symbol": "Request.credentials",
@@ -61,6 +68,41 @@
       "line": 19,
       "symbol": "Response.error",
       "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Response.swift",
+      "line": 36,
+      "symbol": "Response.getReceivedData()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Response.swift",
+      "line": 51,
+      "symbol": "Response.getStatusCode()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Response.swift",
+      "line": 59,
+      "symbol": "Response.getReceivedError()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Response.swift",
+      "line": 63,
+      "symbol": "Response.isDataReceieved()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Response.swift",
+      "line": 73,
+      "symbol": "Response.getReceivedStatusFromCode()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],
