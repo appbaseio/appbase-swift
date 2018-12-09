@@ -80,9 +80,10 @@ public class Request {
                 if receivedData != nil {
                     completionHandler(receivedData, nil)
                 }
-                
-                let receivedError = responseInitializer.getReceivedError()
-                completionHandler(nil, receivedError)
+                else {
+                    let receivedError = responseInitializer.getReceivedError()
+                    completionHandler(nil, receivedError)
+                }
                 
             }
             task.resume()
@@ -124,20 +125,23 @@ public class Request {
             }
         }
 
-        
-        URLSession.shared.dataTask(with: request) { (data, response
-            , error) in
+        let task = URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
             
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    completionHandler(json, nil)
-                }catch {
-                    completionHandler(nil, error)
-                }
+            let responseInitializer = Response.init(data: data, httpResponse: response, error: error)
+            
+            let receivedData = responseInitializer.getReceivedData()
+            
+            if receivedData != nil {
+                completionHandler(receivedData, nil)
+            }
+            else {
+                let receivedError = responseInitializer.getReceivedError()
+                completionHandler(nil, receivedError)
             }
             
-            }.resume()
+        }
+        task.resume()
     }
     
     
@@ -174,19 +178,24 @@ public class Request {
             }
         }
         
-        URLSession.shared.dataTask(with: request) { (data, response
-            , error) in
+        let task = URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
             
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    completionHandler(json, nil)
-                }catch {
-                    completionHandler(nil, error)
-                }
+            let responseInitializer = Response.init(data: data, httpResponse: response, error: error)
+            
+            let receivedData = responseInitializer.getReceivedData()
+            
+            if receivedData != nil {
+                completionHandler(receivedData, nil)
+            }
+            else {
+                let receivedError = responseInitializer.getReceivedError()
+                completionHandler(nil, receivedError)
             }
             
-            }.resume()
+        }
+        task.resume()
+        
     }
     
     
@@ -220,20 +229,24 @@ public class Request {
                 }
             }
         
+        let task = URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
             
-            let task = URLSession.shared.dataTask(with: request) {
-                (data, response, error) in
-                
-                if let data = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        completionHandler(json, nil)
-                    }catch {
-                        completionHandler(nil, error)
-                    }
-                }
+            let responseInitializer = Response.init(data: data, httpResponse: response, error: error)
+            
+            let receivedData = responseInitializer.getReceivedData()
+            
+            if receivedData != nil {
+                completionHandler(receivedData, nil)
             }
-            task.resume()
+            else {
+                let receivedError = responseInitializer.getReceivedError()
+                completionHandler(nil, receivedError)
+            }
+            
+        }
+        task.resume()
+        
     }
     
 }
