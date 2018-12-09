@@ -8,20 +8,23 @@
 
 import Foundation
 
-    // MARK: Operators
-
-/// Enum holding status codes for corresponding error messages
+/// Class for handling different types of errors
 ///
-
 public class Errors {
+    
+    // MARK: - Properties
     
     public let statusCode : Int
     
-    public init(statusCode : Int) {
+    // MARK: Initializer
+    
+    init(statusCode : Int) {
         self.statusCode = statusCode
     }
     
-    public func getErrorFromCode() -> String {
+    // MARK: Operators
+    
+    func getErrorFromCode() -> String {
         
         switch statusCode {
             
@@ -60,33 +63,33 @@ public class Errors {
     }
 
     /// Test whether a status code represents success
-    public func isSuccess() -> Bool {
+    func isSuccess() -> Bool {
         return statusCode >= 200 && statusCode < 300
     }
 
     /// Test whether a status code represents a client error
-    public func isClientError() -> Bool {
+    func isClientError() -> Bool {
         return statusCode >= 400 && statusCode < 500
     }
 
     /// Test whether a status code represents a server error
-    public func isServerError() -> Bool {
+    func isServerError() -> Bool {
         return statusCode >= 500 && statusCode < 600
     }
 
     /// Test whether a status code represents bad credential
-    public func isBadCredential() -> Bool {
+    func isBadCredential() -> Bool {
         return statusCode == 401
     }
 
     /// Test whether a status code represents page doesn't exist
-    public func isNotFound() -> Bool {
+    func isNotFound() -> Bool {
         return statusCode == 404
     }
 
 /// Common Errors like Serialization Errors etc.
 ///
-public enum CommonError: String {
+ enum CommonError: String {
     
     /// JSON body parsing error
     case jsonSerialization = "Couldn't parse to/from json object."
