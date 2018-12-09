@@ -32,69 +32,51 @@ public class Response {
         self.httpResponse = httpResponse
         self.error = error
     }
-}
+    
+    public func getReceivedData() -> Any? {
 
-class GetResponse<T: Codable>: Codable {
-    
-    var index: String?
-    var type: String?
-    var id: String?
-    var version: Int?
-    var found: Bool?
-    
-    public var source: T?
-    
-    init() {
+        if let data = data {
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                return json
+            } catch {
+                // Handle error
+            }
+        }
         
+        return nil
     }
     
-    enum CodingKeys: String, CodingKey {
-        case index = "_index"
-        case type = "_type"
-        case id = "_id"
-        case version = "_version"
-        case source = "_source"
+    public func getStatusCode() -> Int {
         
-        case found
-    }
-}
-
-class Hits<T: Codable>: Codable {
-    
-    var total: Int?
-    var maxScore: Double?
-    var hits: [SearchHit<T>] = []
-    
-    init() {
+        let response = self.httpResponse as! HTTPURLResponse
+        let statusCode = response.statusCode
         
+        return statusCode
     }
     
-    enum CodingKeys: String, CodingKey {
-        case total
-        case maxScore = "max_score"
-        case hits
+    public func getReceivedError() -> Error? {
+        return error
     }
     
-}
-
-class SearchHit<T: Codable>: Codable {
-    
-    var index: String?
-    var type: String?
-    var id: String?
-    var score: Double?
-    var source: T?
-    
-    
-    init() {
+    public func isDataReceieved() -> Bool {
         
+        let response = self.httpResponse as! HTTPURLResponse
+        let statusCode = response.statusCode
+        
+        let status = Errors.init(statusCode: statusCode)
+        
+        return status.isSuccess()
     }
     
-    enum CodingKeys: String, CodingKey {
-        case index = "_index"
-        case type = "_type"
-        case id = "_id"
-        case score = "_score"
-        case source = "_source"
+    public func getReceivedStatusFromCode() -> String {
+        
+        let response = self.httpResponse as! HTTPURLResponse
+        let statusCode = response.statusCode
+        
+        let error = Errors.init(statusCode: statusCode)
+        
+        return error.getErrorFromCode()
     }
 }

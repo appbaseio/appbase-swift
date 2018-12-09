@@ -69,19 +69,21 @@ public class Request {
                     request.addValue(value, forHTTPHeaderField: key)
                 }
             }
-
             
             let task = URLSession.shared.dataTask(with: request) {
                 (data, response, error) in
                 
-                if let data = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        completionHandler(json, nil)
-                    }catch {
-                        completionHandler(nil, error)
-                    }
+                let responseInitializer = Response.init(data: data, httpResponse: response, error: error)
+                
+                let receivedData = responseInitializer.getReceivedData()
+                
+                if receivedData != nil {
+                    completionHandler(receivedData, nil)
                 }
+                
+                let receivedError = responseInitializer.getReceivedError()
+                completionHandler(nil, receivedError)
+                
             }
             task.resume()
             
