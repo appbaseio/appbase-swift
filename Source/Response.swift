@@ -33,6 +33,13 @@ public class Response {
         self.error = error
     }
     
+    
+    // MARK: - Operations
+    
+    /// Returns the data that is received from the server
+    ///
+    /// - returns: JSON response received from the server
+    ///
     public func getReceivedData() -> Any? {
 
         if let data = data {
@@ -48,6 +55,11 @@ public class Response {
         return nil
     }
     
+    
+    /// Returns the status code of the made request
+    ///
+    /// - returns: Received status code in integer format
+    ///
     public func getStatusCode() -> Int {
         
         let response = self.httpResponse as! HTTPURLResponse
@@ -56,10 +68,20 @@ public class Response {
         return statusCode
     }
     
+    
+    /// Returns the received error if any from the server
+    ///
+    /// - returns: Encountered error by the server for the request made
+    ///
     public func getReceivedError() -> Error? {
         return error
     }
     
+    
+    /// Checks if any data is received from the server for the request made
+    ///
+    /// - returns: Boolean value for the condition if data is received or not
+    ///
     public func isDataReceieved() -> Bool {
         
         let response = self.httpResponse as! HTTPURLResponse
@@ -70,6 +92,11 @@ public class Response {
         return status.isSuccess()
     }
     
+    
+    /// Returns the status of the request made from the status code
+    ///
+    /// - returns: Status of the request in String format for the provided status code
+    ///
     public func getReceivedStatusFromCode() -> String {
         
         let response = self.httpResponse as! HTTPURLResponse
