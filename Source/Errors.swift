@@ -16,11 +16,17 @@ public class Errors {
     
     public let statusCode : Int
     
+    
     // MARK: Initializer
     
-    init(statusCode : Int) {
+/// Initialises the Error class
+///
+/// - parameter statusCode: The status code of the request that is received from the server
+///
+    public init(statusCode : Int) {
         self.statusCode = statusCode
     }
+    
     
     // MARK: Operators
     
@@ -63,27 +69,42 @@ public class Errors {
     }
 
     /// Test whether a status code represents success
-    func isSuccess() -> Bool {
+    ///
+    /// - returns: Boolean value for the condition if the request made is a success or not
+    ///
+    public func isSuccess() -> Bool {
         return statusCode >= 200 && statusCode < 300
     }
 
     /// Test whether a status code represents a client error
-    func isClientError() -> Bool {
+    ///
+    /// - returns: Boolean value for the condition if there is a client side error
+    ///
+    public func isClientError() -> Bool {
         return statusCode >= 400 && statusCode < 500
     }
 
     /// Test whether a status code represents a server error
-    func isServerError() -> Bool {
+    ///
+    /// - returns: Boolean value for the condition if there is any server side error
+    ///
+    public func isServerError() -> Bool {
         return statusCode >= 500 && statusCode < 600
     }
 
     /// Test whether a status code represents bad credential
-    func isBadCredential() -> Bool {
+    ///
+    /// - returns: Boolean value for the condition if the request made has bad credentials
+    ///
+    public func isBadCredential() -> Bool {
         return statusCode == 401
     }
 
     /// Test whether a status code represents page doesn't exist
-    func isNotFound() -> Bool {
+    ///
+    /// - returns: Boolean value for the condition if the requested page exists or not
+    ///
+    public func isNotFound() -> Bool {
         return statusCode == 404
     }
 
