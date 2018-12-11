@@ -14,15 +14,17 @@ The library provides very high performance results i.e. it provides response to 
 
 * Navigate to your Xcode's project `General` settings (Click on the the blue icon showing your project's workspace -> General)
 
-* Drag the `SwiftElasticSearch.framework` in the `Embedded Binaries` section and select the `Copy items if needed` checkbox in the prompted dialog box and click Finish
+* Drag the `SwiftElasticSearch.xcodeproj` file from the extracted folder in the `Embedded Binaries` section and select the `Copy items if needed` checkbox in the prompted dialog box (if it appears) and click Finish
 
 * Go to `Linked Frameworks and Libraries` section and click on the `+` icon
-
-* Click on `Add Other` option and navigate to SwiftElasticSearch-0.0.3 (The file name can change depending upon the version downloaded) -> build -> Release-iphoneos
 
 * Click on the `SwiftElasticSearch.framework` to add it to dependencies
 
 * Build the project
+
+Here is the GIF showing all the above steps in action - 
+
+![](SwiftElasticSearchDemo.gif)
 
 ### Carthage
 
