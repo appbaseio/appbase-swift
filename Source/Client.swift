@@ -59,23 +59,13 @@ public class Client : NSObject {
             if id != nil {
                 APIkey!.putData(url: url, app: app, type: type, id: id, body: body, headers: headers) { ( JSON, response, error ) in
                     
-                    if error == nil {
-                        completionHandler(JSON, response, nil)
-                    }
-                    else {
-                        completionHandler(nil, response, error)
-                    }
+                    completionHandler(JSON, response, error)
                 }
             }
             else {
                 APIkey!.postData(url: url, app: app, type: type, id: id, body: body, headers: headers) { ( JSON, response, error ) in
                     
-                    if error == nil {
-                        completionHandler(JSON, response, nil)
-                    }
-                    else {
-                        completionHandler(nil, response, error)
-                    }
+                    completionHandler(JSON, response, error)
                 }
             }
     }
@@ -94,12 +84,7 @@ public class Client : NSObject {
         APIkey?.getData(url: url, app: app, type: type, id: id, headers: headers) {
             JSON, response, error in
             
-            if error == nil {
-                completionHandler(JSON, response, nil)
-            }
-            else {
-                completionHandler(nil, response, error)
-            }
+            completionHandler(JSON, response, error)
         }
     }
     
@@ -117,12 +102,7 @@ public class Client : NSObject {
             APIkey!.deleteData(url: url, app: app, type: type, id: id, headers: headers) {
                 JSON, response, error in
                 
-                if error == nil {
-                    completionHandler(JSON, response, nil)
-                }
-                else {
-                    completionHandler(nil, response, error)
-                }
+                completionHandler(JSON, response, error)
             }
 }
     
@@ -151,12 +131,7 @@ public class Client : NSObject {
             
             APIkey!.postData(url: url, app: app, type: type, id: updateID, body: body,headers: headers) { ( JSON, response, error ) in
                 
-                if error == nil {
-                    completionHandler(JSON, response, nil)
-                }
-                else {
-                    completionHandler(nil, response, error)
-                }
+                completionHandler(JSON, response, error)
         }
     }
     
@@ -183,12 +158,7 @@ public class Client : NSObject {
         
             APIkey!.postData(url: url, app: app, type: bulk, body: body!, headers:headers) { ( JSON, response, error ) in
                 
-                if error == nil {
-                    completionHandler(JSON, response, nil)
-                }
-                else {
-                    completionHandler(nil, response, error)
-                }
+                completionHandler(JSON, response, error)
             }
     }
     
@@ -208,12 +178,7 @@ public class Client : NSObject {
             APIkey?.getData(url: url, app: app, type: type, id: searchID) {
                 JSON, response, error in
                 
-                if error == nil {
-                    completionHandler(JSON, response, nil)
-                }
-                else {
-                    completionHandler(nil, response, error)
-                }
+                completionHandler(JSON, response, error)
             }
     }
     
@@ -234,12 +199,7 @@ public class Client : NSObject {
             
             APIkey!.postData(url: url, app: app, type: msearchType, body: body,headers: headers) { ( JSON, response, error ) in
                 
-                if error == nil {
-                    completionHandler(JSON, response, nil)
-                }
-                else {
-                    completionHandler(nil, response, error)
-                }
+                completionHandler(JSON, response, error)
             }
     }
     
@@ -259,12 +219,7 @@ public class Client : NSObject {
             APIkey?.getData(url: url, app: app, type: type, id: streamID, headers: headers) {
                 JSON, response, error in
                 
-                if error == nil {
-                    completionHandler(JSON, response, nil)
-                }
-                else {
-                    completionHandler(nil, response, error)
-                }
+                completionHandler(JSON, response, error)
             }
     }
     
@@ -281,12 +236,7 @@ public class Client : NSObject {
             APIkey?.getMapping(url: url, app: app, type: type, headers: headers) {
                 JSON, response, error in
                 
-                if error == nil {
-                    completionHandler(JSON, response, nil)
-                }
-                else {
-                    completionHandler(nil, response, error)
-                }
+                completionHandler(JSON, response, error)
             }
     }
     
