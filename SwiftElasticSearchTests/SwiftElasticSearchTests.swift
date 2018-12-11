@@ -25,6 +25,7 @@ class SwiftElasticSearchTests: XCTestCase {
     func test_index_is_created() {
         
         let client = Client.init(url: "https://scalr.api.appbase.io", app: "SwiftClientES", credentials: "9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b")
+        
         let group = DispatchGroup()
         group.enter()
         
@@ -32,8 +33,9 @@ class SwiftElasticSearchTests: XCTestCase {
             
             client.index(type: "SwiftClientES", id: nil, body: ["title" : "movie"]) { (json, response, error) in
                 
-                let innerJson = ((json! as? [String : Any])!)["result"]!
-                XCTAssert(innerJson as? String == "created")
+                let httpResponse = response as! HTTPURLResponse
+                let statusCode = httpResponse.statusCode
+                XCTAssert(statusCode == 201)
                 
                 group.leave()
             }
@@ -47,6 +49,7 @@ class SwiftElasticSearchTests: XCTestCase {
     func test_get_is_true() {
         
         let client = Client.init(url: "https://scalr.api.appbase.io", app: "SwiftClientES", credentials: "9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b")
+        
         let group = DispatchGroup()
         group.enter()
         
@@ -54,8 +57,9 @@ class SwiftElasticSearchTests: XCTestCase {
             
             client.get(type: "SwiftClientES", id: "AWbvtQKGUHDq8oqypAHx", completionHandler: { (json, response, error) in
                 
-                let innerJson = ((json! as? [String : Any])!)["found"]!
-                XCTAssert(innerJson as? Int == 1)
+                let httpResponse = response as! HTTPURLResponse
+                let statusCode = httpResponse.statusCode
+                XCTAssert(statusCode == 200)
                 
                 group.leave()
             })
@@ -68,6 +72,7 @@ class SwiftElasticSearchTests: XCTestCase {
     func test_delete_is_deleted() {
         
         let client = Client.init(url: "https://scalr.api.appbase.io", app: "SwiftClientES", credentials: "9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b")
+        
         let group = DispatchGroup()
         group.enter()
         
@@ -75,8 +80,9 @@ class SwiftElasticSearchTests: XCTestCase {
             
             client.delete(type: "SwiftClientES", id: "AWbvtMgpUHDq8oqyo_Vx", completionHandler: { (json, response, error) in
                 
-                let innerJson = ((json! as? [String : Any])!)["result"]!
-                XCTAssert(innerJson as? String == "deleted")
+                let httpResponse = response as! HTTPURLResponse
+                let statusCode = httpResponse.statusCode
+                XCTAssert(statusCode == 200)
                 
                 group.leave()
             })
@@ -89,6 +95,7 @@ class SwiftElasticSearchTests: XCTestCase {
     func test_update_is_updated() {
         
         let client = Client.init(url: "https://scalr.api.appbase.io", app: "SwiftClientES", credentials: "9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b")
+        
         let group = DispatchGroup()
         group.enter()
         
@@ -102,11 +109,9 @@ class SwiftElasticSearchTests: XCTestCase {
             
             client.update(type: "SwiftClientES", id: "AWbvtPuIUHDq8oqypACI", body: updateParameters, completionHandler: { (json, response, error) in
                 
-                let innerJson = ((json! as? [String : Any])!)["result"]!
-                
-                // updated - When the data is updated
-                // noop - When the same data is overwritten (No operation)
-                XCTAssert(innerJson as? String == "updated" || innerJson as? String == "noop")
+                let httpResponse = response as! HTTPURLResponse
+                let statusCode = httpResponse.statusCode
+                XCTAssert(statusCode == 200)
                 
                 group.leave()
             })
