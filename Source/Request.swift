@@ -34,7 +34,6 @@ public class Request {
 /// Initiate the POST request
 ///
 /// - parameter url: Server endpoint URL
-/// - parameter method: Type of request
 /// - parameter appName: Name of application
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter id: ID of query (Can be nil)
@@ -43,7 +42,7 @@ public class Request {
 ///
 /// - returns: JSON response and the error occured if any in format (Any?, Error?)
 ///
-    public func postData(url: String, method: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
+    public func postData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
 
         var finalURL = url + "/" + app + "/" + type
         
@@ -57,7 +56,7 @@ public class Request {
 
             let data = try JSONSerialization.data(withJSONObject: body, options: [])
             var request = URLRequest(url: requestURL!)
-            request.httpMethod = method
+            request.httpMethod = "POST"
             request.httpBody = data
             
             let tempCredentials = (credentials).data(using: String.Encoding.utf8)
@@ -94,6 +93,68 @@ public class Request {
         
     }
     
+/// Initiate the PUT request
+///
+/// - parameter url: Server endpoint URL
+/// - parameter appName: Name of application
+/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter id: ID of query (Can be nil)
+/// - parameter body: Data that needs to indexed
+/// - parameter header: The additional headers which have to be provided
+///
+/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+///
+    public func putData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
+        
+        var finalURL = url + "/" + app + "/" + type
+        
+        if id != nil {
+            finalURL += "/" + id!
+        }
+        
+        let requestURL = URL(string : finalURL)
+        
+        do {
+            
+            let data = try JSONSerialization.data(withJSONObject: body, options: [])
+            var request = URLRequest(url: requestURL!)
+            request.httpMethod = "PUT"
+            request.httpBody = data
+            
+            let tempCredentials = (credentials).data(using: String.Encoding.utf8)
+            let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+            if headers != nil {
+                for (key, value) in headers! {
+                    request.addValue(value, forHTTPHeaderField: key)
+                }
+            }
+            
+            let task = URLSession.shared.dataTask(with: request) {
+                (data, response, error) in
+                
+                let responseInitializer = Response.init(data: data, httpResponse: response, error: error)
+                
+                let receivedData = responseInitializer.getReceivedData()
+                
+                if receivedData != nil {
+                    completionHandler(receivedData, nil)
+                }
+                else {
+                    let receivedError = responseInitializer.getReceivedError()
+                    completionHandler(nil, receivedError)
+                }
+                
+            }
+            task.resume()
+            
+        } catch let err {
+            print("Error", err)
+        }
+        
+    }
+
     
 /// Initiate the GET request
 ///

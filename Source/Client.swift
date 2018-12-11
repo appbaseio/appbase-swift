@@ -56,18 +56,26 @@ public class Client : NSObject {
 ///
     public func index(type: String, id : String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
         
-            var method = "POST"
             if id != nil {
-                method = "PUT"
-            }
-            
-            APIkey!.postData(url: url, method: method, app: app, type: type, id: id, body: body, headers: headers) { ( JSON, error ) in
-                
-                if error == nil {
-                    completionHandler(JSON,nil)
+                APIkey!.putData(url: url, app: app, type: type, id: id, body: body, headers: headers) { ( JSON, error ) in
+                    
+                    if error == nil {
+                        completionHandler(JSON,nil)
+                    }
+                    else {
+                        completionHandler(nil,error)
+                    }
                 }
-                else {
-                    completionHandler(nil,error)
+            }
+            else {
+                APIkey!.postData(url: url, app: app, type: type, id: id, body: body, headers: headers) { ( JSON, error ) in
+                    
+                    if error == nil {
+                        completionHandler(JSON,nil)
+                    }
+                    else {
+                        completionHandler(nil,error)
+                    }
                 }
             }
     }
@@ -139,10 +147,9 @@ public class Client : NSObject {
 ///
     public func update(type: String, id : String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
         
-            let method = "POST"
             let updateID = id + "/_update"
             
-            APIkey!.postData(url: url, method: method, app: app, type: type, id: updateID, body: body,headers: headers) { ( JSON, error ) in
+            APIkey!.postData(url: url, app: app, type: type, id: updateID, body: body,headers: headers) { ( JSON, error ) in
                 
                 if error == nil {
                     completionHandler(JSON,nil)
@@ -169,12 +176,12 @@ public class Client : NSObject {
 ///
     public func bulk(type: String? = nil, body : [String : Any]? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()){
         
-            let method = "POST"
             var bulk = "/_bulk"
             if type != nil {
                 bulk = type! + "/_bulk"
             }
-            APIkey!.postData(url: url, method: method, app: app, type: bulk, body: body!, headers:headers) { ( JSON, error ) in
+        
+            APIkey!.postData(url: url, app: app, type: bulk, body: body!, headers:headers) { ( JSON, error ) in
                 
                 if error == nil {
                     completionHandler(JSON,nil)
@@ -224,9 +231,8 @@ public class Client : NSObject {
     public func msearch(type:String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()){
         
             let msearchType = type + "/_search"
-            let method = "POST"
             
-            APIkey!.postData(url: url, method: method, app: app, type: msearchType, body: body,headers: headers) { ( JSON, error ) in
+            APIkey!.postData(url: url, app: app, type: msearchType, body: body,headers: headers) { ( JSON, error ) in
                 
                 if error == nil {
                     completionHandler(JSON,nil)
