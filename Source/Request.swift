@@ -40,9 +40,9 @@ public class Request {
 /// - parameter body: Data that needs to indexed
 /// - parameter header: The additional headers which have to be provided
 ///
-/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func postData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
+    public func postData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
 
         var finalURL = url + "/" + app + "/" + type
         
@@ -77,11 +77,11 @@ public class Request {
                 let receivedData = responseInitializer.getReceivedData()
                 
                 if receivedData != nil {
-                    completionHandler(receivedData, nil)
+                    completionHandler(receivedData, response, nil)
                 }
                 else {
                     let receivedError = responseInitializer.getReceivedError()
-                    completionHandler(nil, receivedError)
+                    completionHandler(nil, response, receivedError)
                 }
                 
             }
@@ -102,9 +102,9 @@ public class Request {
 /// - parameter body: Data that needs to indexed
 /// - parameter header: The additional headers which have to be provided
 ///
-/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func putData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
+    public func putData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
         var finalURL = url + "/" + app + "/" + type
         
@@ -139,11 +139,11 @@ public class Request {
                 let receivedData = responseInitializer.getReceivedData()
                 
                 if receivedData != nil {
-                    completionHandler(receivedData, nil)
+                    completionHandler(receivedData, response, nil)
                 }
                 else {
                     let receivedError = responseInitializer.getReceivedError()
-                    completionHandler(nil, receivedError)
+                    completionHandler(nil, response, receivedError)
                 }
                 
             }
@@ -164,9 +164,9 @@ public class Request {
 /// - parameter id: ID of query
 /// - parameter header: The additional headers which have to be provided
 ///
-/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func getData(url: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
+    public func getData(url: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?,  Error?) -> ()) {
 
         let finalURL = url + "/" + app + "/" + type + "/" + id
         
@@ -194,11 +194,11 @@ public class Request {
             let receivedData = responseInitializer.getReceivedData()
             
             if receivedData != nil {
-                completionHandler(receivedData, nil)
+                completionHandler(receivedData, response, nil)
             }
             else {
                 let receivedError = responseInitializer.getReceivedError()
-                completionHandler(nil, receivedError)
+                completionHandler(nil, response, receivedError)
             }
             
         }
@@ -213,9 +213,9 @@ public class Request {
 /// - parameter type: Type of data that is created in the app (Appbase dashboard)
 /// - parameter header: The additional headers which have to be provided
 ///
-/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func getMapping(url: String, app: String, type: String?, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
+    public func getMapping(url: String, app: String, type: String?, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
         var finalURL = url + "/" + app + "/_mapping"
         
@@ -247,11 +247,11 @@ public class Request {
             let receivedData = responseInitializer.getReceivedData()
             
             if receivedData != nil {
-                completionHandler(receivedData, nil)
+                completionHandler(receivedData, response, nil)
             }
             else {
                 let receivedError = responseInitializer.getReceivedError()
-                completionHandler(nil, receivedError)
+                completionHandler(nil, response, receivedError)
             }
             
         }
@@ -268,9 +268,9 @@ public class Request {
 /// - parameter id: ID of query
 /// - parameter header: The additional headers which have to be provided
 ///
-/// - returns: JSON response and the error occured if any in format (Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func deleteData(url: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Error?) -> ()) {
+    public func deleteData(url: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
         let finalURL = url + "/" + app + "/" + type + "/" + id
         let method = "DELETE"
@@ -298,11 +298,11 @@ public class Request {
             let receivedData = responseInitializer.getReceivedData()
             
             if receivedData != nil {
-                completionHandler(receivedData, nil)
+                completionHandler(receivedData, response, nil)
             }
             else {
                 let receivedError = responseInitializer.getReceivedError()
-                completionHandler(nil, receivedError)
+                completionHandler(nil, response, receivedError)
             }
             
         }

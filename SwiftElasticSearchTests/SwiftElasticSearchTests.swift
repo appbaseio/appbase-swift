@@ -30,7 +30,7 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            client.index(type: "SwiftClientES", id: nil, body: ["title" : "movie"]) { (json, error) in
+            client.index(type: "SwiftClientES", id: nil, body: ["title" : "movie"]) { (json, response, error) in
                 
                 let innerJson = ((json! as? [String : Any])!)["result"]!
                 XCTAssert(innerJson as? String == "created")
@@ -52,7 +52,7 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            client.get(type: "SwiftClientES", id: "AWbvtQKGUHDq8oqypAHx", completionHandler: { (json, error) in
+            client.get(type: "SwiftClientES", id: "AWbvtQKGUHDq8oqypAHx", completionHandler: { (json, response, error) in
                 
                 let innerJson = ((json! as? [String : Any])!)["found"]!
                 XCTAssert(innerJson as? Int == 1)
@@ -73,7 +73,7 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            client.delete(type: "SwiftClientES", id: "AWbvtMgpUHDq8oqyo_Vx", completionHandler: { (json, error) in
+            client.delete(type: "SwiftClientES", id: "AWbvtMgpUHDq8oqyo_Vx", completionHandler: { (json, response, error) in
                 
                 let innerJson = ((json! as? [String : Any])!)["result"]!
                 XCTAssert(innerJson as? String == "deleted")
@@ -100,7 +100,7 @@ class SwiftElasticSearchTests: XCTestCase {
                                             ]
                                         ]
             
-            client.update(type: "SwiftClientES", id: "AWbvtPuIUHDq8oqypACI", body: updateParameters, completionHandler: { (json, error) in
+            client.update(type: "SwiftClientES", id: "AWbvtPuIUHDq8oqypACI", body: updateParameters, completionHandler: { (json, response, error) in
                 
                 let innerJson = ((json! as? [String : Any])!)["result"]!
                 
