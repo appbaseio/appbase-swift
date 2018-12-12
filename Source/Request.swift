@@ -2,7 +2,7 @@
 //  Requests.swift
 //  SwiftElasticSearch
 //
-//  Created by Harsh Patel on 04/11/18.
+//  Created by Harsh Patel and Abhinav Raj on 04/11/18.
 //  Copyright © 2018 Harsh Patel. All rights reserved.
 //
 
