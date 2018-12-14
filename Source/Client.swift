@@ -42,7 +42,7 @@ public class Client : NSObject {
     
 /// Adds given JSON data to the database (POST/PUT request)
 ///
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query (Can be nil)
 /// - parameter body: Data that needs to indexed. The data must be in valid JSON format. Eg :
 ///                     let updateParameters:[String:Any] = [
@@ -73,7 +73,7 @@ public class Client : NSObject {
     
 /// Fetches data from the database for the provided unique id (GET request)
 ///
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query
 /// - parameter header: The additional headers which have to be provided
 ///
@@ -91,7 +91,7 @@ public class Client : NSObject {
     
 /// Deletes data from the database for the provided unique id (GET request)
 ///
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query
 /// - parameter header: The additional headers which have to be provided
 ///
@@ -109,7 +109,7 @@ public class Client : NSObject {
     
 /// Update data of the provided unique id (GET request)
 ///
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query
 /// - parameter body: JSON structured data parameter that has to be passed for updating, Note: For updating data, the JSON
 ///                must be of the format doc{ JSON FOR THE PARAMETER TO BE UPDATED }. Eg :
@@ -138,7 +138,7 @@ public class Client : NSObject {
     
 /// Make bulk requests on a specified app or a specific type. Bulk requests can be any of index, update and delete requests.
 ///
-/// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
+/// - parameter type: Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)
 /// - parameter body: JSON structured data parameter that has to be passed for updating, Note: For updating data,  the JSON
     ///            must be of the format {"request_type":{JSON}} :
 ///                { "index": { "_type": "users", "_id": "2" } }
@@ -165,7 +165,7 @@ public class Client : NSObject {
     
 /// Make search of JSON documents through given string using Elasticsearch's expressive Query DSL.
 ///
-/// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
+/// - parameter type: Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)
 /// - parameter String: The string for which the search has to be made
 /// - parameter header: The additional headers which have to be provided
 ///
@@ -186,7 +186,7 @@ public class Client : NSObject {
     
 /// Apply a search via the request body. The request body is constructed using the Query DSL.
 ///
-/// - parameter type: Type of data that is created in the app (Appbase dashboard), should only be passed if you want to make the request to the that perticular type.
+/// - parameter type: Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)
 /// - parameter body: The request body through which the query has to be made.The request body is constructed using the Query DSL.
 /// More information on how to make a request body can be found on : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html)
 /// - parameter header: The additional headers which have to be provided
@@ -204,9 +204,9 @@ public class Client : NSObject {
     }
     
     
-/// Get streaming updates to a document with the specified id. The stream=true parameter informs the appbase.io service to keep the connection open, which is used to provide subsequent updates.
+/// Get streaming updates to a document with the specified id. The [stream = true] parameter informs the service to keep the connection open, which is used to provide subsequent updates.
 ///
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query
 /// - parameter header: The additional headers which have to be provided
 ///
@@ -241,7 +241,7 @@ public class Client : NSObject {
     }
     
     
-/// Provides the number of types which you have made in your appbase dashboard
+/// Provides the number of types which you have made
 ///
 /// - parameter header: The additional headers which have to be provided
 ///

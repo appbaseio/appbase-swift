@@ -35,7 +35,7 @@ public class Request {
 ///
 /// - parameter url: Server endpoint URL
 /// - parameter appName: Name of application
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query (Can be nil)
 /// - parameter body: Data that needs to indexed
 /// - parameter header: The additional headers which have to be provided
@@ -97,7 +97,7 @@ public class Request {
 ///
 /// - parameter url: Server endpoint URL
 /// - parameter appName: Name of application
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query (Can be nil)
 /// - parameter body: Data that needs to indexed
 /// - parameter header: The additional headers which have to be provided
@@ -160,7 +160,7 @@ public class Request {
 ///
 /// - parameter url: Server endpoint URL
 /// - parameter app: Name of application
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query
 /// - parameter header: The additional headers which have to be provided
 ///
@@ -210,7 +210,7 @@ public class Request {
 ///
 /// - parameter url: Server endpoint URL
 /// - parameter app: Name of application
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter type: Type of data that is created in the app
 /// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
@@ -264,7 +264,7 @@ public class Request {
 ///
 /// - parameter url: Server endpoint URL
 /// - parameter app: Name of application
-/// - parameter type: Type of data that is created in the app (Appbase dashboard)
+/// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query
 /// - parameter header: The additional headers which have to be provided
 ///
