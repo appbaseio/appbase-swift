@@ -54,16 +54,16 @@ public class Client : NSObject {
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func index(type: String, id : String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func index(type: String? = "_doc", id : String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
             if id != nil {
-                APIkey!.putData(url: url, app: app, type: type, id: id, body: body, headers: headers) { ( JSON, response, error ) in
+                APIkey!.putData(url: url, app: app, type: type!, id: id, body: body, headers: headers) { ( JSON, response, error ) in
                     
                     completionHandler(JSON, response, error)
                 }
             }
             else {
-                APIkey!.postData(url: url, app: app, type: type, id: id, body: body, headers: headers) { ( JSON, response, error ) in
+                APIkey!.postData(url: url, app: app, type: type!, id: id, body: body, headers: headers) { ( JSON, response, error ) in
                     
                     completionHandler(JSON, response, error)
                 }
@@ -79,9 +79,9 @@ public class Client : NSObject {
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func get(type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func get(type: String? = "_doc", id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
-        APIkey?.getData(url: url, app: app, type: type, id: id, headers: headers) {
+        APIkey?.getData(url: url, app: app, type: type!, id: id, headers: headers) {
             JSON, response, error in
             
             completionHandler(JSON, response, error)
@@ -97,9 +97,9 @@ public class Client : NSObject {
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func delete(type: String, id : String, headers: [String: String]? = nil,completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func delete(type: String? = "_doc", id : String, headers: [String: String]? = nil,completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
-            APIkey!.deleteData(url: url, app: app, type: type, id: id, headers: headers) {
+            APIkey!.deleteData(url: url, app: app, type: type!, id: id, headers: headers) {
                 JSON, response, error in
                 
                 completionHandler(JSON, response, error)
@@ -125,11 +125,11 @@ public class Client : NSObject {
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func update(type: String, id : String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func update(type: String? = "_doc", id : String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
             let updateID = id + "/_update"
             
-            APIkey!.postData(url: url, app: app, type: type, id: updateID, body: body,headers: headers) { ( JSON, response, error ) in
+            APIkey!.postData(url: url, app: app, type: type!, id: updateID, body: body,headers: headers) { ( JSON, response, error ) in
                 
                 completionHandler(JSON, response, error)
         }
@@ -149,12 +149,9 @@ public class Client : NSObject {
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func bulk(type: String? = nil, body : [String : Any]? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func bulk(type: String? = "_doc", body : [String : Any]? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
-            var bulk = "/_bulk"
-            if type != nil {
-                bulk = type! + "/_bulk"
-            }
+            let bulk = type! + "/_bulk"
         
             APIkey!.postData(url: url, app: app, type: bulk, body: body!, headers:headers) { ( JSON, response, error ) in
                 
@@ -171,11 +168,11 @@ public class Client : NSObject {
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func search(type:String, searchString: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func search(type: String? = "_doc", searchString: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
             let searchID = "_search?q="+searchString
             
-            APIkey?.getData(url: url, app: app, type: type, id: searchID) {
+            APIkey?.getData(url: url, app: app, type: type!, id: searchID) {
                 JSON, response, error in
                 
                 completionHandler(JSON, response, error)
@@ -193,9 +190,9 @@ public class Client : NSObject {
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func msearch(type:String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func msearch(type: String? = "_doc", body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
-            let msearchType = type + "/_search"
+            let msearchType = type! + "/_search"
             
             APIkey!.postData(url: url, app: app, type: msearchType, body: body,headers: headers) { ( JSON, response, error ) in
                 
@@ -212,11 +209,11 @@ public class Client : NSObject {
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func getStream(type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func getStream(type: String? = "_doc", id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
             let streamID = id + "?stream=true"
             
-            APIkey?.getData(url: url, app: app, type: type, id: streamID, headers: headers) {
+            APIkey?.getData(url: url, app: app, type: type!, id: streamID, headers: headers) {
                 JSON, response, error in
                 
                 completionHandler(JSON, response, error)
@@ -226,14 +223,14 @@ public class Client : NSObject {
     
 /// Provides the data mapping corresponding to the app or the type.
 ///
-/// - parameter type: (optional field) Type of data that is created in the app (Appbase dashboard), provide if you want to get the data mapping from the correspong type.
+/// - parameter type: Type of data that is created in the app (Appbase dashboard), provide if you want to get the data mapping from the correspong type.
 /// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func getMapping(type:String?=nil , headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()){
+    public func getMapping(type: String? = "_doc" , headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()){
             
-            APIkey?.getMapping(url: url, app: app, type: type, headers: headers) {
+            APIkey?.getMapping(url: url, app: app, type: type!, headers: headers) {
                 JSON, response, error in
                 
                 completionHandler(JSON, response, error)
@@ -247,7 +244,7 @@ public class Client : NSObject {
 ///
 /// - returns: The number of types in your app.
 ///
-    public func getTypes(headers: [String: String]? = nil)->Int{
+    public func getTypes(headers: [String: String]? = nil) -> Int {
                     
             var innerJson:NSDictionary?
             let group = DispatchGroup()
