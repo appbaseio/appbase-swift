@@ -15,7 +15,7 @@ public class Client : NSObject {
     
     // MARK: - Properties
     
-    public var url : String = "https://scalr.api.appbase.io"
+    public var url : String
     public var app : String
     public var credentials : String
     var APIkey : Request?
@@ -31,7 +31,7 @@ public class Client : NSObject {
 ///
 /// - returns: SwiftElasticSearch class Object
 ///
-    public init(url : String? = nil, app : String, credentials : String) {
+    public init(url : String? = "https://scalr.api.appbase.io", app : String, credentials : String) {
         self.url = url!
         self.app = app
         self.credentials = credentials
