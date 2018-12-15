@@ -31,7 +31,7 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            client.index(type: "SwiftClientES", id: nil, body: ["title" : "movie"]) { (json, response, error) in
+            client.index(type: "SwiftClientES", id: "testID", body: ["title" : "movie"]) { (json, response, error) in
                 
                 let httpResponse = response as! HTTPURLResponse
                 let statusCode = httpResponse.statusCode
@@ -55,7 +55,7 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            client.get(type: "SwiftClientES", id: "AWbvtQKGUHDq8oqypAHx", completionHandler: { (json, response, error) in
+            client.get(type: "SwiftClientES", id: "testID", completionHandler: { (json, response, error) in
                 
                 let httpResponse = response as! HTTPURLResponse
                 let statusCode = httpResponse.statusCode
@@ -78,7 +78,7 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            client.delete(type: "SwiftClientES", id: "AWcF34iCYeE6C8pj-5Dt", completionHandler: { (json, response, error) in
+            client.delete(type: "SwiftClientES", id: "testID", completionHandler: { (json, response, error) in
                 
                 let httpResponse = response as! HTTPURLResponse
                 let statusCode = httpResponse.statusCode
@@ -107,7 +107,7 @@ class SwiftElasticSearchTests: XCTestCase {
                                             ]
                                         ]
             
-            client.update(type: "SwiftClientES", id: "AWbvtPuIUHDq8oqypACI", body: updateParameters, completionHandler: { (json, response, error) in
+            client.update(type: "SwiftClientES", id: "testID", body: updateParameters, completionHandler: { (json, response, error) in
                 
                 let httpResponse = response as! HTTPURLResponse
                 let statusCode = httpResponse.statusCode
@@ -135,7 +135,7 @@ class SwiftElasticSearchTests: XCTestCase {
                     "title": "New Movie",
                     "year": 2018,
                 ],
-                "delete" : ["_id": "AWbvtODwUHDq8oqyo_tv" ],
+                "delete" : ["_id": "testID" ],
             ]
             
             client.bulk(type: "SwiftClientES", body: bulkParameters, completionHandler: { (json, response, error) in
@@ -207,7 +207,7 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            client.getStream(type: "SwiftClientES", id: "AWb8WclHYeE6C8pj-4qR",completionHandler: { (json, response, error) in
+            client.getStream(type: "SwiftClientES", id: "testID",completionHandler: { (json, response, error) in
                 
                 let httpResponse = response as! HTTPURLResponse
                 let statusCode = httpResponse.statusCode
