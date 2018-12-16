@@ -113,14 +113,10 @@ public class Client : NSObject {
 /// - parameter id: ID of query
 /// - parameter body: JSON structured data parameter that has to be passed for updating, Note: For updating data, the JSON
 ///                must be of the format doc{ JSON FOR THE PARAMETER TO BE UPDATED }. Eg :
-///                let updateParameters:[String:Any] = [
-///                        "doc": [
-///                            "year": 2018
-///                            ]
-///                        ]
 ///
-///                While updating, all the JSON body needs to be put inside a doc array as shown above else the method won't work.
-///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
+/// let updateParameters: [String:Any] = ["doc": ["year": 2018]]
+///
+/// While updating, all the JSON body needs to be put inside a doc array as shown above else the method won't work. For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
 /// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
@@ -139,21 +135,20 @@ public class Client : NSObject {
 /// Make bulk requests on a specified app or a specific type. Bulk requests can be any of index, update and delete requests.
 ///
 /// - parameter type: Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)
-/// - parameter body: JSON structured data parameter that has to be passed for updating, Note: For updating data,  the JSON
-    ///            must be of the format {"request_type":{JSON}} :
-///                { "index": { "_type": "users", "_id": "2" } }
-///                { "doc" : {"field2" : "value2"} }
-///                { "delete": { "_id": "2" } }
-///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html)
+/// - parameter body: JSON structured data parameter that has to be passed for updating, Note: For updating data, the JSON must be of the format        [[String:Any]]. A quick example of bulk request is -
+///
+/// let bulkParameters: [[String:Any]] = [[ "index": [ "_type": "SwiftClientES"] ], [ "Title" : "New Movie 4" , "Year" : "2016"], [ "delete" : ["_id": "testID"]]]
+///
+/// For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html)
 /// - parameter header: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func bulk(type: String? = "_doc", body : [String : Any]? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func bulk(type: String? = "_doc", body : [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
             let bulk = type! + "/_bulk"
         
-            APIkey!.postData(url: url, app: app, type: bulk, body: body!, headers:headers) { ( JSON, response, error ) in
+            APIkey!.bulkData(url: url, app: app, type: bulk, body: body, headers:headers) { ( JSON, response, error ) in
                 
                 completionHandler(JSON, response, error)
             }
@@ -178,7 +173,6 @@ public class Client : NSObject {
                 completionHandler(JSON, response, error)
             }
     }
-    
     
     
 /// Apply a search via the request body. The request body is constructed using the Query DSL.

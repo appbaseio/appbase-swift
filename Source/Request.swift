@@ -34,11 +34,11 @@ public class Request {
 /// Initiate the POST request
 ///
 /// - parameter url: Server endpoint URL
-/// - parameter appName: Name of application
+/// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query (Can be nil)
 /// - parameter body: Data that needs to indexed
-/// - parameter header: The additional headers which have to be provided
+/// - parameter headers: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -96,11 +96,11 @@ public class Request {
 /// Initiate the PUT request
 ///
 /// - parameter url: Server endpoint URL
-/// - parameter appName: Name of application
+/// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query (Can be nil)
 /// - parameter body: Data that needs to indexed
-/// - parameter header: The additional headers which have to be provided
+/// - parameter headers: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -162,7 +162,7 @@ public class Request {
 /// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query
-/// - parameter header: The additional headers which have to be provided
+/// - parameter headers: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -211,7 +211,7 @@ public class Request {
 /// - parameter url: Server endpoint URL
 /// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app
-/// - parameter header: The additional headers which have to be provided
+/// - parameter headers: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -266,7 +266,7 @@ public class Request {
 /// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query
-/// - parameter header: The additional headers which have to be provided
+/// - parameter headers: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -309,5 +309,74 @@ public class Request {
         task.resume()
         
     }
+ 
     
+/// Initiate the bulk POST request
+///
+/// - parameter url: Server endpoint URL
+/// - parameter app: Name of application
+/// - parameter type: Type of data that is created in the app
+/// - parameter id: ID of query (Can be nil)
+/// - parameter body: Data that needs to indexed
+/// - parameter headers: The additional headers which have to be provided
+///
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+///
+    public func bulkData(url: String, app: String, type: String, id: String? = nil, body: [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+        
+        var finalURL = url + "/" + app + "/" + type
+        
+        if id != nil {
+            finalURL += "/" + id!
+        }
+        
+        let requestURL = URL(string : finalURL)
+        
+        do {
+            
+            var requestBody:Data = Data(capacity: 2000)
+            
+            for data in body {
+                let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
+                requestBody.append(jsonData)
+                requestBody.append(10)
+            }
+            
+            var request = URLRequest(url: requestURL!)
+            request.httpMethod = "POST"
+            request.httpBody = requestBody
+            
+            let tempCredentials = (credentials).data(using: String.Encoding.utf8)
+            let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+            if headers != nil {
+                for (key, value) in headers! {
+                    request.addValue(value, forHTTPHeaderField: key)
+                }
+            }
+            
+            let task = URLSession.shared.dataTask(with: request) {
+                (data, response, error) in
+                
+                let responseInitializer = Response.init(data: data, httpResponse: response, error: error)
+                
+                let receivedData = responseInitializer.getReceivedData()
+                
+                if receivedData != nil {
+                    completionHandler(receivedData, response, nil)
+                }
+                else {
+                    let receivedError = responseInitializer.getReceivedError()
+                    completionHandler(nil, response, receivedError)
+                }
+                
+            }
+            task.resume()
+            
+        } catch let err {
+            print("Error", err)
+        }
+        
+    }
 }

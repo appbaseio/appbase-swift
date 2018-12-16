@@ -130,13 +130,8 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            let bulkParameters:[String:Any] = [
-                "index" : [
-                    "title": "New Movie",
-                    "year": 2018,
-                ],
-                "delete" : ["_id": "testID" ],
-            ]
+            let bulkParameters: [[String:Any]] = [[ "index": [ "_type": "SwiftClientES"] ], [ "Title" : "New Movie 4" , "Year" : "2016"],
+                                                  [ "delete" : ["_id": "testID"]]]
             
             client.bulk(type: "SwiftClientES", body: bulkParameters, completionHandler: { (json, response, error) in
                 
