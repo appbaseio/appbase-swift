@@ -323,8 +323,7 @@ public class Request {
 ///
     public func bulkData(url: String, app: String, type: String, body: [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
-        let finalURL = url + "/" + app + "/" + type + "/_bulk"
-        
+        let finalURL = url + "/" + app + "/" + type         
         let requestURL = URL(string : finalURL)
         
         do {
