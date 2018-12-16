@@ -50,7 +50,7 @@ public class Client : NSObject {
 ///                          "movieName": "La La Land"
 ///                 ]
 ///                For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-index_.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-index_.html)
-/// - parameter header: The additional headers which have to be provided
+/// - parameter header: The additional headers which can be provided if required
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -75,7 +75,7 @@ public class Client : NSObject {
 ///
 /// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query
-/// - parameter header: The additional headers which have to be provided
+/// - parameter header: The additional headers which can be provided if required
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -93,7 +93,7 @@ public class Client : NSObject {
 ///
 /// - parameter type: Type of data that is created in the app
 /// - parameter id: ID of query
-/// - parameter header: The additional headers which have to be provided
+/// - parameter header: The additional headers which can be provided if required
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -117,7 +117,7 @@ public class Client : NSObject {
 /// let updateParameters: [String:Any] = ["doc": ["year": 2018]]
 ///
 /// While updating, all the JSON body needs to be put inside a doc array as shown above else the method won't work. For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document)
-/// - parameter header: The additional headers which have to be provided
+/// - parameter header: The additional headers which can be provided if required
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -140,7 +140,7 @@ public class Client : NSObject {
 /// let bulkParameters: [[String:Any]] = [[ "index": [ "_type": "SwiftClientES"] ], [ "Title" : "New Movie 4" , "Year" : "2016"], [ "delete" : ["_id": "testID"]]]
 ///
 /// For more information : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html)
-/// - parameter header: The additional headers which have to be provided
+/// - parameter header: The additional headers which can be provided if required
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -155,45 +155,46 @@ public class Client : NSObject {
     }
     
     
-/// Make search of JSON documents through given string using Elasticsearch's expressive Query DSL.
-///
-/// - parameter type: Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)
-/// - parameter String: The string for which the search has to be made
-/// - parameter header: The additional headers which have to be provided
-///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
-///
-    public func search(type: String? = "_doc", searchString: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
-        
-            let searchID = "_search?q="+searchString
-            
-            APIkey?.getData(url: url, app: app, type: type!, id: searchID) {
-                JSON, response, error in
-                
-                completionHandler(JSON, response, error)
-            }
-    }
-    
-    
+
 /// Apply a search via the request body. The request body is constructed using the Query DSL.
 ///
 /// - parameter type: Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)
 /// - parameter body: The request body through which the query has to be made.The request body is constructed using the Query DSL.
 /// More information on how to make a request body can be found on : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html)
-/// - parameter header: The additional headers which have to be provided
+/// - parameter header: The additional headers which can be provided if required
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func msearch(type: String? = "_doc", body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func search(type: String? = "_doc", body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
-            let msearchType = type! + "/_search"
+        let msearchType = type! + "/_search"
+        
+        APIkey!.postData(url: url, app: app, type: msearchType, body: body,headers: headers) { ( JSON, response, error ) in
             
-            APIkey!.postData(url: url, app: app, type: msearchType, body: body,headers: headers) { ( JSON, response, error ) in
-                
-                completionHandler(JSON, response, error)
-            }
+            completionHandler(JSON, response, error)
+        }
     }
+
+/// Apply a multiple search via the request body. The individual request bodies are constructed using the Query DSL.
+///
+/// - parameter type: Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)
+    /// - parameter body: The request body through which the query has to be made.Multiple queries can be made by format: [query1(json),query2(json)]. The individual request body is constructed using the Query DSL.
+/// More information on how to make a request body can be found on : [https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html)
+/// - parameter header: The additional headers which can be provided if required
+///
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+///
     
+    public func msearch(type: String? = "_doc", body : [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+        
+        let msearchType = type! + "/_msearch"
+        
+        APIkey!.bulkData(url: url, app: app, type: msearchType, body: body,headers: headers) { ( JSON, response, error ) in
+            
+            completionHandler(JSON, response, error)
+        }
+    }
+
     
 /// Get streaming updates to a document with the specified id. The [stream = true] parameter informs the service to keep the connection open, which is used to provide subsequent updates.
 ///
@@ -234,7 +235,7 @@ public class Client : NSObject {
     
 /// Provides the number of types which you have made
 ///
-/// - parameter header: The additional headers which have to be provided
+/// - parameter header: The additional headers which can be provided if required
 ///
 /// - returns: The number of types in your app.
 ///

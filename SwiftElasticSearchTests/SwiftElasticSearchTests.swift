@@ -156,12 +156,20 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            client.search(type: "SwiftClientES", searchString: "ABCD",completionHandler: { (json, response, error) in
+            let body:[String:Any] = [
+                "query": [
+                    "match": [
+                        "title": "The Young Messiah"
+                    ]
+                ]
+            ]
+            
+            client.search(type: "SwiftClientES", body: body,completionHandler: { (json, response, error) in
                 
                 let httpResponse = response as! HTTPURLResponse
                 let statusCode = httpResponse.statusCode
                 XCTAssert(statusCode == 200)
-
+                
                 group.leave()
             })
         }
@@ -177,8 +185,21 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            let body:[String:Any] = [
-                "match":["title":"Triple 9"]
+            let body:[[String:Any]] = [
+                [
+                    "query": [
+                        "match": [
+                            "title": "The Young Messiah"
+                        ]
+                    ]
+                ],
+                [
+                    "query": [
+                        "match": [
+                            "title": "ABCD"
+                        ]
+                    ]
+                ]
             ]
             
             client.msearch(type: "SwiftClientES", body: body,completionHandler: { (json, response, error) in
