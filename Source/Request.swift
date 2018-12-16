@@ -316,19 +316,14 @@ public class Request {
 /// - parameter url: Server endpoint URL
 /// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app
-/// - parameter id: ID of query (Can be nil)
 /// - parameter body: Data that needs to indexed
 /// - parameter headers: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func bulkData(url: String, app: String, type: String, id: String? = nil, body: [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func bulkData(url: String, app: String, type: String, body: [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
-        var finalURL = url + "/" + app + "/" + type
-        
-        if id != nil {
-            finalURL += "/" + id!
-        }
+        let finalURL = url + "/" + app + "/" + type + "/_bulk"
         
         let requestURL = URL(string : finalURL)
         
