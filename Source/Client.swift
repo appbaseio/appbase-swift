@@ -246,7 +246,7 @@ public class Client : NSObject {
             group.enter()
             
             DispatchQueue.global().async {
-                self.getMapping(headers:headers) {
+                self.APIkey?.getMapping(url: self.url, app: self.app, headers:headers) {
                     JSON, response, error in
                     
                     innerJson = ((JSON! as? [String:Any])![self.app]! as? [String:Any])!["mappings"]! as? NSDictionary

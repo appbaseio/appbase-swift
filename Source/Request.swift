@@ -215,7 +215,7 @@ public class Request {
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
-    public func getMapping(url: String, app: String, type: String?, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func getMapping(url: String, app: String, type: String? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
         var finalURL = url + "/" + app + "/_mapping"
         
