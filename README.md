@@ -10,7 +10,7 @@ The library provides very high performance results i.e. it provides response to 
 
 ### Dynamic Framework (Simplest way)
 
-* Download the latest release of [SwiftElasticSearch](https://github.com/appbaseio-apps/SwiftElasticSearch/archive/v0.0.3.zip) from Github and extract the zip 
+* Download the latest release of [SwiftElasticSearch](https://github.com/appbaseio-apps/SwiftElasticSearch/archive/v0.0.4.zip) from Github and extract the zip 
 
 * Navigate to your Xcode's project `General` settings (Click on the the blue icon showing your project's workspace -> General)
 
@@ -55,7 +55,7 @@ open Cartfile
 ```
 github "appbaseio-apps/SwiftElasticSearch" ~> <Release Version>
 ```
-The current latest Release Version is 0.0.3
+The current latest Release Version is 0.0.4
 
 * Run `carthage update` to build the framework
 
