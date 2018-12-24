@@ -235,6 +235,35 @@ class SwiftElasticSearchTests: XCTestCase {
         group.wait()
     }
     
+    func test_searchStream_is_working() {
+        
+        let client = Client.init(url: "https://scalr.api.appbase.io", app: "SwiftClientES", credentials: "9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b")
+        
+        let group = DispatchGroup()
+        group.enter()
+        
+        DispatchQueue.global().async {
+            
+            let body:[String:Any] = [
+                "query": [
+                    "match": [
+                        "title": "The Young Messiah"
+                    ]
+                ]
+            ]
+            
+            client.searchStream(type: "SwiftClientES", body:body,completionHandler: { (json, response, error) in
+                
+                let httpResponse = response as! HTTPURLResponse
+                let statusCode = httpResponse.statusCode
+                XCTAssert(statusCode == 200)
+                
+                group.leave()
+            })
+        }
+        group.wait()
+    }
+    
     func test_getMapping_is_working() {
         
         let client = Client.init(url: "https://scalr.api.appbase.io", app: "SwiftClientES", credentials: "9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b")

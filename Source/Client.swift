@@ -104,7 +104,7 @@ public class Client : NSObject {
                 
                 completionHandler(JSON, response, error)
             }
-}
+    }
     
     
 /// Update data of the provided unique id (GET request)
@@ -213,6 +213,26 @@ public class Client : NSObject {
                 
                 completionHandler(JSON, response, error)
             }
+    }
+    
+/// Get streaming updates to a search query provided in the request body. The stream=true parameter informs the appbase.io service to keep the connection open, which is used to provide subsequent updates.
+///
+/// - parameter type: Type of data that is created in the app
+/// - parameter body: Search query of the streaming
+/// - parameter header: The additional headers which have to be provided
+///
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+///
+    
+    public func searchStream(type: String? = "_doc", body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+        
+        let type = type! + "/_search?stream=true"
+        
+        APIkey?.postData(url: url, app: app, type: type, body: body, headers: headers) {
+            JSON, response, error in
+            
+            completionHandler(JSON, response, error)
+        }
     }
     
     
