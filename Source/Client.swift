@@ -26,7 +26,7 @@ public class Client : NSObject {
 /// Creates an Elastic Search class object for Appbase
 ///
 /// - parameter url: URL of the server (If application is hosted on Appbase, url should be scalr.api.appbase.io)
-/// - parameter appID: Name of the application
+/// - parameter app: Name of the application
 /// - parameter credentials: User credentials for authentication (Read Key)
 ///
 /// - returns: SwiftElasticSearch class Object
@@ -154,7 +154,6 @@ public class Client : NSObject {
             }
     }
     
-    
 
 /// Apply a search via the request body. The request body is constructed using the Query DSL.
 ///
@@ -175,6 +174,7 @@ public class Client : NSObject {
         }
     }
 
+    
 /// Apply a multiple search via the request body. The individual request bodies are constructed using the Query DSL.
 ///
 /// - parameter type: Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)
@@ -202,18 +202,16 @@ public class Client : NSObject {
 /// - parameter id: ID of query
 /// - parameter header: The additional headers which have to be provided
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+/// - returns: Received message in JSON format having parameters channel - Path where streaming is made and event - The change that is observed
 ///
-    public func getStream(type: String? = "_doc", id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func getStream(type: String? = "_doc", id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
         
-            let streamID = id + "?stream=true"
+        getStreamData(url: url, credentials: credentials, app: app, type: type!, id: id) { (message) in
             
-            APIkey?.getData(url: url, app: app, type: type!, id: streamID, headers: headers) {
-                JSON, response, error in
-                
-                completionHandler(JSON, response, error)
-            }
+            completionHandler(message)
+        }
     }
+    
     
 /// Get streaming updates to a search query provided in the request body. The stream=true parameter informs the appbase.io service to keep the connection open, which is used to provide subsequent updates.
 ///
@@ -221,17 +219,14 @@ public class Client : NSObject {
 /// - parameter body: Search query of the streaming
 /// - parameter header: The additional headers which have to be provided
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+/// - returns: Received message in JSON format until the connection is closed
 ///
     
-    public func searchStream(type: String? = "_doc", body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func searchStream(type: String? = "_doc", body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
         
-        let type = type! + "/_search?stream=true"
-        
-        APIkey?.postData(url: url, app: app, type: type, body: body, headers: headers) {
-            JSON, response, error in
+        getSearchStreamData(url: url, credentials: credentials, app: app, type: type!, body: body) { (message) in
             
-            completionHandler(JSON, response, error)
+            completionHandler(message)
         }
     }
     

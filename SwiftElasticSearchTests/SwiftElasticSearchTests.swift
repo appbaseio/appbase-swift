@@ -223,9 +223,9 @@ class SwiftElasticSearchTests: XCTestCase {
         
         DispatchQueue.global().async {
             
-            client.getStream(type: "SwiftClientES", id: "testID",completionHandler: { (json, response, error) in
+            client.getStream(type: "SwiftClientES", id: "testID",completionHandler: { (message) in
                 
-                let httpResponse = response as! HTTPURLResponse
+                let httpResponse = message as! HTTPURLResponse
                 let statusCode = httpResponse.statusCode
                 XCTAssert(statusCode == 200)
                 
@@ -252,9 +252,9 @@ class SwiftElasticSearchTests: XCTestCase {
                 ]
             ]
             
-            client.searchStream(type: "SwiftClientES", body:body,completionHandler: { (json, response, error) in
+            client.searchStream(type: "SwiftClientES", body:body,completionHandler: { (message) in
                 
-                let httpResponse = response as! HTTPURLResponse
+                let httpResponse = message as! HTTPURLResponse
                 let statusCode = httpResponse.statusCode
                 XCTAssert(statusCode == 200)
                 
@@ -300,6 +300,4 @@ class SwiftElasticSearchTests: XCTestCase {
         }
         group.wait()
     }
-
-
 }

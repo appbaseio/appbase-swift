@@ -26,3 +26,28 @@ extension String{
         return nil
     }
 }
+
+
+/// Structures JSON query in String format
+///
+/// - parameter json: JSON query which needs to be converted into String format
+/// - parameter prettyPrinted: If this option is not true, the most compact possible JSON representation is generated
+///
+public func stringify(json: Any, prettyPrinted: Bool = false) -> String {
+    var options: JSONSerialization.WritingOptions = []
+    
+    if prettyPrinted {
+        options = JSONSerialization.WritingOptions.prettyPrinted
+    }
+    
+    do {
+        let data = try JSONSerialization.data(withJSONObject: json, options: options)
+        if let string = String(data: data, encoding: String.Encoding.utf8) {
+            return string
+        }
+    } catch {
+        print(error)
+    }
+    
+    return ""
+}
