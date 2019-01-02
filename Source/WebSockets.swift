@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftWebSocket
 
 /// Get streaming updates to a document with the specified id
 ///
