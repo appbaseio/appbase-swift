@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04049B6221DD523900011EBE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04049B6021DD51D800011EBE /* libz.tbd */; };
-		04049B6421DD540600011EBE /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04049B6321DD540600011EBE /* WebSocket.swift */; };
+		D903C23F21DD6A430093C98F /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D903C23E21DD6A430093C98F /* Utility.swift */; };
 		D91B64D22191AEE1004B8D0D /* JSONParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B64D12191AEE1004B8D0D /* JSONParsing.swift */; };
 		D92762C3218F260B00564DF4 /* SwiftElasticSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92762B9218F260A00564DF4 /* SwiftElasticSearch.framework */; };
 		D92762CA218F260B00564DF4 /* SwiftElasticSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,7 +32,7 @@
 
 /* Begin PBXFileReference section */
 		04049B6021DD51D800011EBE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		04049B6321DD540600011EBE /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = ../../SwiftWebSocket/Source/WebSocket.swift; sourceTree = "<group>"; };
+		D903C23E21DD6A430093C98F /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		D91B64D12191AEE1004B8D0D /* JSONParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsing.swift; sourceTree = "<group>"; };
 		D92762B9218F260A00564DF4 /* SwiftElasticSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftElasticSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftElasticSearch.h; sourceTree = "<group>"; };
@@ -70,6 +70,7 @@
 		D91B64D02191AECE004B8D0D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D903C23E21DD6A430093C98F /* Utility.swift */,
 				D91B64D12191AEE1004B8D0D /* JSONParsing.swift */,
 			);
 			path = Utils;
@@ -101,7 +102,6 @@
 				D92762BC218F260B00564DF4 /* SwiftElasticSearch.h */,
 				D92762EC218F2A0C00564DF4 /* Errors.swift */,
 				D92762E0218F28CF00564DF4 /* Request.swift */,
-				04049B6321DD540600011EBE /* WebSocket.swift */,
 				D92762BD218F260B00564DF4 /* Info.plist */,
 				D92762E6218F296C00564DF4 /* Response.swift */,
 				D92762DB218F280C00564DF4 /* Client.swift */,
@@ -236,13 +236,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D903C23F21DD6A430093C98F /* Utility.swift in Sources */,
 				D92762E7218F296C00564DF4 /* Response.swift in Sources */,
 				D94B5E1521DB57EF00511EF0 /* WebSockets.swift in Sources */,
 				D92762ED218F2A0C00564DF4 /* Errors.swift in Sources */,
 				D92762E1218F28CF00564DF4 /* Request.swift in Sources */,
 				D92762DC218F280C00564DF4 /* Client.swift in Sources */,
 				D91B64D22191AEE1004B8D0D /* JSONParsing.swift in Sources */,
-				04049B6421DD540600011EBE /* WebSocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
