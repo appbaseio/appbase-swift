@@ -16,7 +16,6 @@
 		D92762ED218F2A0C00564DF4 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762EC218F2A0C00564DF4 /* Errors.swift */; };
 		D939C65D219B44D1002A3F31 /* SwiftElasticSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92762C7218F260B00564DF4 /* SwiftElasticSearchTests.swift */; };
 		D94B5E1521DB57EF00511EF0 /* WebSockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B5E1421DB57EF00511EF0 /* WebSockets.swift */; };
-		D94B5E2C21DB594B00511EF0 /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94B5E2021DB591300511EF0 /* SwiftWebSocket.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,48 +25,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D92762B8218F260A00564DF4;
 			remoteInfo = SwiftElasticSearch;
-		};
-		D94B5E1F21DB591300511EF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D94B5E1621DB591300511EF0 /* SwiftWebSocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03D1E7031B20897100AC49AC;
-			remoteInfo = "SwiftWebSocket-iOS";
-		};
-		D94B5E2121DB591300511EF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D94B5E1621DB591300511EF0 /* SwiftWebSocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D71949011B35E6130015C529;
-			remoteInfo = "SwiftWebSocket-OSX";
-		};
-		D94B5E2321DB591300511EF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D94B5E1621DB591300511EF0 /* SwiftWebSocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03957A3C1C5A71DB005CC1DB;
-			remoteInfo = "SwiftWebSocket-tvOS";
-		};
-		D94B5E2521DB591300511EF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D94B5E1621DB591300511EF0 /* SwiftWebSocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03D70CCC1BDAC5EC00D245C3;
-			remoteInfo = "Test-OSX";
-		};
-		D94B5E2721DB591300511EF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D94B5E1621DB591300511EF0 /* SwiftWebSocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03D70CDB1BDAC63600D245C3;
-			remoteInfo = "Test-iOS";
-		};
-		D94B5E2921DB591300511EF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D94B5E1621DB591300511EF0 /* SwiftWebSocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D78C40301C232C3800EB72AA;
-			remoteInfo = "Test-ObjectiveC";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -84,7 +41,6 @@
 		D92762E6218F296C00564DF4 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D92762EC218F2A0C00564DF4 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D94B5E1421DB57EF00511EF0 /* WebSockets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSockets.swift; sourceTree = "<group>"; };
-		D94B5E1621DB591300511EF0 /* SwiftWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftWebSocket.xcodeproj; path = ../SwiftWebSocket/SwiftWebSocket.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +48,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D94B5E2C21DB594B00511EF0 /* SwiftWebSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +73,6 @@
 		D92762AF218F260A00564DF4 = {
 			isa = PBXGroup;
 			children = (
-				D94B5E1621DB591300511EF0 /* SwiftWebSocket.xcodeproj */,
 				D92762BB218F260A00564DF4 /* Source */,
 				D92762C6218F260B00564DF4 /* SwiftElasticSearchTests */,
 				D92762BA218F260A00564DF4 /* Products */,
@@ -157,19 +111,6 @@
 				D92762C9218F260B00564DF4 /* Info.plist */,
 			);
 			path = SwiftElasticSearchTests;
-			sourceTree = "<group>";
-		};
-		D94B5E1721DB591300511EF0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D94B5E2021DB591300511EF0 /* SwiftWebSocket.framework */,
-				D94B5E2221DB591300511EF0 /* SwiftWebSocket.framework */,
-				D94B5E2421DB591300511EF0 /* SwiftWebSocket.framework */,
-				D94B5E2621DB591300511EF0 /* Test-OSX.xctest */,
-				D94B5E2821DB591300511EF0 /* Test-iOS.xctest */,
-				D94B5E2A21DB591300511EF0 /* Test-ObjectiveC.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D94B5E2B21DB594B00511EF0 /* Frameworks */ = {
@@ -258,12 +199,6 @@
 			mainGroup = D92762AF218F260A00564DF4;
 			productRefGroup = D92762BA218F260A00564DF4 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D94B5E1721DB591300511EF0 /* Products */;
-					ProjectRef = D94B5E1621DB591300511EF0 /* SwiftWebSocket.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D92762B8218F260A00564DF4 /* SwiftElasticSearch */,
@@ -271,51 +206,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		D94B5E2021DB591300511EF0 /* SwiftWebSocket.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftWebSocket.framework;
-			remoteRef = D94B5E1F21DB591300511EF0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D94B5E2221DB591300511EF0 /* SwiftWebSocket.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftWebSocket.framework;
-			remoteRef = D94B5E2121DB591300511EF0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D94B5E2421DB591300511EF0 /* SwiftWebSocket.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftWebSocket.framework;
-			remoteRef = D94B5E2321DB591300511EF0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D94B5E2621DB591300511EF0 /* Test-OSX.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Test-OSX.xctest";
-			remoteRef = D94B5E2521DB591300511EF0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D94B5E2821DB591300511EF0 /* Test-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Test-iOS.xctest";
-			remoteRef = D94B5E2721DB591300511EF0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D94B5E2A21DB591300511EF0 /* Test-ObjectiveC.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Test-ObjectiveC.xctest";
-			remoteRef = D94B5E2921DB591300511EF0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D92762B7218F260A00564DF4 /* Resources */ = {
