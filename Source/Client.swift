@@ -23,7 +23,7 @@ public class Client : NSObject {
     
     // MARK: - Initializer
     
-/// Instantiates an Elastic Search client object
+/// Instantiates an ElasticSearch client object
 ///
 /// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
 /// - parameter app: Name of the application
