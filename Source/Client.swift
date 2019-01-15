@@ -23,11 +23,11 @@ public class Client : NSObject {
     
     // MARK: - Initializer
     
-/// Creates an Elastic Search class object for Appbase
+/// Instantiates an Elastic Search client object
 ///
-/// - parameter url: URL of the server (If application is hosted on Appbase, url should be scalr.api.appbase.io)
+/// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
 /// - parameter app: Name of the application
-/// - parameter credentials: User credentials for authentication (Read Key)
+/// - parameter credentials: User credentials for authentication (if any)
 ///
 /// - returns: SwiftElasticSearch class Object
 ///
