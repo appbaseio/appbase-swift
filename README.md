@@ -24,7 +24,7 @@ The library provides very high performance results i.e. it provides response to 
 
 Here is the GIF showing all the above steps in action - 
 
-![Demo GIF](https://imgur.com/a/UYEerPX)
+![Demo GIF](https://github.com/harsh-2711/Resources/blob/master/SwiftElasticSearchDemo.gif)
 
 ### Carthage
 
