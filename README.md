@@ -75,6 +75,83 @@ dependencies: [
 ]
 ```
 
+## Quick Example
+
+Working code example. Please note that each step is dependent on previous step.
+
+#### Step 1: Import library and initiate the SwiftElasticSearch client
+
+```swift
+import SwiftElasticSearch
+
+// app and authentication configurations
+let HOST_URL = "https://scalr.api.appbase.io"
+let APPNAME = "SwiftClientES"
+let CREDENTIALS = "9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b"
+
+let client = Client.init(url: HOST_URL, app: APPNAME, credentials: CREDENTIALS)
+```
+
+#### Step 2: Add some data into the app
+
+```swift
+// Index some movie names
+
+client.index(type: "SwiftClientES", id: "movie1", body: ["title" : "Iron Man"]) { (json, response, error) in
+  // json - provides recieved JSON body
+  // response - provides the received response from the server
+  // error - provides the error encountered if any
+
+  print(json!)
+}
+```
+
+**Console Output**
+
+```swift
+{
+    "_id" = movie1;
+    "_index" = SwiftClientES;
+    "_shards" =     {
+        failed = 0;
+        successful = 2;
+        total = 2;
+    };
+    "_type" = SwiftClientES;
+    "_version" = 2;
+    created = 0;
+    result = updated;
+}
+```
+
+#### Step 3: Get the posted data
+
+```swift
+
+client.get(type: "SwiftClientES", id: "movie1") { (json, response, error) in
+    print(json!)
+}
+```
+
+**Console output**
+
+```swift
+{
+    "_id" = movie1;
+    "_index" = SwiftClientES;
+    "_source" =     {
+        title = "Iron Man";
+    };
+    "_type" = SwiftClientES;
+    "_version" = 2;
+    found = 1;
+}
+```
+
+* For more examples, refer to the tests file [SwiftElasticSearchTests.swift](https://github.com/appbaseio-apps/SwiftElasticSearch/blob/master/SwiftElasticSearchTests/SwiftElasticSearchTests.swift)
+
+* For a fully working example app, refer to the GitHub repository [SwiftElasticSearchDemo](https://github.com/harsh-2711/SwiftElasticSearchDemo)
+
 ## Docs
 
 WIP docs are at https://swift-elasticsearch.netlify.com.
