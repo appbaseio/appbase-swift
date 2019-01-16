@@ -56,7 +56,7 @@ public class Request {
 
             let data = try JSONSerialization.data(withJSONObject: body, options: [])
             var request = URLRequest(url: requestURL!)
-            request.httpMethod = "GET"
+            request.httpMethod = "POST"
             request.httpBody = data
             
             let tempCredentials = (credentials).data(using: String.Encoding.utf8)
