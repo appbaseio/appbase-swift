@@ -163,6 +163,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_DEPRECATED_OBJC(Msg) SWIFT_DEPRECATED_MSG(Msg)
 #endif
 #if __has_feature(modules)
+@import Foundation;
 @import ObjectiveC;
 #endif
 
@@ -188,6 +189,59 @@ SWIFT_CLASS("_TtC18SwiftElasticSearch6Client")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
+
+
+/// WebSocket objects are bidirectional network streams that communicate over HTTP. RFC 6455.
+SWIFT_CLASS("_TtC18SwiftElasticSearch9WebSocket")
+@interface WebSocket : NSObject
+@property (nonatomic, readonly) NSInteger hashValue;
+/// Create a WebSocket object with a deferred connection; the connection is not opened until the .open() method is called.
+- (nonnull instancetype)init;
+@end
+
+
+@interface WebSocket (SWIFT_EXTENSION(SwiftElasticSearch))
+/// Transmits message to the server over the WebSocket connection.
+/// :param: text The message (string) to be sent to the server.
+- (void)sendWithText:(NSString * _Nonnull)text;
+/// Transmits message to the server over the WebSocket connection.
+/// :param: data The message (binary) to be sent to the server.
+- (void)sendWithData:(NSData * _Nonnull)data;
+@end
+
+@class NSError;
+
+/// WebSocketDelegate is an Objective-C alternative to WebSocketEvents and is used to delegate the events for the WebSocket connection.
+SWIFT_PROTOCOL("_TtP18SwiftElasticSearch17WebSocketDelegate_")
+@protocol WebSocketDelegate
+/// A function to be called when the WebSocket connection’s readyState changes to .Open; this indicates that the connection is ready to send and receive data.
+- (void)webSocketOpen;
+/// A function to be called when the WebSocket connection’s readyState changes to .Closed.
+- (void)webSocketClose:(NSInteger)code reason:(NSString * _Nonnull)reason wasClean:(BOOL)wasClean;
+/// A function to be called when an error occurs.
+- (void)webSocketError:(NSError * _Nonnull)error;
+@optional
+/// A function to be called when a message (string) is received from the server.
+- (void)webSocketMessageText:(NSString * _Nonnull)text;
+/// A function to be called when a message (binary) is received from the server.
+- (void)webSocketMessageData:(NSData * _Nonnull)data;
+/// A function to be called when a pong is received from the server.
+- (void)webSocketPong;
+/// A function to be called when the WebSocket process has ended; this event is guarenteed to be called once and can be used as an alternative to the “close” or “error” events.
+- (void)webSocketEnd:(NSInteger)code reason:(NSString * _Nonnull)reason wasClean:(BOOL)wasClean error:(NSError * _Nullable)error;
+@end
+
+/// The WebSocketReadyState enum is used by the readyState property to describe the status of the WebSocket connection.
+typedef SWIFT_ENUM(NSInteger, WebSocketReadyState, closed) {
+/// The connection is not yet open.
+  WebSocketReadyStateConnecting = 0,
+/// The connection is open and ready to communicate.
+  WebSocketReadyStateOpen = 1,
+/// The connection is in the process of closing.
+  WebSocketReadyStateClosing = 2,
+/// The connection is closed or couldn’t be opened.
+  WebSocketReadyStateClosed = 3,
+};
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

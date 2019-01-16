@@ -13,7 +13,7 @@
     <a title="  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (81% documented)</p>
+        <p><a href="index.html"> Docs</a> (82% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -43,6 +43,20 @@
               </li>
             </ul>
           </li>
+          <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18SwiftElasticSearch03getC10StreamData3url11credentials3app4type4body7headers17completionHandlerySS_S3SSDySSypGSDyS2SGSgyypSgctF">getSearchStreamData(url:credentials:app:type:body:headers:completionHandler:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18SwiftElasticSearch13getStreamData3url11credentials3app4type2id7headers17completionHandlerySS_S4SSDyS2SGSgyypSgctF">getStreamData(url:credentials:app:type:id:headers:completionHandler:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18SwiftElasticSearch9stringify4json13prettyPrintedSSyp_SbtF">stringify(json:prettyPrinted:)</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -59,7 +73,7 @@
 <h3 id='dynamic-framework-simplest-way' class='heading'>Dynamic Framework (Simplest way)</h3>
 
 <ul>
-<li><p>Download the latest release of <a href="https://github.com/appbaseio-apps/SwiftElasticSearch/archive/v0.0.3.zip">SwiftElasticSearch</a> from Github and extract the zip </p></li>
+<li><p>Download the latest release of <a href="https://github.com/appbaseio-apps/SwiftElasticSearch/archive/v0.0.4.zip">SwiftElasticSearch</a> from Github and extract the zip </p></li>
 <li><p>Navigate to your Xcode&rsquo;s project <code>General</code> settings (Click on the the blue icon showing your project&rsquo;s workspace -&gt; General)</p></li>
 <li><p>Drag the <code>SwiftElasticSearch.xcodeproj</code> file from the extracted folder in the <code>Embedded Binaries</code> section and select the <code>Copy items if needed</code> checkbox in the prompted dialog box (if it appears) and click Finish</p></li>
 <li><p>Go to <code>Linked Frameworks and Libraries</code> section and click on the <code>+</code> icon</p></li>
@@ -69,7 +83,7 @@
 
 <p>Here is the GIF showing all the above steps in action - </p>
 
-<p><img src="SwiftElasticSearchDemo.gif" alt=""></p>
+<p><img src="https://github.com/appbaseio-apps/SwiftElasticSearch/blob/master/SwiftElasticSearchDemo.gif" alt="GIF showing the above steps"></p>
 <h3 id='carthage' class='heading'>Carthage</h3>
 
 <p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds dependencies and provides binary frameworks for direct use.</p>
@@ -100,7 +114,7 @@ $ brew install carthage
 <pre class="highlight plaintext"><code>github "appbaseio-apps/SwiftElasticSearch" ~&gt; &lt;Release Version&gt;
 </code></pre>
 
-<p>The current latest Release Version is 0.0.3</p>
+<p>The current latest Release Version is 0.0.4</p>
 
 <ul>
 <li><p>Run <code>carthage update</code> to build the framework</p></li>
@@ -113,9 +127,73 @@ $ brew install carthage
 
 <p>To add SwiftElasticSearch library as dependency, add the following line in the dependencies value of Package.swift : </p>
 <pre class="highlight plaintext"><code>dependencies: [
-.Package(url: "https://github.com/appbaseio-apps/SwiftElasticSearch.git", "1.1.0")
+.Package(url: "https://github.com/appbaseio-apps/SwiftElasticSearch.git", "1.0.0")
 ]
 </code></pre>
+<h2 id='quick-example' class='heading'>Quick Example</h2>
+
+<p>Working code example. Please note that each step is dependent on previous step.</p>
+<h4 id='step-1-import-library-and-initiate-the-swiftelasticsearch-client' class='heading'>Step 1: Import library and initiate the SwiftElasticSearch client</h4>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SwiftElasticSearch</span>
+
+<span class="c1">// app and authentication configurations</span>
+<span class="k">let</span> <span class="nv">HOST_URL</span> <span class="o">=</span> <span class="s">"https://scalr.api.appbase.io"</span>
+<span class="k">let</span> <span class="nv">APPNAME</span> <span class="o">=</span> <span class="s">"SwiftClientES"</span>
+<span class="k">let</span> <span class="nv">CREDENTIALS</span> <span class="o">=</span> <span class="s">"9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b"</span>
+
+<span class="k">let</span> <span class="nv">client</span> <span class="o">=</span> <span class="kt">Client</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">HOST_URL</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">APPNAME</span><span class="p">,</span> <span class="nv">credentials</span><span class="p">:</span> <span class="kt">CREDENTIALS</span><span class="p">)</span>
+</code></pre>
+<h4 id='step-2-add-some-data-into-the-app' class='heading'>Step 2: Add some data into the app</h4>
+<pre class="highlight swift"><code><span class="c1">// Index some movie names</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">index</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="s">"SwiftClientES"</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="s">"movie1"</span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="p">[</span><span class="s">"title"</span> <span class="p">:</span> <span class="s">"Iron Man"</span><span class="p">])</span> <span class="p">{</span> <span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+  <span class="c1">// json - provides recieved JSON body</span>
+  <span class="c1">// response - provides the received response from the server</span>
+  <span class="c1">// error - provides the error encountered if any</span>
+
+  <span class="nf">print</span><span class="p">(</span><span class="n">json</span><span class="o">!</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>Console Output</strong></p>
+<pre class="highlight swift"><code><span class="p">{</span>
+    <span class="s">"_id"</span> <span class="o">=</span> <span class="n">movie1</span><span class="p">;</span>
+    <span class="s">"_index"</span> <span class="o">=</span> <span class="kt">SwiftClientES</span><span class="p">;</span>
+    <span class="s">"_shards"</span> <span class="o">=</span>     <span class="p">{</span>
+        <span class="n">failed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">successful</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="s">"_type"</span> <span class="o">=</span> <span class="kt">SwiftClientES</span><span class="p">;</span>
+    <span class="s">"_version"</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">updated</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id='step-3-get-the-posted-data' class='heading'>Step 3: Get the posted data</h4>
+<pre class="highlight swift"><code>
+<span class="n">client</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="s">"SwiftClientES"</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="s">"movie1"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">json</span><span class="o">!</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+
+<p><strong>Console output</strong></p>
+<pre class="highlight swift"><code><span class="p">{</span>
+    <span class="s">"_id"</span> <span class="o">=</span> <span class="n">movie1</span><span class="p">;</span>
+    <span class="s">"_index"</span> <span class="o">=</span> <span class="kt">SwiftClientES</span><span class="p">;</span>
+    <span class="s">"_source"</span> <span class="o">=</span>     <span class="p">{</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s">"Iron Man"</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="s">"_type"</span> <span class="o">=</span> <span class="kt">SwiftClientES</span><span class="p">;</span>
+    <span class="s">"_version"</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<ul>
+<li><p>For more examples, refer to the tests file <a href="https://github.com/appbaseio-apps/SwiftElasticSearch/blob/master/SwiftElasticSearchTests/SwiftElasticSearchTests.swift">SwiftElasticSearchTests.swift</a></p></li>
+<li><p>For a fully working example app, refer to the GitHub repository <a href="https://github.com/harsh-2711/SwiftElasticSearchDemo">SwiftElasticSearchDemo</a></p></li>
+</ul>
 <h2 id='docs' class='heading'>Docs</h2>
 
 <p>WIP docs are at <a href="https://swift-elasticsearch.netlify.com">https://swift-elasticsearch.netlify.com</a>.</p>
@@ -123,7 +201,7 @@ $ brew install carthage
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-12-20)</p>
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

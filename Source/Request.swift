@@ -98,7 +98,7 @@ public class Request {
 /// - parameter url: Server endpoint URL
 /// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app
-/// - parameter id: ID of query (Can be nil)
+/// - parameter id: ID of data to be indexed
 /// - parameter body: Data that needs to indexed
 /// - parameter headers: The additional headers which have to be provided
 ///
@@ -161,7 +161,7 @@ public class Request {
 /// - parameter url: Server endpoint URL
 /// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app
-/// - parameter id: ID of query
+/// - parameter id: ID of indexed data
 /// - parameter headers: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
@@ -265,7 +265,7 @@ public class Request {
 /// - parameter url: Server endpoint URL
 /// - parameter app: Name of application
 /// - parameter type: Type of data that is created in the app
-/// - parameter id: ID of query
+/// - parameter id: ID of indexed data
 /// - parameter headers: The additional headers which have to be provided
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)

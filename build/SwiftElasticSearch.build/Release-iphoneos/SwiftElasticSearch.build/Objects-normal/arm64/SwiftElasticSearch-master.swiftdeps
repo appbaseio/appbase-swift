@@ -1,8 +1,10 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "67b864b1339f52704fe3b96660fd96fd"
-build_time: [1545249960, 340846000]
+build_time: [1547643195, 505712000]
 inputs:
+  "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Utils/Utility.swift": [9223372036, 854775807]
   "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Response.swift": [9223372036, 854775807]
+  "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/WebSockets.swift": [9223372036, 854775807]
   "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Errors.swift": [9223372036, 854775807]
   "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Request.swift": [9223372036, 854775807]
   "/Users/abhinavraj/Desktop/SwiftElasticSearch/Source/Client.swift": [9223372036, 854775807]
