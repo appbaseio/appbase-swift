@@ -15,7 +15,7 @@ public class Request {
     
     // MARK: - Properties
     
-    public var credentials : String
+    public var credentials : String? = nil
     
     
     // MARK: - Initializer
@@ -24,7 +24,7 @@ public class Request {
 ///
 /// - parameter credentials: Credentials of the user
 ///
-    public init(credentials : String) {
+    public init(credentials : String? = nil) {
         self.credentials = credentials
     }
 
@@ -59,10 +59,13 @@ public class Request {
             request.httpMethod = "POST"
             request.httpBody = data
             
-            let tempCredentials = (credentials).data(using: String.Encoding.utf8)
-            let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            if credentials != nil {
+                let tempCredentials = (credentials)!.data(using: String.Encoding.utf8)
+                let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+                request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+            }
+    
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
             if headers != nil {
                 for (key, value) in headers! {
                     request.addValue(value, forHTTPHeaderField: key)
@@ -121,10 +124,14 @@ public class Request {
             request.httpMethod = "PUT"
             request.httpBody = data
             
-            let tempCredentials = (credentials).data(using: String.Encoding.utf8)
-            let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            if credentials != nil {
+                let tempCredentials = (credentials)!.data(using: String.Encoding.utf8)
+                let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+                request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+            }
+
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+
             if headers != nil {
                 for (key, value) in headers! {
                     request.addValue(value, forHTTPHeaderField: key)
@@ -170,16 +177,18 @@ public class Request {
 
         let finalURL = url + "/" + app + "/" + type + "/" + id
         
-        let data = (credentials).data(using: String.Encoding.utf8)
-        let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        
         let requestURL = URL(string : finalURL)
         
         var request = URLRequest(url: requestURL!)
         request.httpMethod = "GET"
         
+        if credentials != nil {
+            let tempCredentials = (credentials)!.data(using: String.Encoding.utf8)
+            let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+        }
+        
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
         if headers != nil {
             for (key, value) in headers! {
                 request.addValue(value, forHTTPHeaderField: key)
@@ -223,16 +232,18 @@ public class Request {
             finalURL += "/" + type!
         }
         
-        let data = (credentials).data(using: String.Encoding.utf8)
-        let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        
         let requestURL = URL(string : finalURL)
         
         var request = URLRequest(url: requestURL!)
         request.httpMethod = "GET"
         
+        if credentials != nil {
+            let tempCredentials = (credentials)!.data(using: String.Encoding.utf8)
+            let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+        }
+        
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
         if headers != nil {
             for (key, value) in headers! {
                 request.addValue(value, forHTTPHeaderField: key)
@@ -277,18 +288,20 @@ public class Request {
         
         let requestURL =  URL(string : finalURL)
         
-            var request = URLRequest(url: requestURL!)
-            request.httpMethod = method
+        var request = URLRequest(url: requestURL!)
+        request.httpMethod = method
             
-            let tempCredentials = (credentials).data(using: String.Encoding.utf8)
+        if credentials != nil {
+            let tempCredentials = (credentials)!.data(using: String.Encoding.utf8)
             let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
-            if headers != nil {
-                for (key, value) in headers! {
-                    request.addValue(value, forHTTPHeaderField: key)
-                }
+        }
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        if headers != nil {
+            for (key, value) in headers! {
+                request.addValue(value, forHTTPHeaderField: key)
             }
+        }
         
         let task = URLSession.shared.dataTask(with: request) {
             (data, response, error) in
@@ -340,10 +353,12 @@ public class Request {
             request.httpMethod = "POST"
             request.httpBody = requestBody
             
-            let tempCredentials = (credentials).data(using: String.Encoding.utf8)
-            let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            if credentials != nil {
+                let tempCredentials = (credentials)!.data(using: String.Encoding.utf8)
+                let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+                request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+            }
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
             if headers != nil {
                 for (key, value) in headers! {
                     request.addValue(value, forHTTPHeaderField: key)
