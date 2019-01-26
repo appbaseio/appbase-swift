@@ -247,30 +247,3 @@ public class Client : NSObject {
             completionHandler(JSON, response, error)
         }
     }
-    
-    
-/// Provides the number of types which you have made
-///
-/// - parameter header: The additional headers which can be provided if required
-///
-/// - returns: The number of types in your app.
-///
-    public func getTypes(headers: [String: String]? = nil) -> Int {
-        
-        var innerJson:NSDictionary?
-        let group = DispatchGroup()
-        group.enter()
-        
-        DispatchQueue.global().async {
-            self.APIkey?.getMapping(url: self.url, app: self.app, headers:headers) {
-                JSON, response, error in
-                
-                innerJson = ((JSON! as? [String:Any])![self.app]! as? [String:Any])!["mappings"]! as? NSDictionary
-                group.leave()
-            }
-        }
-        group.wait()
-        
-        return (innerJson?.count)! - 2
-    }
-}
