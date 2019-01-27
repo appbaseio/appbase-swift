@@ -14,7 +14,7 @@ import UIKit
 public class Request {
     
     // MARK: - Properties
-    
+/// - Basic Auth `username:password` formatted credentials for authentication (if any)
     public var credentials : String? = nil
     
     
@@ -22,7 +22,7 @@ public class Request {
     
 /// Inititate parameters of a request that needs to be made
 ///
-/// - parameter credentials: Credentials of the user
+/// - parameter credentials: Basic Auth `username:password` formatted credentials for authentication (if any)
 ///
     public init(credentials : String? = nil) {
         self.credentials = credentials
@@ -33,12 +33,12 @@ public class Request {
 
 /// Initiate the POST request
 ///
-/// - parameter url: Server endpoint URL
-/// - parameter app: Name of application
-/// - parameter type: Type of data that is created in the app
-/// - parameter id: ID of query (Can be nil)
-/// - parameter body: Data that needs to indexed
-/// - parameter headers: The additional headers which have to be provided
+/// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
+/// - parameter app: Name of the app (aka search index)
+/// - parameter type: Type of the doc to be indexed (defaults to `_doc` when not passed)
+/// - parameter id: ID of the doc to be indexed (optional)
+/// - parameter body: JSON structured data that needs to be indexed
+/// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -98,12 +98,12 @@ public class Request {
     
 /// Initiate the PUT request
 ///
-/// - parameter url: Server endpoint URL
-/// - parameter app: Name of application
-/// - parameter type: Type of data that is created in the app
-/// - parameter id: ID of data to be indexed
-/// - parameter body: Data that needs to indexed
-/// - parameter headers: The additional headers which have to be provided
+/// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
+/// - parameter app: Name of the app (aka search index)
+/// - parameter type: Type of the doc to be indexed (defaults to `_doc` when not passed)
+/// - parameter id: ID of the doc to be indexed (optional)
+/// - parameter body: JSON structured data that needs to be indexed
+/// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -165,11 +165,11 @@ public class Request {
     
 /// Initiate the GET request
 ///
-/// - parameter url: Server endpoint URL
-/// - parameter app: Name of application
-/// - parameter type: Type of data that is created in the app
-/// - parameter id: ID of indexed data
-/// - parameter headers: The additional headers which have to be provided
+/// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
+/// - parameter app: Name of the app (aka search index)
+/// - parameter type: Type of the doc to be fetched (defaults to `_doc` when not passed)
+/// - parameter id: ID of the doc to be fetched (optional)
+/// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -217,10 +217,10 @@ public class Request {
     
 /// Initiate the mapping request (GET Request)
 ///
-/// - parameter url: Server endpoint URL
-/// - parameter app: Name of application
-/// - parameter type: Type of data that is created in the app
-/// - parameter headers: The additional headers which have to be provided
+/// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
+/// - parameter app: Name of the app (aka search index)
+/// - parameter type: Type of the doc whose mapping is required (defaults to `_doc` when not passed)
+/// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -273,11 +273,11 @@ public class Request {
     
 /// Initiate the DELETE request
 ///
-/// - parameter url: Server endpoint URL
-/// - parameter app: Name of application
-/// - parameter type: Type of data that is created in the app
-/// - parameter id: ID of indexed data
-/// - parameter headers: The additional headers which have to be provided
+/// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
+/// - parameter app: Name of the app (aka search index)
+/// - parameter type: Type of the doc (defaults to `_doc` when not passed)
+/// - parameter id: ID of the doc to be deleted
+/// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///
@@ -326,11 +326,11 @@ public class Request {
     
 /// Initiate the bulk POST request
 ///
-/// - parameter url: Server endpoint URL
-/// - parameter app: Name of application
-/// - parameter type: Type of data that is created in the app
-/// - parameter body: Data that needs to indexed
-/// - parameter headers: The additional headers which have to be provided
+/// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
+/// - parameter app: Name of the app (aka search index)
+/// - parameter type: Type of the doc to be indexed (defaults to `_doc` when not passed)
+/// - parameter body: JSON structured data that needs to be indexed
+/// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
 /// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
 ///

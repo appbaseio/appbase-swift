@@ -13,7 +13,8 @@ import Foundation
 public class Errors {
     
     // MARK: - Properties
-    
+
+/// - The status code of the request that is received from the server
     public let statusCode : Int
     
     

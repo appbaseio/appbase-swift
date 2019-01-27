@@ -14,9 +14,12 @@ import UIKit
 public class Client : NSObject {
     
     // MARK: - Properties
-    
+
+/// - URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
     public var url : String
+/// - Name of the app (aka search index)
     public var app : String
+/// - Basic Auth `username:password` formatted credentials for authentication (if any)
     public var credentials : String? = nil
     var APIkey : Request?
     
@@ -75,7 +78,7 @@ public class Client : NSObject {
 ///
 /// - parameter id: ID of the doc to be fetched
 /// - parameter type: Type of the doc to be fetched (defaults to `_doc` when not passed)
-/// - parameter headers: Additional headers to be passed along
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
 ///
@@ -93,7 +96,7 @@ public class Client : NSObject {
 ///
 /// - parameter id: ID of the doc to be deleted
 /// - parameter type: Type of the doc to be deleted (defaults to `_doc` when not passed)
-/// - parameter headers: Additional headers to be passed along
+/// - parameter headers:Additional headers to be passed along with the request.
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
 ///
@@ -115,7 +118,7 @@ public class Client : NSObject {
 /// - parameter body: Fields to be updated passed under the `doc` key. The data must be in valid JSON format. Eg :
 ///
 ///             let updateParameters: [String:Any] = ["doc": ["year": 2018]]
-/// - parameter headers: Additional headers to be passed along
+/// - parameter headers: Additional headers to be passed along with the request.
 /// While updating, all the JSON body needs to be put inside a doc array as shown above else the method won't work. For more information, read [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html#_updates_with_a_partial_document)
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
@@ -143,7 +146,7 @@ public class Client : NSObject {
 ///             ]
 ///
 /// For more information, read [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
-/// - parameter headers: Additional headers to be passed along
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
 ///
@@ -163,7 +166,7 @@ public class Client : NSObject {
 /// - parameter type: Type of the documents to be searched against (optional)
 /// - parameter body: Search Query DSL specified in the JSON format.
 /// More information on how to specify an ElasticSearch query can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)
-/// - parameter headers: Additional headers to be passed along
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
 ///
@@ -183,7 +186,7 @@ public class Client : NSObject {
 /// - parameter type: Type of the documents to be searched against (optional)
 /// - parameter body: Multiple queries passed in JSON format, each adhering to the Search Query DSL [query1(json),query2(json)]. 
 /// More information on multi search API can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-multi-search.html)
-/// - parameter headers: Additional headers to be passed along
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
 ///
@@ -202,7 +205,7 @@ public class Client : NSObject {
 ///
 /// - parameter id: ID of the doc to be fetched
 /// - parameter type: Type of the doc to be fetched (defaults to `_doc` when not passed)
-/// - parameter headers: Additional headers to be passed along
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
 /// - returns: Streamed updates as message, each update in a JSON format until the connection is closed
 ///
@@ -219,7 +222,7 @@ public class Client : NSObject {
 ///
 /// - parameter type: Type of the documents to be searched against (optional)
 /// - parameter body: Search Query DSL specified in the JSON format
-/// - parameter headers: Additional headers to be passed along
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
 /// - returns: Streamed updates as message, each update in a JSON format until the connection is closed
 ///
@@ -235,7 +238,7 @@ public class Client : NSObject {
 /// Get the data mapping for the search index
 ///
 /// - parameter type: (Optional) If provided, the mapping will be returned for only this particular type.
-/// - parameter headers: Additional headers to be passed along
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
 ///

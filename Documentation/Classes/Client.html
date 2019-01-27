@@ -14,7 +14,7 @@
     <a title="Client Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (82% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -48,10 +48,10 @@
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:18SwiftElasticSearch03getC10StreamData3url11credentials3app4type4body7headers17completionHandlerySS_S3SSDySSypGSDyS2SGSgyypSgctF">getSearchStreamData(url:credentials:app:type:body:headers:completionHandler:)</a>
+                <a href="../Functions.html#/s:18SwiftElasticSearch03getC10StreamData3url11credentials3app4type4body7headers17completionHandlerySS_SSSgS2SSDySSypGSDyS2SGSgyypSgctF">getSearchStreamData(url:credentials:app:type:body:headers:completionHandler:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:18SwiftElasticSearch13getStreamData3url11credentials3app4type2id7headers17completionHandlerySS_S4SSDyS2SGSgyypSgctF">getStreamData(url:credentials:app:type:id:headers:completionHandler:)</a>
+                <a href="../Functions.html#/s:18SwiftElasticSearch13getStreamData3url11credentials3app4type2id7headers17completionHandlerySS_SSSgS3SSDyS2SGSgyypSgctF">getStreamData(url:credentials:app:type:id:headers:completionHandler:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:18SwiftElasticSearch9stringify4json13prettyPrintedSSyp_SbtF">stringify(json:prettyPrinted:)</a>
@@ -96,7 +96,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        
+<ul>
+<li>URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be <a href="https://scalr.api.appbase.io">https://scalr.api.appbase.io</a>)</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -123,7 +126,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        
+<ul>
+<li>Name of the app (aka search index)</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -140,9 +146,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18SwiftElasticSearch6ClientC11credentialsSSvp"></a>
+                    <a name="/s:18SwiftElasticSearch6ClientC11credentialsSSSgvp"></a>
                     <a name="//apple_ref/swift/Property/credentials" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18SwiftElasticSearch6ClientC11credentialsSSvp">credentials</a>
+                    <a class="token" href="#/s:18SwiftElasticSearch6ClientC11credentialsSSSgvp">credentials</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -150,14 +156,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        
+<ul>
+<li>Basic Auth <code>username:password</code> formatted credentials for authentication (if any)</li>
+</ul>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">credentials</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">credentials</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -178,9 +187,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18SwiftElasticSearch6ClientC3url3app11credentialsACSSSg_S2Stcfc"></a>
+                    <a name="/s:18SwiftElasticSearch6ClientC3url3app11credentialsACSSSg_SSAGtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(url:app:credentials:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18SwiftElasticSearch6ClientC3url3app11credentialsACSSSg_S2Stcfc">init(url:app:credentials:)</a>
+                    <a class="token" href="#/s:18SwiftElasticSearch6ClientC3url3app11credentialsACSSSg_SSAGtcfc">init(url:app:credentials:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -195,7 +204,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="s">"https://scalr.api.appbase.io"</span><span class="p">,</span> <span class="nv">app</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">credentials</span> <span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">url</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="s">"https://scalr.api.appbase.io"</span><span class="p">,</span> <span class="nv">app</span> <span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">credentials</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -223,7 +232,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Name of the application</p>
+                                  <p>Name of the app (aka search index)</p>
                                 </div>
                               </td>
                             </tr>
@@ -235,7 +244,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>User credentials for authentication (if any)</p>
+                                  <p>Basic Auth <code>username:password</code> formatted credentials for authentication (if any)</p>
                                 </div>
                               </td>
                             </tr>
@@ -273,7 +282,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds given JSON data to the database (POST/PUT request)</p>
+                        <p>Adds a JSON document to the search index (via POST/PUT request)</p>
 
                       </div>
                       <div class="declaration">
@@ -291,24 +300,24 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>type</em>
+                                <em>id</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of data that is created in the app</p>
+                                  <p>ID of the doc to be indexed</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>id</em>
+                                <em>type</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>ID of data to be indexed</p>
+                                  <p>Type of the doc to be indexed (defaults to <code>_doc</code> when not passed)</p>
                                 </div>
                               </td>
                             </tr>
@@ -320,7 +329,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Data that needs to indexed. The data must be in valid JSON format. For more information : <a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-index_.html">https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-index_.html</a> Eg :</p>
+                                  <p>JSON document to be indexed. It must be in a valid JSON format. For more information, read <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.5/docs-index_.html">here</a> Eg :</p>
 <pre class="highlight swift"><code>            <span class="k">let</span> <span class="nv">updateParameters</span><span class="p">:[</span><span class="kt">String</span><span class="p">:</span><span class="kt">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="s">"year"</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span>
                  <span class="s">"movieName"</span><span class="p">:</span> <span class="s">"La La Land"</span>
@@ -332,12 +341,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>header</em>
+                                <em>headers</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The additional headers which can be provided if required</p>
+                                  <p>Additional headers to be passed along with the <code>index()</code> request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -346,7 +355,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p>Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -364,7 +373,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Fetches data from the database for the provided unique id (GET request)</p>
+                        <p>Fetches a specified document from the search index (GET request)</p>
 
                       </div>
                       <div class="declaration">
@@ -382,36 +391,36 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>type</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Type of data that is created in the app</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
                                 <em>id</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>ID of indexed data</p>
+                                  <p>ID of the doc to be fetched</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>header</em>
+                                <em>type</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The additional headers which can be provided if required</p>
+                                  <p>Type of the doc to be fetched (defaults to <code>_doc</code> when not passed)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -420,7 +429,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p>Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -438,7 +447,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes data from the database for the provided unique id (GET request)</p>
+                        <p>Deletes a specified document from the search index (DELETE request)</p>
 
                       </div>
                       <div class="declaration">
@@ -456,36 +465,36 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>type</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Type of data that is created in the app</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
                                 <em>id</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>ID of indexed data</p>
+                                  <p>ID of the doc to be deleted</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>header</em>
+                                <em>type</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The additional headers which can be provided if required</p>
+                                  <p>Type of the doc to be deleted (defaults to <code>_doc</code> when not passed)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -494,7 +503,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p>Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -512,9 +521,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Update data of the provided unique id (GET request)</p>
-
-<p>While updating, all the JSON body needs to be put inside a doc array as shown above else the method won&rsquo;t work. For more information : <a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document">https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update.html#_updates_with_a_partial_document</a></p>
+                        <p>Partially update a specified document in the search index. (POST request)
+It&rsquo;s different from the index() method as it allows to only update the fields specified in the <code>body.doc</code> key.</p>
 
                       </div>
                       <div class="declaration">
@@ -532,24 +540,24 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>type</em>
+                                <em>id</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of data that is created in the app</p>
+                                  <p>ID of the doc to be updated</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>id</em>
+                                <em>type</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>ID of indexed data</p>
+                                  <p>Type of the doc to be updated (defaults to <code>_doc</code> when not passed)</p>
                                 </div>
                               </td>
                             </tr>
@@ -561,7 +569,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Data that needs to updated. The data must be in valid JSON format. Eg :</p>
+                                  <p>Fields to be updated passed under the <code>doc</code> key. The data must be in valid JSON format. Eg :</p>
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">updateParameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">"doc"</span><span class="p">:</span> <span class="p">[</span><span class="s">"year"</span><span class="p">:</span> <span class="mi">2018</span><span class="p">]]</span>
 </code></pre>
                                 </div>
@@ -570,12 +578,13 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>header</em>
+                                <em>headers</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The additional headers which can be provided if required</p>
+                                  <p>Additional headers to be passed along with the request.
+While updating, all the JSON body needs to be put inside a doc array as shown above else the method won&rsquo;t work. For more information, read <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html#_updates_with_a_partial_document">here</a></p>
                                 </div>
                               </td>
                             </tr>
@@ -584,7 +593,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p>Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -602,9 +611,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Make bulk requests on a specified app or a specific type. Bulk requests can be any of index, update and delete requests.</p>
+                        <p>Make bulk requests on the search index. Bulk requests can be any of index, update and delete requests.</p>
 
-<p>For more information : <a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html">https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-bulk.html</a></p>
+<p>For more information, read <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">here</a></p>
 
                       </div>
                       <div class="declaration">
@@ -627,7 +636,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)</p>
+                                  <p>Type of the documents passed in the bulk request (can also be passed as part of request body)</p>
                                 </div>
                               </td>
                             </tr>
@@ -639,7 +648,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>JSON structured data parameter that has to be passed for updating, Note: For updating data,    the JSON must be of the format [[String:Any]]. A quick example of bulk request is :</p>
+                                  <p>JSON data in the specified format. Note: For updating data, the JSON must be of the format [[String:Any]]. A quick example of bulk request is shown here:</p>
 <pre class="highlight swift"><code>    <span class="k">let</span> <span class="nv">bulkParameters</span><span class="p">:[[</span><span class="kt">String</span><span class="p">:</span><span class="kt">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span>
             <span class="p">[</span> <span class="s">"index"</span><span class="p">:</span> <span class="p">[</span> <span class="s">"_type"</span><span class="p">:</span> <span class="s">"SwiftClientES"</span><span class="p">]</span> <span class="p">],</span>
             <span class="p">[</span><span class="s">"Title"</span> <span class="p">:</span> <span class="s">"New Movie 4"</span> <span class="p">,</span> <span class="s">"Year"</span> <span class="p">:</span> <span class="s">"2016"</span><span class="p">],</span>
@@ -652,12 +661,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>header</em>
+                                <em>headers</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The additional headers which can be provided if required</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -666,7 +675,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p>Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -684,7 +693,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Apply a search via the request body. The request body is constructed using the Query DSL.</p>
+                        <p>Search across documents in the index. The request body is constructed using the Query DSL.</p>
 
                       </div>
                       <div class="declaration">
@@ -707,7 +716,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)</p>
+                                  <p>Type of the documents to be searched against (optional)</p>
                                 </div>
                               </td>
                             </tr>
@@ -719,20 +728,20 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The request body through which the query has to be made.The request body is constructed using the Query DSL.
-More information on how to make a request body can be found on : <a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html">https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html</a></p>
+                                  <p>Search Query DSL specified in the JSON format.
+More information on how to specify an ElasticSearch query can be found <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html">here</a></p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>header</em>
+                                <em>headers</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The additional headers which can be provided if required</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -741,7 +750,7 @@ More information on how to make a request body can be found on : <a href="https:
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p>Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -759,7 +768,7 @@ More information on how to make a request body can be found on : <a href="https:
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Apply a multiple search via the request body. The individual request bodies are constructed using the Query DSL.</p>
+                        <p>Combine multiple search requests into a single request. The individual request bodies are constructed using the Query DSL.</p>
 
                       </div>
                       <div class="declaration">
@@ -782,7 +791,7 @@ More information on how to make a request body can be found on : <a href="https:
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of data that is created in the app (should only be passed if you want to make the request to the that perticular type)</p>
+                                  <p>Type of the documents to be searched against (optional)</p>
                                 </div>
                               </td>
                             </tr>
@@ -794,20 +803,20 @@ More information on how to make a request body can be found on : <a href="https:
                               </td>
                               <td>
                                 <div>
-                                  <p>The request body through which the query has to be made. Multiple queries can be made by format: [query1(json),query2(json)]. The individual request body is constructed using the Query DSL.
-More information on how to make a request body can be found on : <a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html">https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html</a></p>
+                                  <p>Multiple queries passed in JSON format, each adhering to the Search Query DSL [query1(json),query2(json)]. 
+More information on multi search API can be found <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-multi-search.html">here</a></p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>header</em>
+                                <em>headers</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The additional headers which can be provided if required</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -816,7 +825,7 @@ More information on how to make a request body can be found on : <a href="https:
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p>Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -834,7 +843,7 @@ More information on how to make a request body can be found on : <a href="https:
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get streaming updates to a document with the specified id. The [stream = true] parameter informs the service to keep the connection open, which is used to provide subsequent updates.</p>
+                        <p>Get streaming updates to a document with a specified id. The [stream = true] parameter informs the appbase.io service to keep the connection open, which is used to receive subsequent updates.</p>
 
                       </div>
                       <div class="declaration">
@@ -852,36 +861,36 @@ More information on how to make a request body can be found on : <a href="https:
                             <tr>
                               <td>
                                 <code>
-                                <em>type</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Type of data that is created in the app</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
                                 <em>id</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>ID of indexed data</p>
+                                  <p>ID of the doc to be fetched</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>header</em>
+                                <em>type</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The additional headers which have to be provided</p>
+                                  <p>Type of the doc to be fetched (defaults to <code>_doc</code> when not passed)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -890,7 +899,7 @@ More information on how to make a request body can be found on : <a href="https:
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received message in JSON format having parameters channel - Path where streaming is made and event - The change that is observed</p>
+                        <p>Streamed updates as message, each update in a JSON format until the connection is closed</p>
                       </div>
                     </section>
                   </div>
@@ -908,7 +917,7 @@ More information on how to make a request body can be found on : <a href="https:
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get streaming updates to a search query provided in the request body. The stream=true parameter informs the appbase.io service to keep the connection open, which is used to provide subsequent updates.</p>
+                        <p>Get streaming updates to a search query provided in the request body. The [stream=true] parameter informs the appbase.io service to keep the connection open, which is used to receive subsequent updates.</p>
 
                       </div>
                       <div class="declaration">
@@ -931,7 +940,7 @@ More information on how to make a request body can be found on : <a href="https:
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of data that is created in the app</p>
+                                  <p>Type of the documents to be searched against (optional)</p>
                                 </div>
                               </td>
                             </tr>
@@ -943,19 +952,19 @@ More information on how to make a request body can be found on : <a href="https:
                               </td>
                               <td>
                                 <div>
-                                  <p>Search query of the streaming</p>
+                                  <p>Search Query DSL specified in the JSON format</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>header</em>
+                                <em>headers</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The additional headers which have to be provided</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -964,7 +973,7 @@ More information on how to make a request body can be found on : <a href="https:
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received message in JSON format until the connection is closed</p>
+                        <p>Streamed updates as message, each update in a JSON format until the connection is closed</p>
                       </div>
                     </section>
                   </div>
@@ -982,7 +991,7 @@ More information on how to make a request body can be found on : <a href="https:
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides the data mapping corresponding to the app or the type.</p>
+                        <p>Get the data mapping for the search index</p>
 
                       </div>
                       <div class="declaration">
@@ -1005,19 +1014,19 @@ More information on how to make a request body can be found on : <a href="https:
                               </td>
                               <td>
                                 <div>
-                                  <p>Type of data that is created in the app (Appbase dashboard), provide if you want to get the data mapping from the correspong type.</p>
+                                  <p>(Optional) If provided, the mapping will be returned for only this particular type.</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>header</em>
+                                <em>headers</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The additional headers which have to be provided</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1026,57 +1035,7 @@ More information on how to make a request body can be found on : <a href="https:
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:18SwiftElasticSearch6ClientC8getTypes7headersSiSDyS2SGSg_tF"></a>
-                    <a name="//apple_ref/swift/Method/getTypes(headers:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18SwiftElasticSearch6ClientC8getTypes7headersSiSDyS2SGSg_tF">getTypes(headers:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Provides the number of types which you have made</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTypes</span><span class="p">(</span><span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>header</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The additional headers which can be provided if required</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The number of types in your app.</p>
+                        <p>Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)</p>
                       </div>
                     </section>
                   </div>
@@ -1086,7 +1045,7 @@ More information on how to make a request body can be found on : <a href="https:
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-16)</p>
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

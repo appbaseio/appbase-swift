@@ -2,7 +2,7 @@
 //  WebSockets.swift
 //  SwiftElasticSearch
 //
-//  Created by Harsh Patel on 01/01/19.
+//  Created by Harsh Patel and Abhinav Raj on 01/01/19.
 //  Copyright © 2019 Harsh Patel. All rights reserved.
 //
 
@@ -10,12 +10,12 @@ import Foundation
 
 /// Get streaming updates to a document with the specified id
 ///
-/// - parameter url: URL of the server (If application is hosted on Appbase, url should be scalr.api.appbase.io)
-/// - parameter credentials: User credentials for authentication (Read Key)
-/// - parameter app: Name of the application
-/// - parameter type: Type of data that is created in the app
-/// - parameter id: ID of query
-/// - parameter headers: The additional headers which have to be provided
+/// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
+/// - parameter credentials: Basic Auth `username:password` formatted credentials for authentication (Read Key)
+/// - parameter app: Name of the app (aka search index)
+/// - parameter type: Type of the doc
+/// - parameter id:  ID of the doc on which getStream has to be made.
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
 /// - returns: Received message in JSON format having parameters channel - Path where streaming is made and event - The change that is observed
 ///
@@ -83,12 +83,12 @@ public func getStreamData(url: String, credentials: String? = nil, app: String, 
 
 /// Get streaming updates to a search query provided in the request body
 ///
-/// - parameter url: URL of the server (If application is hosted on Appbase, url should be scalr.api.appbase.io)
-/// - parameter credentials: User credentials for authentication (Read Key)
-/// - parameter app: Name of the application
-/// - parameter type: Type of data that is created in the app
+/// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
+/// - parameter credentials: Basic Auth `username:password` formatted credentials for authentication (Read Key)
+/// - parameter app: Name of the app (aka search index)
+/// - parameter type: Type of the doc
 /// - parameter body: Search query of the streaming
-/// - parameter headers: The additional headers which have to be provided
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
 /// - returns: Received message in JSON format until the connection is closed
 ///

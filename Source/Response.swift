@@ -2,7 +2,7 @@
 //  Response.swift
 //  SwiftElasticSearch
 //
-//  Created by Harsh Patel on 04/11/18.
+//  Created by Harsh Patel and Abhinav Raj on 04/11/18.
 //  Copyright © 2018 Harsh Patel. All rights reserved.
 //
 
@@ -14,8 +14,11 @@ public class Response {
     
     // MARK: - Properties
     
+/// - Data that is received for the request made
     public let data: Data?
+/// - Response received from the server
     public let httpResponse: URLResponse?
+/// - Error(if any) that is encountered
     public let error: Error?
    
     
