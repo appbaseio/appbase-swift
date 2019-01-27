@@ -247,3 +247,4 @@ public class Client : NSObject {
             completionHandler(JSON, response, error)
         }
     }
+}
