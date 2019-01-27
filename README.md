@@ -1,14 +1,14 @@
 # SwiftElasticSearch
 
-## About Project
+### About Project
 
 This project aims to create fast responsive Swift Library, supported for IPhone and Mac apps which provides the functionality of Elastic Search to be integrated in the app.
 
 The library provides very high performance results i.e. it provides response to user queries in milliseconds of time including the elastic search processing time.
 
-## Installation
+### Installation
 
-### Dynamic Framework (Simplest way)
+#### Dynamic Framework (Simplest way)
 
 * Download the latest release of [SwiftElasticSearch](https://github.com/appbaseio-apps/SwiftElasticSearch/archive/v0.1.0.zip) from Github and extract the zip 
 
@@ -26,7 +26,7 @@ Here is the GIF showing all the above steps in action -
 
 ![Demo GIF](https://github.com/harsh-2711/Resources/blob/master/SwiftElasticSearchDemo.gif)
 
-### Carthage
+#### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds dependencies and provides binary frameworks for direct use.
 
@@ -63,7 +63,7 @@ The current latest Release Version is 0.1.0
 
 * Build the project
 
-### Swift Package Manager
+#### Swift Package Manager
 
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the swift compiler. It is in early development, but ElasticSwift does support its use on supported platforms.
 
@@ -75,7 +75,7 @@ dependencies: [
 ]
 ```
 
-## Quick Example
+### Quick Example
 
 Working code example. Please note that each step is dependent on previous step.
 
@@ -152,6 +152,6 @@ client.get(type: "SwiftClientES", id: "movie1") { (json, response, error) in
 
 * For a fully working example app, refer to the GitHub repository [SwiftElasticSearchDemo](https://github.com/harsh-2711/SwiftElasticSearchDemo)
 
-## Docs
+### Docs
 
 WIP docs are at https://swift-elasticsearch.netlify.com.
