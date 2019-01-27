@@ -1,5 +1,15 @@
 # SwiftElasticSearch
 
+### Table of Content
+
+1. [About Project](https://github.com/appbaseio-apps/SwiftElasticSearch#about-project)
+2. [Installation](https://github.com/appbaseio-apps/SwiftElasticSearch#installation)
+    * [Dynamic Framework](https://github.com/appbaseio-apps/SwiftElasticSearch#dynamic-framework-simplest-way)
+    * [Carthage](https://github.com/appbaseio-apps/SwiftElasticSearch#carthage)
+    * [Swift Package Manager](https://github.com/appbaseio-apps/SwiftElasticSearch#swift-package-manager)
+3. [Quick Example](https://github.com/appbaseio-apps/SwiftElasticSearch#quick-example)
+4. [Docs](https://github.com/appbaseio-apps/SwiftElasticSearch#docs)
+
 ### About Project
 
 This project aims to create fast responsive Swift Library, supported for IPhone and Mac apps which provides the functionality of Elastic Search to be integrated in the app.
