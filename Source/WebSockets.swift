@@ -19,20 +19,16 @@ import Foundation
 ///
 /// - returns: Received message in JSON format having parameters channel - Path where streaming is made and event - The change that is observed
 ///
-public func getStreamData(url: String, credentials: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
+public func getStreamData(url: String, credentials: String? = nil, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
     
     let seperatedURL = url.split(separator: "/")
     let finalURL = "wss://" + seperatedURL[1] + "/" + app
-    
-    let data = credentials.data(using: String.Encoding.utf8)
-    let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
     
     let requestURL = URL(string : finalURL)
     var request = URLRequest(url: requestURL!)
     
     request.httpMethod = "GET"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
     
     if headers != nil {
         for (key, value) in headers! {
@@ -46,12 +42,18 @@ public func getStreamData(url: String, credentials: String, app: String, type: S
         "id" : "17f1f527-325a-48f7-a12d-3f16107190cc",
         "method" : "GET",
         "body" : [],
-        "authorization" : "Basic " + credentials64,
         ]
     
     let ws = WebSocket(url: requestURL!)
     var jsonRequest = stringify(json: request2 as AnyObject)
     jsonRequest.removeLast()
+    if credentials != nil {
+        let tempCredentials = (credentials)!.data(using: String.Encoding.utf8)
+        let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+        let authorization =  ",\"authorization\" : \"Basic " + credentials64 + "\""
+        jsonRequest = jsonRequest + authorization
+    }
     
     ws.send(jsonRequest + query)
     
@@ -90,13 +92,10 @@ public func getStreamData(url: String, credentials: String, app: String, type: S
 ///
 /// - returns: Received message in JSON format until the connection is closed
 ///
-public func getSearchStreamData(url: String, credentials: String, app: String, type: String, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
+public func getSearchStreamData(url: String, credentials: String? = nil, app: String, type: String, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
     
     let seperatedURL = url.split(separator: "/")
     let finalURL = "wss://" + seperatedURL[1] + "/" + app
-    
-    let data = credentials.data(using: String.Encoding.utf8)
-    let credentials64 = data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
     
     let requestURL = URL(string : finalURL)
     var request = URLRequest(url: requestURL!)
@@ -106,7 +105,6 @@ public func getSearchStreamData(url: String, credentials: String, app: String, t
         let httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
         request.httpBody = httpBody
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
         
         if headers != nil {
             for (key, value) in headers! {
@@ -120,12 +118,18 @@ public func getSearchStreamData(url: String, credentials: String, app: String, t
             "id" : "17f1f527-325a-48f7-a12d-3f16107190cc",
             "method" : "POST",
             "body" : [],
-            "authorization" : "Basic " + credentials64,
             ]
         
         let ws = WebSocket(url: requestURL!)
         var jsonRequest = stringify(json: request2 as AnyObject)
         jsonRequest.removeLast()
+        if credentials != nil {
+            let tempCredentials = (credentials)!.data(using: String.Encoding.utf8)
+            let credentials64 = tempCredentials!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            request.addValue("Basic " + credentials64, forHTTPHeaderField: "Authorization")
+            let authorization =  ",\"authorization\" : \"Basic " + credentials64 + "\""
+            jsonRequest = jsonRequest + authorization
+        }
         
         ws.send(jsonRequest + query)
         

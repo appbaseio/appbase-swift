@@ -284,20 +284,4 @@ class SwiftElasticSearchTests: XCTestCase {
         }
         group.wait()
     }
-    
-    func test_getTypes_is_working() {
-        
-        let client = Client.init(url: "https://scalr.api.appbase.io", app: "SwiftClientES", credentials: "9MrI8sWhQ:7cf68f3b-51f7-45c0-973f-f3e85ad10f4b")
-        
-        let group = DispatchGroup()
-        group.enter()
-        
-        DispatchQueue.global().async {
-            
-            XCTAssert(client.getTypes() == 6)
-            group.leave()
-        
-        }
-        group.wait()
-    }
 }
