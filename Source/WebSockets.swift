@@ -92,7 +92,7 @@ public func getStreamData(url: String, credentials: String? = nil, app: String, 
 ///
 /// - returns: Received message in JSON format until the connection is closed
 ///
-public func getSearchStreamData(url: String, credentials: String? = nil, app: String, type: String, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
+public func getSearchStreamData(url: String, credentials: String? = nil, app: String, type: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
     
     let seperatedURL = url.split(separator: "/")
     let finalURL = "wss://" + seperatedURL[1] + "/" + app
@@ -112,7 +112,12 @@ public func getSearchStreamData(url: String, credentials: String? = nil, app: St
             }
         }
         
-        let query = ",\"path\" : \"" + app + "/" + type + "/_search?stream=true\"}"
+        let query:String
+        if type != nil {
+            query = ",\"path\" : \"" + app + "/" + type! + "/_search?stream=true\"}"
+        } else {
+            query = ",\"path\" : \"" + app + "/_search?stream=true\"}"
+        }
         
         let request2 : [String : Any] = [
             "id" : "17f1f527-325a-48f7-a12d-3f16107190cc",

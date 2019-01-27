@@ -150,9 +150,9 @@ public class Client : NSObject {
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
 ///
-    public func bulk(type: String? = "_doc", body : [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func bulk(type: String? = nil, body : [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
-        let bulk = type! + "/_bulk"
+        let bulk = type ?? "" + "/_bulk"
         
         APIkey!.bulkData(url: url, app: app, type: bulk, body: body, headers:headers) { ( JSON, response, error ) in
             
@@ -170,9 +170,9 @@ public class Client : NSObject {
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
 ///
-    public func search(type: String? = "_doc", body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func search(type: String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
-        let msearchType = type! + "/_search"
+        let msearchType = type ?? "" + "/_search"
         
         APIkey!.postData(url: url, app: app, type: msearchType, body: body,headers: headers) { ( JSON, response, error ) in
             
@@ -190,9 +190,9 @@ public class Client : NSObject {
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
 ///
-    public func msearch(type: String? = "_doc", body : [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func msearch(type: String? = nil , body : [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
         
-        let msearchType = type! + "/_msearch"
+        let msearchType = type ?? "" + "/_msearch"
         
         APIkey!.bulkData(url: url, app: app, type: msearchType, body: body,headers: headers) { ( JSON, response, error ) in
             
@@ -226,7 +226,7 @@ public class Client : NSObject {
 ///
 /// - returns: Streamed updates as message, each update in a JSON format until the connection is closed
 ///
-    public func searchStream(type: String? = "_doc", body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
+    public func searchStream(type: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
         
         getSearchStreamData(url: url, credentials: credentials, app: app, type: type!, body: body) { (message) in
             
@@ -242,7 +242,7 @@ public class Client : NSObject {
 ///
 /// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
 ///
-    public func getMapping(type: String? = "_doc" , headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()){
+    public func getMapping(type: String? = nil , headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()){
         
         APIkey?.getMapping(url: url, app: app, type: type!, headers: headers) {
             JSON, response, error in
