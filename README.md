@@ -1,6 +1,6 @@
 # SwiftElasticSearch
 
-### Table of Content
+### Table of Contents
 
 1. [About Project](https://github.com/appbaseio-apps/SwiftElasticSearch#about-project)
 2. [Installation](https://github.com/appbaseio-apps/SwiftElasticSearch#installation)
