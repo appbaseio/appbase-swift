@@ -55,9 +55,9 @@ public class Client : NSObject {
 ///                 ]
 /// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
-/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
+/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, String?)
 ///
-    public func index(type: String? = "_doc", id : String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func index(type: String? = "_doc", id : String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         if id != nil {
             APIkey!.putData(url: url, app: app, type: type!, id: id, body: body, headers: headers) { ( JSON, response, error ) in
@@ -80,9 +80,9 @@ public class Client : NSObject {
 /// - parameter type: Type of the doc to be fetched (defaults to `_doc` when not passed)
 /// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
+/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, String?)
 ///
-    public func get(type: String? = "_doc", id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func get(type: String? = "_doc", id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         APIkey?.getData(url: url, app: app, type: type!, id: id, headers: headers) {
             JSON, response, error in
@@ -98,9 +98,9 @@ public class Client : NSObject {
 /// - parameter type: Type of the doc to be deleted (defaults to `_doc` when not passed)
 /// - parameter headers:Additional headers to be passed along with the request.
 ///
-/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
+/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, String?)
 ///
-    public func delete(type: String? = "_doc", id : String, headers: [String: String]? = nil,completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func delete(type: String? = "_doc", id : String, headers: [String: String]? = nil,completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         APIkey!.deleteData(url: url, app: app, type: type!, id: id, headers: headers) {
             JSON, response, error in
@@ -121,9 +121,9 @@ public class Client : NSObject {
 /// - parameter headers: Additional headers to be passed along with the request.
 /// While updating, all the JSON body needs to be put inside a doc array as shown above else the method won't work. For more information, read [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html#_updates_with_a_partial_document)
 ///
-/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
+/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, String?)
 ///
-    public func update(type: String? = "_doc", id : String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func update(type: String? = "_doc", id : String, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         let updateID = id + "/_update"
         
@@ -148,9 +148,9 @@ public class Client : NSObject {
 /// For more information, read [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
 /// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
+/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, String?)
 ///
-    public func bulk(type: String? = nil, body : [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func bulk(type: String? = nil, body : [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         let bulk = type ?? "" + "/_bulk"
         
@@ -168,9 +168,9 @@ public class Client : NSObject {
 /// More information on how to specify an ElasticSearch query can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)
 /// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
+/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, String?)
 ///
-    public func search(type: String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func search(type: String? = nil, body : [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         let msearchType = type ?? "" + "/_search"
         
@@ -188,9 +188,9 @@ public class Client : NSObject {
 /// More information on multi search API can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-multi-search.html)
 /// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
+/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, String?)
 ///
-    public func msearch(type: String? = nil , body : [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func msearch(type: String? = nil , body : [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         let msearchType = type ?? "" + "/_msearch"
         
@@ -240,9 +240,9 @@ public class Client : NSObject {
 /// - parameter type: (Optional) If provided, the mapping will be returned for only this particular type.
 /// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, Error?)
+/// - returns: Received data, response in JSON format and error information if present in the format (Any?, Any?, String?)
 ///
-    public func getMapping(type: String? = nil , headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()){
+    public func getMapping(type: String? = nil , headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()){
         
         APIkey?.getMapping(url: url, app: app, type: type!, headers: headers) {
             JSON, response, error in

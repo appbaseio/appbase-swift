@@ -81,18 +81,18 @@ public class Response {
     }
     
     
-    /// Checks if any data is received from the server for the request made
+    /// Checks if any error is encountered from the server for the request made based on the status code
     ///
-    /// - returns: Boolean value for the condition if data is received or not
+    /// - returns: Boolean value for the condition if error is occured or not
     ///
-    public func isDataReceieved() -> Bool {
+    public func isErrorEncountered() -> Bool {
         
         let response = self.httpResponse as! HTTPURLResponse
         let statusCode = response.statusCode
         
         let status = Errors.init(statusCode: statusCode)
         
-        return status.isSuccess()
+        return !status.isSuccess()
     }
     
     

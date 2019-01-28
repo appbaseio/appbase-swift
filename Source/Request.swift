@@ -40,9 +40,9 @@ public class Request {
 /// - parameter body: JSON structured data that needs to be indexed
 /// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
 ///
-    public func postData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func postData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
 
         var finalURL = url + "/" + app + "/" + type
         
@@ -79,12 +79,13 @@ public class Request {
                 
                 let receivedData = responseInitializer.getReceivedData()
                 
-                if receivedData != nil {
+                if responseInitializer.isErrorEncountered() {
+                    
+                    let errStatement = responseInitializer.getReceivedStatusFromCode()
+                    completionHandler(receivedData, response, errStatement)
+                    
+                } else {
                     completionHandler(receivedData, response, nil)
-                }
-                else {
-                    let receivedError = responseInitializer.getReceivedError()
-                    completionHandler(nil, response, receivedError)
                 }
                 
             }
@@ -105,9 +106,9 @@ public class Request {
 /// - parameter body: JSON structured data that needs to be indexed
 /// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
 ///
-    public func putData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func putData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         var finalURL = url + "/" + app + "/" + type
         
@@ -145,12 +146,13 @@ public class Request {
                 
                 let receivedData = responseInitializer.getReceivedData()
                 
-                if receivedData != nil {
+                if responseInitializer.isErrorEncountered() {
+                    
+                    let errStatement = responseInitializer.getReceivedStatusFromCode()
+                    completionHandler(receivedData, response, errStatement)
+                    
+                } else {
                     completionHandler(receivedData, response, nil)
-                }
-                else {
-                    let receivedError = responseInitializer.getReceivedError()
-                    completionHandler(nil, response, receivedError)
                 }
                 
             }
@@ -171,9 +173,9 @@ public class Request {
 /// - parameter id: ID of the doc to be fetched (optional)
 /// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
 ///
-    public func getData(url: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?,  Error?) -> ()) {
+    public func getData(url: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?,  String?) -> ()) {
 
         let finalURL = url + "/" + app + "/" + type + "/" + id
         
@@ -202,12 +204,13 @@ public class Request {
             
             let receivedData = responseInitializer.getReceivedData()
             
-            if receivedData != nil {
+            if responseInitializer.isErrorEncountered() {
+                
+                let errStatement = responseInitializer.getReceivedStatusFromCode()
+                completionHandler(receivedData, response, errStatement)
+                
+            } else {
                 completionHandler(receivedData, response, nil)
-            }
-            else {
-                let receivedError = responseInitializer.getReceivedError()
-                completionHandler(nil, response, receivedError)
             }
             
         }
@@ -222,9 +225,9 @@ public class Request {
 /// - parameter type: Type of the doc whose mapping is required (defaults to `_doc` when not passed)
 /// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
 ///
-    public func getMapping(url: String, app: String, type: String? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func getMapping(url: String, app: String, type: String? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         var finalURL = url + "/" + app + "/_mapping"
         
@@ -257,12 +260,13 @@ public class Request {
             
             let receivedData = responseInitializer.getReceivedData()
             
-            if receivedData != nil {
+            if responseInitializer.isErrorEncountered() {
+                
+                let errStatement = responseInitializer.getReceivedStatusFromCode()
+                completionHandler(receivedData, response, errStatement)
+                
+            } else {
                 completionHandler(receivedData, response, nil)
-            }
-            else {
-                let receivedError = responseInitializer.getReceivedError()
-                completionHandler(nil, response, receivedError)
             }
             
         }
@@ -279,9 +283,9 @@ public class Request {
 /// - parameter id: ID of the doc to be deleted
 /// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
 ///
-    public func deleteData(url: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func deleteData(url: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         let finalURL = url + "/" + app + "/" + type + "/" + id
         let method = "DELETE"
@@ -310,12 +314,13 @@ public class Request {
             
             let receivedData = responseInitializer.getReceivedData()
             
-            if receivedData != nil {
+            if responseInitializer.isErrorEncountered() {
+                
+                let errStatement = responseInitializer.getReceivedStatusFromCode()
+                completionHandler(receivedData, response, errStatement)
+                
+            } else {
                 completionHandler(receivedData, response, nil)
-            }
-            else {
-                let receivedError = responseInitializer.getReceivedError()
-                completionHandler(nil, response, receivedError)
             }
             
         }
@@ -332,9 +337,9 @@ public class Request {
 /// - parameter body: JSON structured data that needs to be indexed
 /// - parameter headers: Additional headers to be passed along with the `index()` request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)
+/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
 ///
-    public func bulkData(url: String, app: String, type: String, body: [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, Error?) -> ()) {
+    public func bulkData(url: String, app: String, type: String, body: [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
         let finalURL = url + "/" + app + "/" + type         
         let requestURL = URL(string : finalURL)
@@ -372,12 +377,13 @@ public class Request {
                 
                 let receivedData = responseInitializer.getReceivedData()
                 
-                if receivedData != nil {
+                if responseInitializer.isErrorEncountered() {
+                    
+                    let errStatement = responseInitializer.getReceivedStatusFromCode()
+                    completionHandler(receivedData, response, errStatement)
+                    
+                } else {
                     completionHandler(receivedData, response, nil)
-                }
-                else {
-                    let receivedError = responseInitializer.getReceivedError()
-                    completionHandler(nil, response, receivedError)
                 }
                 
             }
