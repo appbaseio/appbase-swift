@@ -17,7 +17,7 @@ import Foundation
 /// - parameter id:  ID of the doc on which getStream has to be made.
 /// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received message in JSON format having parameters channel - Path where streaming is made and event - The change that is observed
+/// - returns: Received message in JSON format until the connection is closed
 ///
 public func getStreamData(url: String, credentials: String? = nil, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?) -> ()) {
     
@@ -76,8 +76,24 @@ public func getStreamData(url: String, credentials: String? = nil, app: String, 
     
     // Data obtained
     ws.event.message = { message in
-        completionHandler(message)
+        
+        let str = message as? String ?? ""
+        
+        do {
+            
+            if let json = str.data(using: String.Encoding.utf8) {
+                
+                if let jsonData = try JSONSerialization.jsonObject(with: json, options: .allowFragments) as? [String:AnyObject] {
+                    completionHandler(jsonData["body"])
+                }
+            }
+            
+        } catch {
+            print(error.localizedDescription)
+            completionHandler(message)
+        }
     }
+    
 }
 
 
@@ -157,8 +173,24 @@ public func getSearchStreamData(url: String, credentials: String? = nil, app: St
         
         // Data obtained
         ws.event.message = { message in
-            completionHandler(message)
+            
+            let str = message as? String ?? ""
+            
+            do {
+                
+                if let json = str.data(using: String.Encoding.utf8) {
+                    
+                    if let jsonData = try JSONSerialization.jsonObject(with: json, options: .allowFragments) as? [String:AnyObject] {
+                        completionHandler(jsonData["body"])
+                    }
+                }
+                
+            } catch {
+                print(error.localizedDescription)
+                completionHandler(message)
+            }
         }
+        
     }
     catch let err {
         print("Data Parsing Error: ", err)
