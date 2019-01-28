@@ -7,7 +7,7 @@
     * [Dynamic Framework](https://github.com/appbaseio-apps/SwiftElasticSearch#dynamic-framework-simplest-way)
     * [Carthage](https://github.com/appbaseio-apps/SwiftElasticSearch#carthage)
     * [Swift Package Manager](https://github.com/appbaseio-apps/SwiftElasticSearch#swift-package-manager)
-3. [Quick Example](https://github.com/appbaseio-apps/SwiftElasticSearch#quick-example)
+3. [Quick Start](https://github.com/appbaseio-apps/SwiftElasticSearch#quick-start)
 4. [Docs](https://github.com/appbaseio-apps/SwiftElasticSearch#docs)
 
 ### About Project
@@ -85,7 +85,7 @@ dependencies: [
 ]
 ```
 
-### Quick Example
+### Quick Start
 
 Working code example. Please note that each step is dependent on previous step.
 
