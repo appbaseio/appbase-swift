@@ -47,7 +47,7 @@
             <a href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Functions.html#/s:18SwiftElasticSearch03getC10StreamData3url11credentials3app4type4body7headers17completionHandlerySS_SSSgS2SSDySSypGSDyS2SGSgyypSgctF">getSearchStreamData(url:credentials:app:type:body:headers:completionHandler:)</a>
+                <a href="Functions.html#/s:18SwiftElasticSearch03getC10StreamData3url11credentials3app4type4body7headers17completionHandlerySS_SSSgSSAJSDySSypGSDyS2SGSgyypSgctF">getSearchStreamData(url:credentials:app:type:body:headers:completionHandler:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="Functions.html#/s:18SwiftElasticSearch13getStreamData3url11credentials3app4type2id7headers17completionHandlerySS_SSSgS3SSDyS2SGSgyypSgctF">getStreamData(url:credentials:app:type:id:headers:completionHandler:)</a>
@@ -64,13 +64,27 @@
           <section class="section">
             
             <h1 id='swiftelasticsearch' class='heading'>SwiftElasticSearch</h1>
-<h2 id='about-project' class='heading'>About Project</h2>
+<h3 id='table-of-contents' class='heading'>Table of Contents</h3>
+
+<ol>
+<li><a href="https://github.com/appbaseio-apps/SwiftElasticSearch#about-project">About Project</a></li>
+<li><a href="https://github.com/appbaseio-apps/SwiftElasticSearch#installation">Installation</a>
+
+<ul>
+<li><a href="https://github.com/appbaseio-apps/SwiftElasticSearch#dynamic-framework-simplest-way">Dynamic Framework</a></li>
+<li><a href="https://github.com/appbaseio-apps/SwiftElasticSearch#carthage">Carthage</a></li>
+<li><a href="https://github.com/appbaseio-apps/SwiftElasticSearch#swift-package-manager">Swift Package Manager</a></li>
+</ul></li>
+<li><a href="https://github.com/appbaseio-apps/SwiftElasticSearch#quick-start">Quick Start</a></li>
+<li><a href="https://github.com/appbaseio-apps/SwiftElasticSearch#docs">Docs</a></li>
+</ol>
+<h3 id='about-project' class='heading'>About Project</h3>
 
 <p>This project aims to create fast responsive Swift Library, supported for IPhone and Mac apps which provides the functionality of Elastic Search to be integrated in the app.</p>
 
 <p>The library provides very high performance results i.e. it provides response to user queries in milliseconds of time including the elastic search processing time.</p>
-<h2 id='installation' class='heading'>Installation</h2>
-<h3 id='dynamic-framework-simplest-way' class='heading'>Dynamic Framework (Simplest way)</h3>
+<h3 id='installation' class='heading'>Installation</h3>
+<h4 id='dynamic-framework-simplest-way' class='heading'>Dynamic Framework (Simplest way)</h4>
 
 <ul>
 <li><p>Download the latest release of <a href="https://github.com/appbaseio-apps/SwiftElasticSearch/archive/v0.1.0.zip">SwiftElasticSearch</a> from Github and extract the zip </p></li>
@@ -84,7 +98,7 @@
 <p>Here is the GIF showing all the above steps in action - </p>
 
 <p><img src="https://github.com/harsh-2711/Resources/blob/master/SwiftElasticSearchDemo.gif" alt="Demo GIF"></p>
-<h3 id='carthage' class='heading'>Carthage</h3>
+<h4 id='carthage' class='heading'>Carthage</h4>
 
 <p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds dependencies and provides binary frameworks for direct use.</p>
 
@@ -121,7 +135,7 @@ $ brew install carthage
 <li><p>Drag the <code>SwiftElasticSearch.framework</code> file that is generated inside Build folder of Carthage to your Xcode project</p></li>
 <li><p>Build the project</p></li>
 </ul>
-<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+<h4 id='swift-package-manager' class='heading'>Swift Package Manager</h4>
 
 <p>The <a href="https://swift.org/package-manager/">Swift Package Manager</a> is a tool for automating the distribution of Swift code and is integrated into the swift compiler. It is in early development, but ElasticSwift does support its use on supported platforms.</p>
 
@@ -130,7 +144,7 @@ $ brew install carthage
 .Package(url: "https://github.com/appbaseio-apps/SwiftElasticSearch.git", "0.1.0")
 ]
 </code></pre>
-<h2 id='quick-example' class='heading'>Quick Example</h2>
+<h3 id='quick-start' class='heading'>Quick Start</h3>
 
 <p>Working code example. Please note that each step is dependent on previous step.</p>
 <h4 id='step-1-import-library-and-initiate-the-swiftelasticsearch-client' class='heading'>Step 1: Import library and initiate the SwiftElasticSearch client</h4>
@@ -194,14 +208,30 @@ $ brew install carthage
 <li><p>For more examples, refer to the tests file <a href="https://github.com/appbaseio-apps/SwiftElasticSearch/blob/master/SwiftElasticSearchTests/SwiftElasticSearchTests.swift">SwiftElasticSearchTests.swift</a></p></li>
 <li><p>For a fully working example app, refer to the GitHub repository <a href="https://github.com/harsh-2711/SwiftElasticSearchDemo">SwiftElasticSearchDemo</a></p></li>
 </ul>
-<h2 id='docs' class='heading'>Docs</h2>
+<h3 id='docs' class='heading'>Docs</h3>
 
-<p>WIP docs are at <a href="https://swift-elasticsearch.netlify.com">https://swift-elasticsearch.netlify.com</a>.</p>
+<p>The documentation of SwiftElasticSearch library is made with the help of <a href="https://github.com/realm/jazzy">Jazzy</a> library. For contributing to the documentation of this library, follow the given steps:</p>
+
+<ul>
+<li>Make the required changes in the comments written above the functions in the library</li>
+<li>If not downloaded, install jazzy library by typing the following command in terminal
+<code>
+[sudo] gem install jazzy
+</code></li>
+<li>After installing, navigate to the project folder and type 
+<code>
+jazzy
+</code>
+For more functionalities like skipping specific files or folders, refer to documentation of the  <a href="https://github.com/realm/jazzy">Jazzy</a>  library</li>
+<li>Now add and commit the changes and then make a pull request</li>
+</ul>
+
+<p><strong>Complete documentation of SwiftElasticSearch library is available at <a href="https://swift-elasticsearch.netlify.com">https://swift-elasticsearch.netlify.com</a></strong></p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-27)</p>
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-28)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

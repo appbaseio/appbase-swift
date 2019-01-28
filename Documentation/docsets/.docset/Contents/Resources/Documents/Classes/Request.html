@@ -48,7 +48,7 @@
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:18SwiftElasticSearch03getC10StreamData3url11credentials3app4type4body7headers17completionHandlerySS_SSSgS2SSDySSypGSDyS2SGSgyypSgctF">getSearchStreamData(url:credentials:app:type:body:headers:completionHandler:)</a>
+                <a href="../Functions.html#/s:18SwiftElasticSearch03getC10StreamData3url11credentials3app4type4body7headers17completionHandlerySS_SSSgSSAJSDySSypGSDyS2SGSgyypSgctF">getSearchStreamData(url:credentials:app:type:body:headers:completionHandler:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:18SwiftElasticSearch13getStreamData3url11credentials3app4type2id7headers17completionHandlerySS_SSSgS3SSDyS2SGSgyypSgctF">getStreamData(url:credentials:app:type:id:headers:completionHandler:)</a>
@@ -184,9 +184,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18SwiftElasticSearch7RequestC8postData3url3app4type2id4body7headers17completionHandlerySS_S3SSgSDySSypGSDyS2SGSgyypSg_APs5Error_pSgtctF"></a>
+                    <a name="/s:18SwiftElasticSearch7RequestC8postData3url3app4type2id4body7headers17completionHandlerySS_S3SSgSDySSypGSDyS2SGSgyypSg_ApLtctF"></a>
                     <a name="//apple_ref/swift/Method/postData(url:app:type:id:body:headers:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC8postData3url3app4type2id4body7headers17completionHandlerySS_S3SSgSDySSypGSDyS2SGSgyypSg_APs5Error_pSgtctF">postData(url:app:type:id:body:headers:completionHandler:)</a>
+                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC8postData3url3app4type2id4body7headers17completionHandlerySS_S3SSgSDySSypGSDyS2SGSgyypSg_ApLtctF">postData(url:app:type:id:body:headers:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -201,7 +201,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -277,7 +277,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Additional headers to be passed along with the <code>index()</code> request.</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -286,7 +286,13 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p></p>
+
+<ul>
+<li><code>data</code>: The data returned by the server</li>
+<li><code>response</code>: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.</li>
+<li><code>error</code>: An error object that indicates why the request failed, or nil if the request was successful.</li>
+</ul>
                       </div>
                     </section>
                   </div>
@@ -294,9 +300,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18SwiftElasticSearch7RequestC7putData3url3app4type2id4body7headers17completionHandlerySS_S3SSgSDySSypGSDyS2SGSgyypSg_APs5Error_pSgtctF"></a>
+                    <a name="/s:18SwiftElasticSearch7RequestC7putData3url3app4type2id4body7headers17completionHandlerySS_S3SSgSDySSypGSDyS2SGSgyypSg_ApLtctF"></a>
                     <a name="//apple_ref/swift/Method/putData(url:app:type:id:body:headers:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC7putData3url3app4type2id4body7headers17completionHandlerySS_S3SSgSDySSypGSDyS2SGSgyypSg_APs5Error_pSgtctF">putData(url:app:type:id:body:headers:completionHandler:)</a>
+                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC7putData3url3app4type2id4body7headers17completionHandlerySS_S3SSgSDySSypGSDyS2SGSgyypSg_ApLtctF">putData(url:app:type:id:body:headers:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -311,7 +317,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">putData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">putData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -387,7 +393,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Additional headers to be passed along with the <code>index()</code> request.</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -396,7 +402,13 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p></p>
+
+<ul>
+<li><code>data</code>: The data returned by the server</li>
+<li><code>response</code>: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.</li>
+<li><code>error</code>: An error object that indicates why the request failed, or nil if the request was successful.</li>
+</ul>
                       </div>
                     </section>
                   </div>
@@ -404,9 +416,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18SwiftElasticSearch7RequestC7getData3url3app4type2id7headers17completionHandlerySS_S3SSDyS2SGSgyypSg_AMs5Error_pSgtctF"></a>
+                    <a name="/s:18SwiftElasticSearch7RequestC7getData3url3app4type2id7headers17completionHandlerySS_S3SSDyS2SGSgyypSg_AMSSSgtctF"></a>
                     <a name="//apple_ref/swift/Method/getData(url:app:type:id:headers:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC7getData3url3app4type2id7headers17completionHandlerySS_S3SSDyS2SGSgyypSg_AMs5Error_pSgtctF">getData(url:app:type:id:headers:completionHandler:)</a>
+                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC7getData3url3app4type2id7headers17completionHandlerySS_S3SSDyS2SGSgyypSg_AMSSSgtctF">getData(url:app:type:id:headers:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -421,7 +433,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span>  <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span>  <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -485,7 +497,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Additional headers to be passed along with the <code>index()</code> request.</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -494,7 +506,13 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p></p>
+
+<ul>
+<li><code>data</code>: The data returned by the server</li>
+<li><code>response</code>: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.</li>
+<li><code>error</code>: An error object that indicates why the request failed, or nil if the request was successful.</li>
+</ul>
                       </div>
                     </section>
                   </div>
@@ -502,9 +520,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18SwiftElasticSearch7RequestC10getMapping3url3app4type7headers17completionHandlerySS_S2SSgSDyS2SGSgyypSg_AMs5Error_pSgtctF"></a>
+                    <a name="/s:18SwiftElasticSearch7RequestC10getMapping3url3app4type7headers17completionHandlerySS_S2SSgSDyS2SGSgyypSg_AmJtctF"></a>
                     <a name="//apple_ref/swift/Method/getMapping(url:app:type:headers:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC10getMapping3url3app4type7headers17completionHandlerySS_S2SSgSDyS2SGSgyypSg_AMs5Error_pSgtctF">getMapping(url:app:type:headers:completionHandler:)</a>
+                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC10getMapping3url3app4type7headers17completionHandlerySS_S2SSgSDyS2SGSgyypSg_AmJtctF">getMapping(url:app:type:headers:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -519,7 +537,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMapping</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getMapping</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -571,7 +589,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Additional headers to be passed along with the <code>index()</code> request.</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -580,7 +598,13 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p></p>
+
+<ul>
+<li><code>data</code>: The data returned by the server</li>
+<li><code>response</code>: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.</li>
+<li><code>error</code>: An error object that indicates why the request failed, or nil if the request was successful.</li>
+</ul>
                       </div>
                     </section>
                   </div>
@@ -588,9 +612,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18SwiftElasticSearch7RequestC10deleteData3url3app4type2id7headers17completionHandlerySS_S3SSDyS2SGSgyypSg_AMs5Error_pSgtctF"></a>
+                    <a name="/s:18SwiftElasticSearch7RequestC10deleteData3url3app4type2id7headers17completionHandlerySS_S3SSDyS2SGSgyypSg_AMSSSgtctF"></a>
                     <a name="//apple_ref/swift/Method/deleteData(url:app:type:id:headers:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC10deleteData3url3app4type2id7headers17completionHandlerySS_S3SSDyS2SGSgyypSg_AMs5Error_pSgtctF">deleteData(url:app:type:id:headers:completionHandler:)</a>
+                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC10deleteData3url3app4type2id7headers17completionHandlerySS_S3SSDyS2SGSgyypSg_AMSSSgtctF">deleteData(url:app:type:id:headers:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -605,7 +629,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -669,7 +693,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Additional headers to be passed along with the <code>index()</code> request.</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -678,7 +702,13 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p></p>
+
+<ul>
+<li><code>data</code>: The data returned by the server</li>
+<li><code>response</code>: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.</li>
+<li><code>error</code>: An error object that indicates why the request failed, or nil if the request was successful.</li>
+</ul>
                       </div>
                     </section>
                   </div>
@@ -686,9 +716,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:18SwiftElasticSearch7RequestC8bulkData3url3app4type4body7headers17completionHandlerySS_S2SSaySDySSypGGSDyS2SGSgyypSg_AOs5Error_pSgtctF"></a>
+                    <a name="/s:18SwiftElasticSearch7RequestC8bulkData3url3app4type4body7headers17completionHandlerySS_S2SSaySDySSypGGSDyS2SGSgyypSg_AOSSSgtctF"></a>
                     <a name="//apple_ref/swift/Method/bulkData(url:app:type:body:headers:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC8bulkData3url3app4type4body7headers17completionHandlerySS_S2SSaySDySSypGGSDyS2SGSgyypSg_AOs5Error_pSgtctF">bulkData(url:app:type:body:headers:completionHandler:)</a>
+                    <a class="token" href="#/s:18SwiftElasticSearch7RequestC8bulkData3url3app4type4body7headers17completionHandlerySS_S2SSaySDySSypGGSDyS2SGSgyypSg_AOSSSgtctF">bulkData(url:app:type:body:headers:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -703,7 +733,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">bulkData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="p">[[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]],</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">bulkData</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">body</span><span class="p">:</span> <span class="p">[[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]],</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?,</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -767,7 +797,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Additional headers to be passed along with the <code>index()</code> request.</p>
+                                  <p>Additional headers to be passed along with the request.</p>
                                 </div>
                               </td>
                             </tr>
@@ -776,7 +806,13 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Received data and response in JSON format and the error occured if any in format (Any?, Any?, Error?)</p>
+                        <p></p>
+
+<ul>
+<li><code>data</code>: The data returned by the server</li>
+<li><code>response</code>: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.</li>
+<li><code>error</code>: An error object that indicates why the request failed, or nil if the request was successful.</li>
+</ul>
                       </div>
                     </section>
                   </div>
@@ -786,7 +822,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-27)</p>
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-01-28)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

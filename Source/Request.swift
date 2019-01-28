@@ -38,9 +38,12 @@ public class Request {
 /// - parameter type: Type of the doc to be indexed (defaults to `_doc` when not passed)
 /// - parameter id: ID of the doc to be indexed (optional)
 /// - parameter body: JSON structured data that needs to be indexed
-/// - parameter headers: Additional headers to be passed along with the `index()` request.
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
+/// - returns:
+///     - `data`: The data returned by the server
+///     - `response`: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.
+///     - `error`: An error object that indicates why the request failed, or nil if the request was successful.
 ///
     public func postData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
 
@@ -104,9 +107,12 @@ public class Request {
 /// - parameter type: Type of the doc to be indexed (defaults to `_doc` when not passed)
 /// - parameter id: ID of the doc to be indexed (optional)
 /// - parameter body: JSON structured data that needs to be indexed
-/// - parameter headers: Additional headers to be passed along with the `index()` request.
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
+/// - returns:
+///     - `data`: The data returned by the server
+///     - `response`: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.
+///     - `error`: An error object that indicates why the request failed, or nil if the request was successful.
 ///
     public func putData(url: String, app: String, type: String, id: String? = nil, body: [String : Any], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
@@ -171,9 +177,12 @@ public class Request {
 /// - parameter app: Name of the app (aka search index)
 /// - parameter type: Type of the doc to be fetched (defaults to `_doc` when not passed)
 /// - parameter id: ID of the doc to be fetched (optional)
-/// - parameter headers: Additional headers to be passed along with the `index()` request.
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
+/// - returns:
+///     - `data`: The data returned by the server
+///     - `response`: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.
+///     - `error`: An error object that indicates why the request failed, or nil if the request was successful.
 ///
     public func getData(url: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?,  String?) -> ()) {
 
@@ -223,9 +232,12 @@ public class Request {
 /// - parameter url: URL of the ElasticSearch host server (If application is hosted on appbase.io, url should be https://scalr.api.appbase.io)
 /// - parameter app: Name of the app (aka search index)
 /// - parameter type: Type of the doc whose mapping is required (defaults to `_doc` when not passed)
-/// - parameter headers: Additional headers to be passed along with the `index()` request.
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
+/// - returns:
+///     - `data`: The data returned by the server
+///     - `response`: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.
+///     - `error`: An error object that indicates why the request failed, or nil if the request was successful.
 ///
     public func getMapping(url: String, app: String, type: String? = nil, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
@@ -281,9 +293,12 @@ public class Request {
 /// - parameter app: Name of the app (aka search index)
 /// - parameter type: Type of the doc (defaults to `_doc` when not passed)
 /// - parameter id: ID of the doc to be deleted
-/// - parameter headers: Additional headers to be passed along with the `index()` request.
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
+/// - returns:
+///     - `data`: The data returned by the server
+///     - `response`: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.
+///     - `error`: An error object that indicates why the request failed, or nil if the request was successful.
 ///
     public func deleteData(url: String, app: String, type: String, id: String, headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
@@ -335,9 +350,12 @@ public class Request {
 /// - parameter app: Name of the app (aka search index)
 /// - parameter type: Type of the doc to be indexed (defaults to `_doc` when not passed)
 /// - parameter body: JSON structured data that needs to be indexed
-/// - parameter headers: Additional headers to be passed along with the `index()` request.
+/// - parameter headers: Additional headers to be passed along with the request.
 ///
-/// - returns: Received data and response in JSON format and the error occured if any in format (Any?, Any?, String?)
+/// - returns:
+///     - `data`: The data returned by the server
+///     - `response`: An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.
+///     - `error`: An error object that indicates why the request failed, or nil if the request was successful.
 ///
     public func bulkData(url: String, app: String, type: String, body: [[String : Any]], headers: [String: String]? = nil, completionHandler: @escaping (Any?, Any?, String?) -> ()) {
         
