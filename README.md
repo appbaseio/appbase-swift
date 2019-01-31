@@ -2,13 +2,13 @@
 
 ### Table of Contents
 
-1. [About Project](https://github.com/appbaseio-apps/SwiftElasticSearch#about-project)
-2. [Installation](https://github.com/appbaseio-apps/SwiftElasticSearch#installation)
-    * [Dynamic Framework](https://github.com/appbaseio-apps/SwiftElasticSearch#dynamic-framework-simplest-way)
-    * [Carthage](https://github.com/appbaseio-apps/SwiftElasticSearch#carthage)
-    * [Swift Package Manager](https://github.com/appbaseio-apps/SwiftElasticSearch#swift-package-manager)
-3. [Quick Start](https://github.com/appbaseio-apps/SwiftElasticSearch#quick-start)
-4. [Docs](https://github.com/appbaseio-apps/SwiftElasticSearch#docs)
+1. [About Project](#about-project)
+2. [Installation](#installation)
+    * [Dynamic Framework](#dynamic-framework-simplest-way)
+    * [Carthage](#carthage)
+    * [Swift Package Manager](#swift-package-manager)
+3. [Quick Start](#quick-start)
+4. [Docs](#docs)
 
 ### About Project
 
