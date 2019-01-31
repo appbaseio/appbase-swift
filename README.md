@@ -166,16 +166,16 @@ client.get(type: "SwiftClientES", id: "movie1") { (json, response, error) in
 
 The documentation of SwiftElasticSearch library is made with the help of [Jazzy](https://github.com/realm/jazzy) library. For contributing to the documentation of this library, follow the given steps:
 
-* Make the required changes in the comments written above the functions in the library
-* If not downloaded, install jazzy library by typing the following command in terminal
+* Make the necessary changes in the inline code comments
+* If you haven't, install jazzy library by typing the following command in the terminal:
 ```
 [sudo] gem install jazzy
 ```
-* After installing, navigate to the project folder and type 
+* After installing, navigate to the project directory and type the following to generate the docs.
 ```
 jazzy
 ```
-For more functionalities like skipping specific files or folders, refer to documentation of the  [Jazzy](https://github.com/realm/jazzy)  library
-* Now add and commit the changes and then make a pull request
+For more functionalities like skipping specific files or folders, refer to documentation of the [Jazzy](https://github.com/realm/jazzy)  library:
+* Now add and commit the changes and then submit a pull request :-)
 
-**Complete documentation of SwiftElasticSearch library is available at https://swift-elasticsearch.netlify.com**
+**Hosted docs of SwiftElasticSearch library are available at https://swift-elasticsearch.netlify.com**
