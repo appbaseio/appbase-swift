@@ -1,4 +1,4 @@
-# SwiftElasticSearch
+# SwiftSearch
 
 ### Table of Contents
 
@@ -20,7 +20,7 @@ The library provides very high performance results i.e. it provides response to 
 
 #### Dynamic Framework (Simplest way)
 
-* Download the latest release of [SwiftElasticSearch](https://github.com/appbaseio-apps/SwiftElasticSearch/archive/v0.1.0.zip) from Github and extract the zip 
+* Download the latest release of [SwiftSearch](https://github.com/harsh-2711/SwiftSearch/archive/v0.1.0.zip) from Github and extract the zip 
 
 * Navigate to your Xcode's project `General` settings (Click on the the blue icon showing your project's workspace -> General)
 
@@ -81,7 +81,7 @@ To add SwiftElasticSearch library as dependency, add the following line in the d
 
 ```
 dependencies: [
-.Package(url: "https://github.com/appbaseio-apps/SwiftElasticSearch.git", "0.1.0")
+.Package(url: "https://github.com/harsh-2711/SwiftSearch.git", "0.1.0")
 ]
 ```
 
@@ -92,7 +92,7 @@ Working code example. Please note that each step is dependent on previous step.
 #### Step 1: Import library and initiate the SwiftElasticSearch client
 
 ```swift
-import SwiftElasticSearch
+import SwiftSearch
 
 // app and authentication configurations
 let HOST_URL = "https://scalr.api.appbase.io"
@@ -178,4 +178,4 @@ jazzy
 For more functionalities like skipping specific files or folders, refer to documentation of the [Jazzy](https://github.com/realm/jazzy)  library:
 * Now add and commit the changes and then submit a pull request :-)
 
-**Hosted docs of SwiftElasticSearch library are available at https://swift-elasticsearch.netlify.com**
+**Hosted docs of SwiftSearch library are available at https://swift-elasticsearch.netlify.com**
