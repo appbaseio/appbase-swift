@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import SwiftSearch
+@testable import SwiftElasticSearch
 
 class SwiftElasticSearchTests: XCTestCase {
     

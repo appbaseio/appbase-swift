@@ -10,9 +10,9 @@
 		D982D5BA2207819100F772F3 /* SwiftSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = D982D5B82207819100F772F3 /* SwiftSearch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D982D5CC2207825300F772F3 /* SwiftSearch.h in Headers */ = {isa = PBXBuildFile; fileRef = D982D5B82207819100F772F3 /* SwiftSearch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D982D5D8220784FF00F772F3 /* SwiftSearch_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982D5D7220784FF00F772F3 /* SwiftSearch_iOSTests.swift */; };
-		D982D5DA220784FF00F772F3 /* SwiftSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D982D5B52207819100F772F3 /* SwiftSearch.framework */; };
+		D982D5DA220784FF00F772F3 /* SwiftElasticSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D982D5B52207819100F772F3 /* SwiftElasticSearch.framework */; };
 		D982D5E72207851600F772F3 /* SwiftSearch_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982D5E62207851600F772F3 /* SwiftSearch_macOSTests.swift */; };
-		D982D5E92207851600F772F3 /* SwiftSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D982D5C3220781A800F772F3 /* SwiftSearch.framework */; };
+		D982D5E92207851600F772F3 /* SwiftElasticSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D982D5C3220781A800F772F3 /* SwiftElasticSearch.framework */; };
 		D9878C7222084F540086EACA /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9878C7122084F540086EACA /* SwiftWebSocket.framework */; };
 		D9878C7422084F680086EACA /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9878C7322084F680086EACA /* SwiftWebSocket.framework */; };
 		D9878C7C220850270086EACA /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9878C7B220850270086EACA /* Client.swift */; };
@@ -89,14 +89,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D982D5B52207819100F772F3 /* SwiftSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D982D5B52207819100F772F3 /* SwiftElasticSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftElasticSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D982D5B82207819100F772F3 /* SwiftSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftSearch.h; sourceTree = "<group>"; };
 		D982D5B92207819100F772F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D982D5C3220781A800F772F3 /* SwiftSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D982D5D5220784FF00F772F3 /* SwiftSearch iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftSearch iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D982D5C3220781A800F772F3 /* SwiftElasticSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftElasticSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D982D5D5220784FF00F772F3 /* SwiftElasticSearch iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftElasticSearch iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D982D5D7220784FF00F772F3 /* SwiftSearch_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSearch_iOSTests.swift; sourceTree = "<group>"; };
 		D982D5D9220784FF00F772F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D982D5E42207851600F772F3 /* SwiftSearch macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftSearch macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D982D5E42207851600F772F3 /* SwiftElasticSearch macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftElasticSearch macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D982D5E62207851600F772F3 /* SwiftSearch_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSearch_macOSTests.swift; sourceTree = "<group>"; };
 		D982D5E82207851600F772F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9878C7122084F540086EACA /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = Carthage/Build/iOS/SwiftWebSocket.framework; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D982D5DA220784FF00F772F3 /* SwiftSearch.framework in Frameworks */,
+				D982D5DA220784FF00F772F3 /* SwiftElasticSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D982D5E92207851600F772F3 /* SwiftSearch.framework in Frameworks */,
+				D982D5E92207851600F772F3 /* SwiftElasticSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,8 +153,8 @@
 				D9878CA7220856000086EACA /* Package.swift */,
 				D9878C922208534F0086EACA /* SwiftWebSocket.xcodeproj */,
 				D982D5CB220781BA00F772F3 /* Sources */,
-				D982D5D6220784FF00F772F3 /* SwiftSearch iOSTests */,
-				D982D5E52207851600F772F3 /* SwiftSearch macOSTests */,
+				D982D5D6220784FF00F772F3 /* SwiftElasticSearch iOSTests */,
+				D982D5E52207851600F772F3 /* SwiftElasticSearch macOSTests */,
 				D982D5B62207819100F772F3 /* Products */,
 				D9878C6A220833B80086EACA /* Frameworks */,
 			);
@@ -163,10 +163,10 @@
 		D982D5B62207819100F772F3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D982D5B52207819100F772F3 /* SwiftSearch.framework */,
-				D982D5C3220781A800F772F3 /* SwiftSearch.framework */,
-				D982D5D5220784FF00F772F3 /* SwiftSearch iOSTests.xctest */,
-				D982D5E42207851600F772F3 /* SwiftSearch macOSTests.xctest */,
+				D982D5B52207819100F772F3 /* SwiftElasticSearch.framework */,
+				D982D5C3220781A800F772F3 /* SwiftElasticSearch.framework */,
+				D982D5D5220784FF00F772F3 /* SwiftElasticSearch iOSTests.xctest */,
+				D982D5E42207851600F772F3 /* SwiftElasticSearch macOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,22 +194,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D982D5D6220784FF00F772F3 /* SwiftSearch iOSTests */ = {
+		D982D5D6220784FF00F772F3 /* SwiftElasticSearch iOSTests */ = {
 			isa = PBXGroup;
 			children = (
 				D982D5D7220784FF00F772F3 /* SwiftSearch_iOSTests.swift */,
 				D982D5D9220784FF00F772F3 /* Info.plist */,
 			);
-			path = "SwiftSearch iOSTests";
+			path = "SwiftElasticSearch iOSTests";
 			sourceTree = "<group>";
 		};
-		D982D5E52207851600F772F3 /* SwiftSearch macOSTests */ = {
+		D982D5E52207851600F772F3 /* SwiftElasticSearch macOSTests */ = {
 			isa = PBXGroup;
 			children = (
 				D982D5E62207851600F772F3 /* SwiftSearch_macOSTests.swift */,
 				D982D5E82207851600F772F3 /* Info.plist */,
 			);
-			path = "SwiftSearch macOSTests";
+			path = "SwiftElasticSearch macOSTests";
 			sourceTree = "<group>";
 		};
 		D9878C6A220833B80086EACA /* Frameworks */ = {
@@ -264,9 +264,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D982D5B42207819100F772F3 /* SwiftSearch iOS */ = {
+		D982D5B42207819100F772F3 /* SwiftElasticSearch iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D982D5BB2207819100F772F3 /* Build configuration list for PBXNativeTarget "SwiftSearch iOS" */;
+			buildConfigurationList = D982D5BB2207819100F772F3 /* Build configuration list for PBXNativeTarget "SwiftElasticSearch iOS" */;
 			buildPhases = (
 				D982D5B02207819100F772F3 /* Headers */,
 				D982D5B12207819100F772F3 /* Sources */,
@@ -277,14 +277,14 @@
 			);
 			dependencies = (
 			);
-			name = "SwiftSearch iOS";
+			name = "SwiftElasticSearch iOS";
 			productName = "SwiftSearch iOS";
-			productReference = D982D5B52207819100F772F3 /* SwiftSearch.framework */;
+			productReference = D982D5B52207819100F772F3 /* SwiftElasticSearch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D982D5C2220781A800F772F3 /* SwiftSearch macOS */ = {
+		D982D5C2220781A800F772F3 /* SwiftElasticSearch macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D982D5C8220781A800F772F3 /* Build configuration list for PBXNativeTarget "SwiftSearch macOS" */;
+			buildConfigurationList = D982D5C8220781A800F772F3 /* Build configuration list for PBXNativeTarget "SwiftElasticSearch macOS" */;
 			buildPhases = (
 				D982D5BE220781A800F772F3 /* Headers */,
 				D982D5BF220781A800F772F3 /* Sources */,
@@ -295,14 +295,14 @@
 			);
 			dependencies = (
 			);
-			name = "SwiftSearch macOS";
+			name = "SwiftElasticSearch macOS";
 			productName = "SwiftSearch macOS";
-			productReference = D982D5C3220781A800F772F3 /* SwiftSearch.framework */;
+			productReference = D982D5C3220781A800F772F3 /* SwiftElasticSearch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D982D5D4220784FF00F772F3 /* SwiftSearch iOSTests */ = {
+		D982D5D4220784FF00F772F3 /* SwiftElasticSearch iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D982D5DF220784FF00F772F3 /* Build configuration list for PBXNativeTarget "SwiftSearch iOSTests" */;
+			buildConfigurationList = D982D5DF220784FF00F772F3 /* Build configuration list for PBXNativeTarget "SwiftElasticSearch iOSTests" */;
 			buildPhases = (
 				D982D5D1220784FF00F772F3 /* Sources */,
 				D982D5D2220784FF00F772F3 /* Frameworks */,
@@ -313,14 +313,14 @@
 			dependencies = (
 				D982D5DC220784FF00F772F3 /* PBXTargetDependency */,
 			);
-			name = "SwiftSearch iOSTests";
+			name = "SwiftElasticSearch iOSTests";
 			productName = "SwiftSearch iOSTests";
-			productReference = D982D5D5220784FF00F772F3 /* SwiftSearch iOSTests.xctest */;
+			productReference = D982D5D5220784FF00F772F3 /* SwiftElasticSearch iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D982D5E32207851600F772F3 /* SwiftSearch macOSTests */ = {
+		D982D5E32207851600F772F3 /* SwiftElasticSearch macOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D982D5EC2207851600F772F3 /* Build configuration list for PBXNativeTarget "SwiftSearch macOSTests" */;
+			buildConfigurationList = D982D5EC2207851600F772F3 /* Build configuration list for PBXNativeTarget "SwiftElasticSearch macOSTests" */;
 			buildPhases = (
 				D982D5E02207851600F772F3 /* Sources */,
 				D982D5E12207851600F772F3 /* Frameworks */,
@@ -331,9 +331,9 @@
 			dependencies = (
 				D982D5EB2207851600F772F3 /* PBXTargetDependency */,
 			);
-			name = "SwiftSearch macOSTests";
+			name = "SwiftElasticSearch macOSTests";
 			productName = "SwiftSearch macOSTests";
-			productReference = D982D5E42207851600F772F3 /* SwiftSearch macOSTests.xctest */;
+			productReference = D982D5E42207851600F772F3 /* SwiftElasticSearch macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -361,7 +361,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D982D5AD2207814500F772F3 /* Build configuration list for PBXProject "SwiftSearch" */;
+			buildConfigurationList = D982D5AD2207814500F772F3 /* Build configuration list for PBXProject "SwiftElasticSearch" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -379,10 +379,10 @@
 			);
 			projectRoot = "";
 			targets = (
-				D982D5B42207819100F772F3 /* SwiftSearch iOS */,
-				D982D5C2220781A800F772F3 /* SwiftSearch macOS */,
-				D982D5D4220784FF00F772F3 /* SwiftSearch iOSTests */,
-				D982D5E32207851600F772F3 /* SwiftSearch macOSTests */,
+				D982D5B42207819100F772F3 /* SwiftElasticSearch iOS */,
+				D982D5C2220781A800F772F3 /* SwiftElasticSearch macOS */,
+				D982D5D4220784FF00F772F3 /* SwiftElasticSearch iOSTests */,
+				D982D5E32207851600F772F3 /* SwiftElasticSearch macOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -511,12 +511,12 @@
 /* Begin PBXTargetDependency section */
 		D982D5DC220784FF00F772F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D982D5B42207819100F772F3 /* SwiftSearch iOS */;
+			target = D982D5B42207819100F772F3 /* SwiftElasticSearch iOS */;
 			targetProxy = D982D5DB220784FF00F772F3 /* PBXContainerItemProxy */;
 		};
 		D982D5EB2207851600F772F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D982D5C2220781A800F772F3 /* SwiftSearch macOS */;
+			target = D982D5C2220781A800F772F3 /* SwiftElasticSearch macOS */;
 			targetProxy = D982D5EA2207851600F772F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -609,7 +609,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "harsh.SwiftSearch-iOS";
-				PRODUCT_NAME = SwiftSearch;
+				PRODUCT_NAME = SwiftElasticSearch;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -689,7 +689,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "harsh.SwiftSearch-iOS";
-				PRODUCT_NAME = SwiftSearch;
+				PRODUCT_NAME = SwiftElasticSearch;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -779,7 +779,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "harsh.SwiftSearch-macOS";
-				PRODUCT_NAME = SwiftSearch;
+				PRODUCT_NAME = SwiftElasticSearch;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -860,7 +860,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "harsh.SwiftSearch-macOS";
-				PRODUCT_NAME = SwiftSearch;
+				PRODUCT_NAME = SwiftElasticSearch;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -925,7 +925,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "SwiftSearch iOSTests/Info.plist";
+				INFOPLIST_FILE = "SwiftElasticSearch iOSTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -993,7 +993,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "SwiftSearch iOSTests/Info.plist";
+				INFOPLIST_FILE = "SwiftElasticSearch iOSTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1068,7 +1068,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "SwiftSearch macOSTests/Info.plist";
+				INFOPLIST_FILE = "SwiftElasticSearch macOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1136,7 +1136,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "SwiftSearch macOSTests/Info.plist";
+				INFOPLIST_FILE = "SwiftElasticSearch macOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1157,7 +1157,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D982D5AD2207814500F772F3 /* Build configuration list for PBXProject "SwiftSearch" */ = {
+		D982D5AD2207814500F772F3 /* Build configuration list for PBXProject "SwiftElasticSearch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D982D5AE2207814500F772F3 /* Debug */,
@@ -1166,7 +1166,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D982D5BB2207819100F772F3 /* Build configuration list for PBXNativeTarget "SwiftSearch iOS" */ = {
+		D982D5BB2207819100F772F3 /* Build configuration list for PBXNativeTarget "SwiftElasticSearch iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D982D5BC2207819100F772F3 /* Debug */,
@@ -1175,7 +1175,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D982D5C8220781A800F772F3 /* Build configuration list for PBXNativeTarget "SwiftSearch macOS" */ = {
+		D982D5C8220781A800F772F3 /* Build configuration list for PBXNativeTarget "SwiftElasticSearch macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D982D5C9220781A800F772F3 /* Debug */,
@@ -1184,7 +1184,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D982D5DF220784FF00F772F3 /* Build configuration list for PBXNativeTarget "SwiftSearch iOSTests" */ = {
+		D982D5DF220784FF00F772F3 /* Build configuration list for PBXNativeTarget "SwiftElasticSearch iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D982D5DD220784FF00F772F3 /* Debug */,
@@ -1193,7 +1193,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D982D5EC2207851600F772F3 /* Build configuration list for PBXNativeTarget "SwiftSearch macOSTests" */ = {
+		D982D5EC2207851600F772F3 /* Build configuration list for PBXNativeTarget "SwiftElasticSearch macOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D982D5ED2207851600F772F3 /* Debug */,
