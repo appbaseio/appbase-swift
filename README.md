@@ -1,4 +1,8 @@
-# SwiftElasticSearch
+# Appbase-Swift
+
+A Swift Client Library for appbase.io and ElasticSearch.
+
+![](https://i.imgur.com/TksmIyM.png)
 
 ### Table of Contents
 
