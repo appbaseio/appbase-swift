@@ -1,6 +1,6 @@
 # Appbase-Swift
 
-A Swift Client Library for appbase.io and ElasticSearch.
+A Swift Client Library for building search apps. Supports appbase.io and ElasticSearch.
 
 ![](https://i.imgur.com/TksmIyM.png)
 
